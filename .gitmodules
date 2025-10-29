@@ -1,0 +1,3 @@
+[submodule "md_gen"]
+	path = md_gen
+	url = git@github.com:ichiroprogrammer/md_gen

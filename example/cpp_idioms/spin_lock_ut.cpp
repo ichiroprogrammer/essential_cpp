@@ -3,17 +3,17 @@
 
 #include "gtest_wrapper.h"
 
-#include "suppress_warning.h"
 #include "spin_lock.h"
+#include "suppress_warning.h"
 
 namespace {
 
 // @@@ sample begin 0:0
 
 struct Conflict {
-    void     increment()
-    { 
-        std::lock_guard<SpinLock> lock{spin_lock_}; // スピンロックのロックガードオブジェクト生成
+    void increment()
+    {
+        std::lock_guard<SpinLock> lock{spin_lock_};  // スピンロックのロックガードオブジェクト生成
         ++count_;
     }
 
@@ -30,7 +30,7 @@ TEST(Idiom, spin_lock)
 
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
-    auto thread_body = [&c] {  
+    auto               thread_body    = [&c] {
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
@@ -47,5 +47,4 @@ TEST(Idiom, spin_lock)
     ASSERT_EQ(c.count_, expected);
     // @@@ sample end
 }
-}
-
+}  // namespace

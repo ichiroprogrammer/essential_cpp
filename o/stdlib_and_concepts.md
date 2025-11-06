@@ -70,7 +70,7 @@ __この章の構成__
   
   
 
-[このドキュメントの構成](essential_intro.md#SS_1_2)に戻る。  
+[インデックス](essential_intro.md#SS_1_2)に戻る。  
 
 ___
 

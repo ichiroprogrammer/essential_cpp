@@ -82,7 +82,7 @@ clean:
 	rm -f $(MDS_DEPS)
 	rm -f $(MD_SC) $(MD_IND) $(MDS_DB)
 	rm -f $(MDS_FINAL) $(MDS_C)
-	rm -f $(HTMLS)
+	rm -f $(HTMLS) $(MDS_PU) $(TARGET_PU)
 	rm -f $(TARGET) $(TARGET_HTML) $(TARGET_PDF)
 
 help:
@@ -90,13 +90,7 @@ help:
 	@echo "make md MD_SEC_NUM=      :generate $(TARGET) without section number"
 	@echo "make html                :generate $(TARGET_HTML)"
 	@echo "make pdf                 :generate $(TARGET_PDF)"
-	@echo "make md_pu              :generate $(TARGET_PU)"
+	@echo "make md_pu               :generate $(TARGET_PU)"
 	@echo "make clean               :generated files are deleted"
 	@echo "make help                :show this message"
-
-echo:
-	-echo MDS_FINAL=$(MDS_FINAL)
-	-echo MDS_PU=$(MDS_PU)
-	-echo MDS_C=$(MDS_C)
-	-echo MDS_DEPS=$(MDS_DEPS)
 

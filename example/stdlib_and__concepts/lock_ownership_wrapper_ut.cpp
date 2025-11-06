@@ -41,13 +41,13 @@ TEST(ExpTerm, thread)
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
 
-    auto worker = [&c] {
+    auto worker = [&c] {  // スレッドのボディとなるラムダの定義
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
     };
 
-    std::thread t1(worker);
+    std::thread t1{worker};  // ラムダworker関数を使用したスレッドの起動
     std::thread t2(worker);
 
     t1.join();  // スレッドの終了待ち
@@ -88,13 +88,13 @@ TEST(ExpTerm, thread)
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
 
-    auto worker = [&c] {
+    auto worker = [&c] {  // スレッドのボディとなるラムダの定義
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
     };
 
-    std::thread t1(worker);
+    std::thread t1{worker};  // ラムダworker関数を使用したスレッドの起動
     std::thread t2(worker);
 
     t1.join();  // スレッドの終了待ち

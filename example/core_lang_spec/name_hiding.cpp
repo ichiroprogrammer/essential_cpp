@@ -4,12 +4,12 @@ namespace NameHidingDerived {
 // @@@ sample begin 0:0
 
 struct Base {
-    void f() noexcept {}
+    void f() {}
 };
 
 struct Derived : Base {
     // void f(int) { f(); }     // f()では、Baseのf()をname lookupできないため、
-    void f(int) noexcept { Base::f(); }  // Base::でf()を修飾した
+    void f(int) { Base::f(); }  // Base::でf()を修飾した
 };
 // @@@ sample end
 
@@ -34,8 +34,8 @@ using NameHidingDerived::Base;
 // @@@ sample begin 1:0
 
 struct Derived : Base {
-    using Base::f;  // using宣言によりDerivedにBase::fを導入
-    void f(int) noexcept { Base::f(); }
+    using Base::f;        // using宣言によりDerivedにBase::fを導入
+    void f(int) { f(); }  // using Base::fの効果でfの名前修飾が不要になった
 };
 // @@@ sample end
 
@@ -54,12 +54,12 @@ TEST(NameHiding, derived_fixed)
 // @@@ sample begin 2:0
 
 // global名前空間
-void f() noexcept {}
+void f() {}
 
 namespace NS_A {
-void f(int) noexcept {}
+void f(int) {}
 
-void g() noexcept
+void g()
 {
 #if 0
     f();  // NS_A::fによりname-hidingされたため、コンパイルできない
@@ -70,21 +70,21 @@ void g() noexcept
 // @@@ sample begin 2:1
 
 namespace NS_A_fixed_0 {
-void g() noexcept
+void g()
 {
     // グローバルなfの呼び出し
     f();  // NS_A::fは後方に移動されたためコンパイルできる
 }
 
-void f(int) noexcept {}
+void f(int) {}
 }  // namespace NS_A_fixed_0
 // @@@ sample end
 // @@@ sample begin 2:2
 
 namespace NS_A_fixed_1 {
-void f(int) noexcept {}
+void f(int) {}
 
-void g() noexcept
+void g()
 {
     using ::f;
 
@@ -96,9 +96,9 @@ void g() noexcept
 // @@@ sample begin 2:3
 
 namespace NS_A_fixed_2 {
-void f(int) noexcept {}
+void f(int) {}
 
-void g() noexcept
+void g()
 {
     // グローバルなfの呼び出し
     ::f();  // ::で修飾すればコンパイルできる
@@ -110,18 +110,18 @@ void g() noexcept
 namespace NS_B {
 struct S_in_B {};
 
-void f(S_in_B) noexcept {}
-void f(int) noexcept {}
+void f(S_in_B) {}
+void f(int) {}
 
 namespace NS_B_Inner {
-void g() noexcept
+void g()
 {
     f(int{});  // コンパイルでき、NS_B::f(int)が呼ばれる
 }
 
-void f() noexcept {}
+void f() {}
 
-void h() noexcept
+void h()
 {
     // f(int{});     // コンパイルできない
     NS_B::f(int{});  // 名前空間で修飾することでコンパイルできる

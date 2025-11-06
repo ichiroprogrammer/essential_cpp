@@ -12,13 +12,6 @@ struct Conflict {
     void     increment() { ++count_; }  // 非アトミック（データレースの原因）
     uint32_t count_ = 0;
 };
-
-void worker(Conflict& c, int n)
-{
-    for (int i = 0; i < n; ++i) {
-        c.increment();
-    }
-}
 // @@@ sample end
 
 TEST(ExpTerm, thread)
@@ -30,14 +23,14 @@ TEST(ExpTerm, thread)
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
 
-    std::thread t1(worker, std::ref(c), inc_per_thread);  // worker関数を使用したスレッドの起動
-                                                          // workerにcのリファレンス渡すため、std::refを使用
-
-    std::thread t2([&c] {  // ラムダを使用したによるスレッドの起動
+    auto worker = [&c] {  // スレッドのボディとなるラムダの定義
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
-    });
+    };
+
+    std::thread t1{worker};  // ラムダworker関数を使用したスレッドの起動
+    std::thread t2{worker};
 
     t1.join();  // スレッドの終了待ち
     t2.join();  // スレッドの終了待ち
@@ -56,45 +49,35 @@ namespace no_conflict {
 
 struct Conflict {
     void increment()
-    // @@@ sample end
-    // @@@ sample begin 1:1
     {
-        std::lock_guard<std::mutex> lock{mtx_};  // lockオブジェクトのコンストラクタでmtx_.lock()が呼ばれる
-                                                 // ++count_の排他
+        mtx_.lock();  // クリティカルセクションの保護開始
+
         ++count_;
 
-    }  // lockオブジェクトのデストラクタでmtx_.unlock()が呼ばれる
-    // @@@ sample end
-    // @@@ sample begin 1:2
+        mtx_.unlock();  // クリティカルセクションの保護終了
+    }
     uint32_t   count_ = 0;
     std::mutex mtx_{};
 };
-
-void worker(Conflict& c, int n)
-{
-    for (int i = 0; i < n; ++i) {
-        c.increment();
-    }
-}
 // @@@ sample end
 
 TEST(ExpTerm, thread)
 {
-    // @@@ sample begin 1:3
+    // @@@ sample begin 1:1
 
     Conflict c;
 
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
 
-    std::thread t1(worker, std::ref(c), inc_per_thread);  // worker関数を使用したスレッドの起動
-                                                          // workerにcのリファレンス渡すため、std::refを使用
-
-    std::thread t2([&c] {  // ラムダを使用したによるスレッドの起動
+    auto worker = [&c] {  // スレッドのボディとなるラムダの定義
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
-    });
+    };
+
+    std::thread t1{worker};  // ラムダworker関数を使用したスレッドの起動
+    std::thread t2{worker};
 
     t1.join();  // スレッドの終了待ち
     t2.join();  // スレッドの終了待ち
@@ -117,13 +100,6 @@ struct Conflict {
     }  // lockオブジェクトのデストラクタでmtx_.unlock()が呼ばれる
     std::atomic<uint32_t> count_ = 0;
 };
-
-void worker(Conflict& c, int n)
-{
-    for (int i = 0; i < n; ++i) {
-        c.increment();
-    }
-}
 // @@@ sample end
 
 TEST(ExpTerm, thread)
@@ -135,14 +111,14 @@ TEST(ExpTerm, thread)
     constexpr uint32_t inc_per_thread = 5'000'000;
     constexpr uint32_t expected       = 2 * inc_per_thread;
 
-    std::thread t1(worker, std::ref(c), inc_per_thread);  // worker関数を使用したスレッドの起動
-                                                          // workerにcのリファレンス渡すため、std::refを使用
-
-    std::thread t2([&c] {  // ラムダを使用したスレッドの起動
+    auto worker = [&c] {  // スレッドのボディとなるラムダの定義
         for (uint32_t i = 0; i < inc_per_thread; ++i) {
             c.increment();
         }
-    });
+    };
+
+    std::thread t1{worker};  // ラムダworker関数を使用したスレッドの起動
+    std::thread t2{worker};
 
     t1.join();  // スレッドの終了待ち
     t2.join();  // スレッドの終了待ち

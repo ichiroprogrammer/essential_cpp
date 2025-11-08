@@ -27,11 +27,11 @@ TEST(Template, rule_of_zero)
 
     auto z = RuleZero(std::list<std::string>{"1", "2", "3"}, "str");
 
-    auto coied = z;             // コピーは自動生成に任せる(ゼロの原則)
-    auto moved = std::move(z);  // ムーブも自動生成に任せる(ゼロの原則)
+    auto copied = z;             // コピーは自動生成に任せる(ゼロの原則)
+    auto moved  = std::move(z);  // ムーブも自動生成に任せる(ゼロの原則)
 
-    ASSERT_EQ(coied.GetStr(), moved.GetStr());
-    ASSERT_EQ(coied.GetStrs(), moved.GetStrs());
+    ASSERT_EQ(copied.GetStr(), moved.GetStr());
+    ASSERT_EQ(copied.GetStrs(), moved.GetStrs());
     // @@@ sample end
 }
 }  // namespace

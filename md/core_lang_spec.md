@@ -1981,16 +1981,16 @@ C++17以降は、この規制が緩和されたため、以下のように展開
 構造体のメンバーを個別の変数に分解して簡潔に扱うことをできるようにするための機能である。
 
 ```cpp
-    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:0 begin
+    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:0 begin -1
 ```
 ```cpp
-    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:1 begin
+    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:1 begin -1
 ```
 ```cpp
-    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:2 begin
+    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:2 begin -1
 ```
 ```cpp
-    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:3 begin
+    // @@@ example/core_lang_spec/structured_binding_ut.cpp #0:3 begin -1
 ```
 
 ### 初期化付きif/switch文

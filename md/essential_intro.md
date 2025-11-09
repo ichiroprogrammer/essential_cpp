@@ -4,7 +4,8 @@
 の中から、C++の言語機能や慣用語句の解説を抜き出したものである。
 
 ## 改訂履歴
-* V00.00
+* V20.11
+    *  git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
 
 ## インデックス
 ___

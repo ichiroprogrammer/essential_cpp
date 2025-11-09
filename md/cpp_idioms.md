@@ -674,6 +674,57 @@ CopyAssignable要件は、C++において型がcopy代入をサポートする�
    コンパイラがデフォルトの実装(「[オブジェクト生成と初期化|特殊メンバ関数](---)」参照)を生成する。
 
 ## 関数設計のガイドライン
+### 関数の仮引数の型
+仮引数の型に関するガイドラインを以下の表で表す。
+
+<table>
+  <tr bgcolor="#cccccc">
+    <th style="text-align: center;"> </th>
+    <th style="text-align: center;">copy/moveが低コスト</th>
+    <th style="text-align: center;">copyが高コスト/moveが低コスト</th>
+    <th style="text-align: center;">moveが高コスト</th>
+    <th style="text-align: center;">fがヌルを扱う</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">in</td>
+    <td style="text-align: center;"><code>f(X)</code></td>
+    <td colspan="2" style="text-align: center;"><code>f(X const&)</code></td>
+    <td style="text-align: center;"><code>f(X const\*)</code></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">in/out</td>
+    <td colspan="3" style="text-align: center;"><code>f(X&)</code></td>
+    <td style="text-align: center;"><code>f(X\*)</code></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">out</td>
+    <td colspan="2" style="text-align: center;"><code>X f()</code></td>
+    <td style="text-align: center;"><code>f(X&)</code></td>
+    <td style="text-align: center;"><code>f(X\*)</code></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">move</td>
+    <td colspan="3" style="text-align: center;"><code>f(X&&)</code></td>
+    <td style="text-align: center;">-</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">forward</td>
+    <td colspan="3" style="text-align: center;"><code>template&lt;typename T&gt; f(T&&)</code></td>
+    <td style="text-align: center;">-</td>
+  </tr>
+</table>
+
+[注] Xは任意の型  
+
+[注] `templat<typename T> f(T&&)`の`T&&`は[forwardingリファレンス](---)である。  
+
+[注] 以下のような引数型は避けるべきである。  
+
+* `X const*`
+* `X*`
+* `X&`
+
+
 ### サイクロマティック複雑度のクライテリア
 関数構造の適・不適については、[サイクロマティック複雑度](---)によって下記テーブルのように定義する。
 
@@ -1073,6 +1124,16 @@ malloc、calloc、reallocといった関数を使用して必要なサイズの�
 アクセス速度はスタックより遅い。また、断片化（フラグメンテーション）が発生しやすく、
 連続的な割り当てと解放により利用可能なメモリが分散する課題がある。適切なヒープ管理は、
 C/C++プログラミングにおける重要なスキルの一つである。
+
+### スレッドセーフ
+スレッドセーフとは「複数のスレッドから同時にアクセスされても、
+排他制御などの機構([std::mutex](---))により共有データの整合性が保たれ、正しく動作する性質」である。
+
+### リエントラント
+リエントラントとは「実行中に同じ関数が再度呼び出されても、グローバル変数や静的変数に依存せず、
+ローカル変数のみで動作するため正しく動作する性質」である。
+
+一般に、リエントラントな関数は[スレッドセーフ](---)であるが、逆は成り立たない。
 
 
 ### クリティカルセクション

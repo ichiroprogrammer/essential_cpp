@@ -1,9 +1,8 @@
 *
 !.gitignore
-!deep.md
 !core_lang_spec.md
 !cpp_idioms.md
-!deep_cpp.md
+!essential_cpp.md
 !deep_intro.md
 !design_pattern.md
 !dynamic_memory_allocation.md
@@ -11,3 +10,5 @@
 !solid.md
 !stdlib_and_concepts.md
 !template_meta_programming.md
+!essential_intro.html
+!essential_intro.md

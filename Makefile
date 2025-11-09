@@ -1,6 +1,6 @@
 MAKEFILE:=$(word $(words $(MAKEFILE_LIST)), $(MAKEFILE_LIST))
 
-TARGET:=o/deep_cpp.md
+TARGET:=o/essential_cpp.md
 TITLE=Deep C++($(VERSION))
 
 MD_SEC_NUM:=

@@ -5,7 +5,9 @@
 
 ## 改訂履歴
 * V20.11
-    *  git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
+    * git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
+    * 標準ライブラリとプログラミングの概念に「ロック所有ラッパー」、「並列処理」とstd::condition_variable追加
+    * C++慣用語句に「関数設計のガイドライン」、「クラス設計のガイドライン」追加
 
 ## インデックス
 ___

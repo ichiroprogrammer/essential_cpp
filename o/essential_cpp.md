@@ -6,7 +6,9 @@
 
 ## 改訂履歴 <a id="SS_1_1"></a>
 * V20.11
-    *  git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
+    * git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
+    * 標準ライブラリとプログラミングの概念に「ロック所有ラッパー」、「並列処理」とstd::condition_variable追加
+    * C++慣用語句に「関数設計のガイドライン」、「クラス設計のガイドライン」追加
 
 ## インデックス <a id="SS_1_2"></a>
 ___
@@ -34,6 +36,8 @@ __この章の構成__
 &emsp;&emsp;&emsp; [算術型](#SS_2_1_3)  
 &emsp;&emsp;&emsp; [汎整数型](#SS_2_1_4)  
 &emsp;&emsp;&emsp; [整数型](#SS_2_1_5)  
+&emsp;&emsp;&emsp;&emsp; [ビットシフトにおける未定義動作](#SS_2_1_5_1)  
+
 &emsp;&emsp;&emsp; [算術変換](#SS_2_1_6)  
 &emsp;&emsp;&emsp; [汎整数型昇格](#SS_2_1_7)  
 &emsp;&emsp;&emsp; [汎整数型拡張](#SS_2_1_8)  
@@ -126,6 +130,7 @@ __この章の構成__
 
 &emsp;&emsp;&emsp; [オブジェクトのライフタイム](#SS_2_6_8)  
 &emsp;&emsp;&emsp; [プレースメントnew](#SS_2_6_9)  
+&emsp;&emsp;&emsp; [new (std::nothrow)](#SS_2_6_10)  
 
 &emsp;&emsp; [値カテゴリとリファレンス](#SS_2_7)  
 &emsp;&emsp;&emsp; [expression](#SS_2_7_1)  
@@ -311,6 +316,43 @@ ___
 * unsigned long
 * long long
 * unsigned long long
+
+#### ビットシフトにおける未定義動作 <a id="SS_2_1_5_1"></a>
+
+__[動作の分類]__
+
+| 条件                     | unsigned                   | signed (C++17以前) | signed (C++20以降)   |
+|--------------------------|:---------------------------|--------------------|----------------------|
+| シフト量が負             | 未定義動作                 | 未定義動作         | 未定義動作           |
+| シフト量 ≥ ビット数      | 未定義動作                 | 未定義動作         | 未定義動作           |
+| 負の値の左シフト         | N/A                        | 未定義動作         | 未定義動作           |
+| 左シフトでオーバーフロー | 定義済み(ラップアラウンド) | 未定義動作         | 未定義動作           |
+| 負の値の右シフト         | N/A                        | 実装定義           | 定義済み(算術シフト) |
+| 正の値の右シフト         | 定義済み（論理シフト）     | 定義済み           | 定義済み             |
+
+__[具体例]__
+
+| コード例                        | 動作                       | 説明                                                 |
+|---------------------------------|----------------------------|------------------------------------------------------|
+| `x << -1`                       | 未定義動作                 | 負のシフト量(型に関わらず)                           |
+| `x << 32`                       | 未定義動作                 | シフト量がビット数以上(intが32ビットの場合)          |
+| `int x = -1; x << 1`            | 未定義動作                 | 負の値の左シフト                                     |
+| `int x = INT_MAX; x << 1`       | 未定義動作                 | オーバーフロー                                       |
+| `unsigned x = UINT_MAX; x << 1` | 定義済み                   | ラップアラウンド(結果は最大値の2倍を2^nで割った余り) |
+| `int x = -8; x >> 1`            | 実装定義(上記テーブル参照) | 負の値の右シフト                                     |
+| `unsigned x = 8; x >> 1`        | 定義済み                   | 論理シフト                                           |
+
+__[安全なビットシフトのガイドライン]__
+
+| 推奨事項                      | 理由                          |
+|-------------------------------|-------------------------------|
+| 符号なし整数型を使用(注)      | 未定義動作を回避しやすい      |
+| シフト量の範囲チェック        | 0 ≤ シフト量 < ビット数を保証 |
+| 負の値をシフトしない          | 未定義動作の原因              |
+| オーバーフローの可能性を考慮  | 特にsigned型での左シフト      |
+| 静的解析ツールを活用          | コンパイル時に検出可能        |
+(注) 符号なし[整数型](#SS_2_1_5)変数(us)をオペランドにした左ビットシフトがオーバーフローした場合、
+     usが整数昇格によりintに変換されるため、未定義動作になる可能性がある。
 
 ### 算術変換 <a id="SS_2_1_6"></a>
 C++における算術変換とは、算術演算の1つのオペランドが他のオペランドと同じ型でない場合、
@@ -3098,6 +3140,12 @@ rvalueをバインドするリファレンスが存在しない状態で、
     // xがスコープアウトするタイミングでカスタムデリータdeleterが呼ばれるため、~X()の呼び出し漏れが回避できる
 ```
 
+### new (std::nothrow) <a id="SS_2_6_10"></a>
+`new (std::nothrow)`は、メモリ確保失敗時に例外を投げずnullptrを返すnewの形式である。
+通常のnewはメモリ確保に失敗するとstd::bad_alloc例外を投げるが、
+`new (std::nothrow)`はstd::nothrow_t型の引数を取ることで、失敗時にnullptrを返す動作に変更される。
+この形式は例外を使わない環境(組み込みシステムなど)や、明示的なnullチェックによるエラー処理が望ましい場合に使用される。
+解放方法は通常のnewと同じで、単一オブジェクトの場合はdelete、配列の場合はdelete[]を使用する。
 
 ## 値カテゴリとリファレンス <a id="SS_2_7"></a>
 ここでは、expression(式)の値カテゴリや、それに付随した機能についての解説を行う。
@@ -7552,6 +7600,7 @@ __この章の構成__
 &emsp;&emsp;&emsp; [std::thread](#SS_3_3_1)  
 &emsp;&emsp;&emsp; [std::mutex](#SS_3_3_2)  
 &emsp;&emsp;&emsp; [std::atomic](#SS_3_3_3)  
+&emsp;&emsp;&emsp; [std::condition_variable](#SS_3_3_4)  
 
 &emsp;&emsp; [ロック所有ラッパー](#SS_3_4)  
 &emsp;&emsp;&emsp; [std::lock_guard](#SS_3_4_1)  
@@ -8079,6 +8128,45 @@ atomicクラステンプレートは、型Tをアトミック操作するため�
                 // デストラクトされると、std::terminateが呼ばれる
 
     ASSERT_EQ(c.count_, expected);
+```
+
+### std::condition_variable <a id="SS_3_3_4"></a>
+condition_variable は、特定のイベントが発生するまでスレッドの待ち合わせを行うためのクラスである。
+最も単純な使用例を以下に示す(「[Spurious Wakeup](#SS_4_9_10)」参照)。
+```cpp
+    //  example/stdlib_and__concepts/thread_ut.cpp 135
+
+    std::mutex              mutex;
+    std::condition_variable cond_var;
+    bool                    event_occured = false;
+
+    void notify()  // 通知を行うスレッドが呼び出す関数
+    {
+        auto lock = std::lock_guard{mutex};
+
+        event_occured = true;
+
+        cond_var.notify_all();  // wait()で待ち状態のすべてのスレッドを起こす
+    }
+
+    void wait()
+    {
+        auto lock = std::unique_lock{mutex};
+
+        // notifyされるのを待つ。
+        cond_var.wait(lock, []() noexcept { return event_occured; });  // Spurious Wakeup対策
+    }
+```
+```cpp
+    //  example/stdlib_and__concepts/thread_ut.cpp 162
+
+    std::thread t1{[]() { wait(); /* 通知待ち */ }};
+    std::thread t2{[]() { wait(); /* 通知待ち */ }};
+
+    notify();  // 通知待ちのスレッドに通知
+
+    t1.join();
+    t2.join();
 ```
 
 ## ロック所有ラッパー <a id="SS_3_4"></a>
@@ -9336,7 +9424,7 @@ __この章の構成__
 &emsp;&emsp;&emsp; [CopyAssignable要件](#SS_4_3_5)  
 
 &emsp;&emsp; [関数設計のガイドライン](#SS_4_4)  
-&emsp;&emsp;&emsp; [関数の仮引数の型](#SS_4_4_1)  
+&emsp;&emsp;&emsp; [関数の引数と戻り値の型](#SS_4_4_1)  
 &emsp;&emsp;&emsp; [サイクロマティック複雑度のクライテリア](#SS_4_4_2)  
 &emsp;&emsp;&emsp; [関数の行数のクライテリア](#SS_4_4_3)  
 
@@ -10948,8 +11036,8 @@ CopyAssignable要件は、C++において型がcopy代入をサポートする�
    コンパイラがデフォルトの実装(「[特殊メンバ関数](#SS_2_6_1)」参照)を生成する。
 
 ## 関数設計のガイドライン <a id="SS_4_4"></a>
-### 関数の仮引数の型 <a id="SS_4_4_1"></a>
-仮引数の型に関するガイドラインを以下の表で表す。
+### 関数の引数と戻り値の型 <a id="SS_4_4_1"></a>
+関数の引数型および戻り値型に関するガイドラインを以下の表で表す。
 
 <table>
   <tr bgcolor="#cccccc">

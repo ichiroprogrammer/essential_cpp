@@ -280,6 +280,16 @@ atomicクラステンプレートは、型Tをアトミック操作するため�
     // @@@ example/stdlib_and__concepts/thread_ut.cpp #2:1 begin -1
 ```
 
+### std::condition_variable
+condition_variable は、特定のイベントが発生するまでスレッドの待ち合わせを行うためのクラスである。
+最も単純な使用例を以下に示す(「[Spurious Wakeup](---)」参照)。
+```cpp
+    // @@@ example/stdlib_and__concepts/thread_ut.cpp #3:0 begin
+```
+```cpp
+    // @@@ example/stdlib_and__concepts/thread_ut.cpp #3:1 begin -1
+```
+
 ## ロック所有ラッパー
 ロック所有ラッパーとはミューテックスのロックおよびアンロックを管理するための以下のクラスを指す。
 

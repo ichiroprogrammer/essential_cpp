@@ -129,3 +129,46 @@ TEST(ExpTerm, thread)
     // @@@ sample end
 }
 }  // namespace atomic
+
+namespace {
+
+// @@@ sample begin 3:0
+
+std::mutex              mutex;
+std::condition_variable cond_var;
+bool                    event_occured = false;
+
+void notify()  // 通知を行うスレッドが呼び出す関数
+{
+    auto lock = std::lock_guard{mutex};
+
+    event_occured = true;
+
+    cond_var.notify_all();  // wait()で待ち状態のすべてのスレッドを起こす
+}
+
+void wait()
+{
+    auto lock = std::unique_lock{mutex};
+
+    // notifyされるのを待つ。
+    cond_var.wait(lock, []() noexcept { return event_occured; });  // Spurious Wakeup対策
+}
+// @@@ sample end
+
+TEST(ExpTerm, event)
+{
+    // clang-format off
+    // @@@ sample begin 3:1
+
+    std::thread t1{[]() { wait(); /* 通知待ち */ }};
+    std::thread t2{[]() { wait(); /* 通知待ち */ }};
+
+    notify();  // 通知待ちのスレッドに通知
+
+    t1.join();
+    t2.join();
+    // @@@ sample end
+    // clang-format on
+}
+}  // namespace

@@ -36,8 +36,7 @@ public:
     virtual ~FileEntity() {}
     std::string const& Pathname() const { return pathname_; }
 
-    virtual void Accept(FileEntityVisitor&) const = 0;  // Acceptの仕様は安定しているので
-                                                        // NVIは使わない。
+    virtual void Accept(FileEntityVisitor&) const = 0;  // Acceptの仕様は安定しているのでNVIは使わない。
 private:
     std::string const pathname_;
 };

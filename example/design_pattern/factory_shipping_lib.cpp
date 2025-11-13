@@ -1,6 +1,9 @@
 #include "gtest_wrapper.h"
 
+#include "enum_operator.h"  // enum_operator_ut.cppをcpp_idiomsに移動したため、
 #include "factory_shipping.h"
+// このディレクトリにenum_operator.hを読み込むcppファイルが存在しなくなったので、
+// コンパイルの確認とclang-formatを通す
 
 namespace Factory {
 

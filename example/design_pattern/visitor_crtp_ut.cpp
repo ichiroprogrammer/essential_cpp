@@ -6,12 +6,14 @@
 #include <typeinfo>
 #include <vector>
 
-#include "crtp.h"
+#include "gtest_wrapper.h"
+
+#include "visitor_crtp.h"
 
 namespace {
 std::string find_files(std::string const& dir)
 {
-    namespace fs = std::filesystem;  // OK 長い名前を短く
+    namespace fs = std::filesystem;  // OK $BD9$$L>A0$rC;$/(B
 
     auto files = std::vector<std::string>{};
     auto top   = fs::path{dir};
@@ -72,4 +74,73 @@ void TestablePathnamePrinter2::Visit(File const& file) { ostream_ << file.Pathna
 void TestablePathnamePrinter2::Visit(Dir const& dir) { ostream_ << find_files(dir.Pathname()); }
 
 void TestablePathnamePrinter2::Visit(OtherEntity const& other) { ostream_ << other.Pathname() + "(o2)"; }
+}  // namespace CRTP
+namespace CRTP {
+// @@@ sample begin 0:0
+
+template <typename T>
+class Base {
+    // @@@ ignore begin
+    // @@@ ignore end
+};
+
+class Derived : public Base<Derived> {
+    // @@@ ignore begin
+    // @@@ ignore end
+};
+// @@@ sample end
+
+namespace {
+
+TEST(CRTP, testable_visitor)
+{
+    auto ostring = std::ostringstream{};
+
+    // $B=PNO$r%-%c%W%A%c$9$k$?$a!"(Bstd::cout$B$KBe$($F(Bostring$B$r;H$&(B
+    auto visitor1 = TestablePathnamePrinter1{ostring};
+    auto visitor2 = TestablePathnamePrinter2{ostring};
+
+    auto file = File{"visitor.cpp"};
+    {
+        file.Accept(visitor1);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ("visitor.cpp", ret);
+        ostring = std::ostringstream{};
+    }
+    {
+        file.Accept(visitor2);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ("visitor.cpp", ret);
+        ostring = std::ostringstream{};
+    }
+
+    auto dir = Dir{"find_files_ut_dir/dir0"};
+    {
+        dir.Accept(visitor1);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ("find_files_ut_dir/dir0/", ret);
+        ostring = std::ostringstream{};
+    }
+    {
+        dir.Accept(visitor2);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ("find_files_ut_dir/dir0/file2,find_files_ut_dir/dir0/gile3", ret);
+        ostring = std::ostringstream{};
+    }
+
+    auto other = OtherEntity{"."};
+    {
+        other.Accept(visitor1);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ(".(o1)", ret);
+        ostring = std::ostringstream{};
+    }
+    {
+        other.Accept(visitor2);
+        auto ret = std::string{ostring.str()};
+        ASSERT_EQ(".(o2)", ret);
+        ostring = std::ostringstream{};
+    }
+}
+}  // namespace
 }  // namespace CRTP

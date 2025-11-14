@@ -24,10 +24,10 @@ std::moveは引数を[rvalueリファレンス](---)に変換する関数テン�
 この表の動作仕様を下記ののコードで示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/utility_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/utility_ut.cpp #0:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/utility_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/utility_ut.cpp #0:1 begin -1
 ```
 
 std::moveは以下の２つの概念ときわめて密接に関連しており、
@@ -68,7 +68,7 @@ std::integral_constantは「テンプレートパラメータとして与えら�
 以下に簡単な使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #0:0 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #0:0 begin -1
 ```
 
 また、すでに示したようにstd::true_type/std::false_typeを実装するためのクラステンプレートでもある。
@@ -81,13 +81,13 @@ std::integral_constantは「テンプレートパラメータとして与えら�
 これらは、下記で確かめられる通り、後述する[std::integral_constant](---)を使い定義されている。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #1:0 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #1:0 begin -1
 ```
 
 それぞれの型が持つvalue定数は、下記のように定義されている。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #1:1 begin -1
 ```
 
 これらが何の役に立つのか直ちに理解することは難しいが、
@@ -96,13 +96,13 @@ true/falseのメタ関数版と考えれば、追々理解できるだろう。
 以下に簡単な使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #1:2 begin
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #1:2 begin
 ```
 
 上記の単体テストは下記のようになる。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #1:3 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #1:3 begin -1
 ```
 
 IsCovertibleToIntの呼び出しをdecltypeのオペランドにすることで、
@@ -123,18 +123,18 @@ std::true_typeかstd::false_typeを受け取ることができる。
 以下に簡単な使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #3:0 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #3:0 begin -1
 ```
 
 また、 C++17で導入されたstd::is_same_vは、定数テンプレートを使用し、
 下記のように定義されている。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #3:1 begin
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #3:1 begin
 ```
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #3:2 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #3:2 begin -1
 ```
 
 このような簡潔な記述の一般形式は、
@@ -150,7 +150,7 @@ std::true_typeかstd::false_typeを受け取ることができる。
 std::is_base_ofを使うことで下記のようにstd::is_sameの基底クラス確認することもできる。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #3:3 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #3:3 begin -1
 ```
 
 ### std::enable_if
@@ -162,13 +162,13 @@ std::enable_ifは、bool値である第1テンプレートパラメータが
 下記のコードはクラステンプレートの特殊化を用いたstd::enable_ifの実装例である。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #4:0 begin
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #4:0 begin
 ```
 
 std::enable_ifの使用例を下記に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #4:1 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #4:1 begin -1
 ```
 
 実装例から明らかなように
@@ -179,7 +179,7 @@ std::enable_ifの使用例を下記に示す。
 となるため、下記のコードはコンパイルできない。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #4:2 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #4:2 begin -1
 ```
 
 std::enable_ifのこの特性と後述する[SFINAE](---)により、
@@ -198,13 +198,13 @@ std::conditionalは、bool値である第1テンプレートパラメータが
 下記のコードはクラステンプレートの特殊化を用いたstd::conditionalの実装例である。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #5:0 begin
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #5:0 begin
 ```
 
 std::conditionalの使用例を下記に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #5:1 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #5:1 begin -1
 ```
 
 ### std::is_void
@@ -218,7 +218,7 @@ std::is_voidはテンプレートパラメータの型が
 以下に簡単な使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/type_traits_ut.cpp #2:0 begin -1
+    // @@@ example/stdlib_and_concepts/type_traits_ut.cpp #2:0 begin -1
 ```
 
 ### std::is_copy_assignable
@@ -239,10 +239,10 @@ Tが[MoveAssignable要件](---)を満たすためには`std::is_move_assignable<
 クラスthread は、新しい実行のスレッドの作成/待機/その他を行う機構を提供する。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #0:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #0:1 begin -1
 ```
 
 ### std::mutex
@@ -258,10 +258,10 @@ mutex は、スレッド間で使用する共有リソースを排他制御す�
 [クリティカルセクション](---)と呼ぶ)が、std::mutexによりこの問題を回避している。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #1:0 begin
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #1:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #1:1 begin -1
 ```
 
 lock()を呼び出した状態で、unlock()を呼び出さなかった場合、デッドロックを引き起こしてしまうため、
@@ -274,20 +274,20 @@ atomicクラステンプレートは、型Tをアトミック操作するため�
 [std::mutex](---)で示したような単純なコードではstd::atomicを使用して下記のように書く方が一般的である。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #2:0 begin
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #2:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #2:1 begin -1
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #2:1 begin -1
 ```
 
 ### std::condition_variable
 condition_variable は、特定のイベントが発生するまでスレッドの待ち合わせを行うためのクラスである。
 最も単純な使用例を以下に示す(「[Spurious Wakeup](---)」参照)。
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #3:0 begin
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #3:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/thread_ut.cpp #3:1 begin -1
+    // @@@ example/stdlib_and_concepts/thread_ut.cpp #3:1 begin -1
 ```
 
 ## ロック所有ラッパー
@@ -302,9 +302,9 @@ condition_variable は、特定のイベントが発生するまでスレッド�
 std::lock_guardを使わない問題のあるコードを以下に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #0:0 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #0:1 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #0:2 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #0:1 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #0:2 begin
 ```
 
 上記で示したConflict::increment()には以下のようなリスクが存在する。
@@ -321,21 +321,21 @@ std::lock_guardを使わない問題のあるコードを以下に示す。
 std::lock_guardを使用して、このような問題に対処したコードを以下に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #1:0 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #1:1 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #1:2 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #1:0 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #1:1 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #1:2 begin
 ```
 
 オリジナルの単純な以下のincrement()と改善版を比較すると、大差ないように見えるが、
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #0:1 begin -1
 ```
 
 オリジナルのコードで指摘したすべてのリスクが、わずか一行の変更で解決されている。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #1:1 begin -1
 ```
 
 ### std::unique_lock
@@ -350,13 +350,13 @@ IntQueue::pop_ok()の中で行われるIntQueue::q_へのアクセスで発生�
 std::unique_lockやstd::lock_guardによりmutexを使用する。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:0 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:1 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:2 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:3 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:0 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:1 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:2 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:3 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:4 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:4 begin -1
 ```
 
 一般に条件変数には、[Spurious Wakeup](---)という問題があり、std::condition_variableも同様である。
@@ -365,13 +365,13 @@ std::unique_lockやstd::lock_guardによりmutexを使用する。
 意図通り動作しない可能性がある。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:1 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:1 begin -1
 ```
 
 下記のIntQueue::pop_ok()は、pop_ng()にSpurious Wakeupの対策を施したものである。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #2:2 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #2:2 begin -1
 ```
 
 ### std::scoped_lock
@@ -383,16 +383,16 @@ C++17で導入され、デッドロックを回避しながら複数のミュー
 両方の口座を同時にロックする必要がある。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:0 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:1 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:2 begin
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:3 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:0 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:1 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:2 begin
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:3 begin
 ```
 下記の例では、2つのスレッドがそれぞれ逆方向の送金を同時に行う。
 transfer_ok()の代わりにtransfer_ng()を使用した場合、デッドロックが発生する可能性がある。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:4 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:4 begin -1
 ```
 
 transfer_ng()がデッドロックを引き起こすシナリオは、以下のようなものである。
@@ -409,7 +409,7 @@ transfer_ng()がデッドロックを引き起こすシナリオは、以下の�
 下記のBankAccount::transfer_ok()は、std::scoped_lockを使用して前述したデッドロックを回避したものである。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/lock_ownership_wrapper_ut.cpp #3:2 begin -1
+    // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:2 begin -1
 ```
 
 ## スマートポインタ
@@ -422,7 +422,8 @@ C++標準ライブラリでは、主に以下の3種類のスマートポイン�
 
 * [std::unique_ptr](---)
 * [std::shared_ptr](---)
-* [std::weak_ptr](---)
+    - [std::enable_shared_from_this](---)
+    - [std::weak_ptr](---)
 * [std::auto_ptr](---)
 
 ### std::unique_ptr
@@ -438,6 +439,47 @@ std::shared_ptrは、同じくC++11で導入されたスマートポインタで
 [std::weak_ptr](---)は、shared_ptrと連携して使用されるスマートポインタであり、オブジェクトの非所有参照を表す。
 参照カウントには影響せず、循環参照を防ぐために用いられる。weak_ptrから一時的にshared_ptrを取得するにはlock()を使用する。
 
+### std::enable_shared_from_this
+`std::enable_shared_from_this`は、`shared_ptr`で管理されているオブジェクトが、
+自分自身への`shared_ptr`を安全に取得するための仕組みである。
+
+この`std::enable_shared_from_this`が存在しない場合に発生するであろう問題のあるコードを以下に示す。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/enable_shared_from_this_ut.cpp #0:0 begin
+```
+```cpp
+    // @@@ example/stdlib_and_concepts/enable_shared_from_this_ut.cpp #0:1 begin -1
+```
+
+std::enable_shared_from_thisを継承し、`shared_from_this()`メソッドを使用し、この問題を解決したコード例を以下に示す。
+
+std::enable_shared_from_thisは、内部にweak_ptrメンバを持っている。shared_ptrでオブジェクトが初めて管理される際、
+shared_ptrのコンストラクタがenable_shared_from_thisの存在を検出し、内部のweak_ptrに制御ブロックへの参照を設定する。
+
+`shared_from_this()`メソッドはこの内部のweak_ptrをlock()することで、
+元のshared_ptrと制御ブロックを共有する新しいshared_ptrを生成する。
+これにより、同一オブジェクトへの複数のshared_ptrが正しく参照カウントを共有できる。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/enable_shared_from_this_ut.cpp #1:0 begin
+```
+```cpp
+    // @@@ example/stdlib_and_concepts/enable_shared_from_this_ut.cpp #1:1 begin -1
+```
+
+**[使用上の注意点]**
+
+1. コンストラクタ内での使用禁止  
+   コンストラクタ内でshared_from_this()を呼び出してはならない。なぜなら、コンストラクタ実行時点ではまだshared_ptrによる管理が完了しておらず、内部のweak_ptrが初期化されていないためである。この場合、std::bad_weak_ptr例外がスローされる。
+2. shared_ptrでの管理が必須  
+   オブジェクトがshared_ptrで管理されていない状態(例えばスタック上のオブジェクトや生のnew)でshared_from_this()を呼び出すと、std::bad_weak_ptr例外がスローされるか、未定義動作となる。
+3. make_sharedの使用推奨  
+   std::enable_shared_from_thisを継承したクラスのインスタンスは、必ずstd::make_sharedまたはshared_ptrのコンストラクタで生成する必要がある。
+
+C++17以降では、`weak_from_this()`メソッドも提供されている。これはshared_from_this()と同様の仕組みだが、
+weak_ptrを返すため[オブジェクトの循環所有](---)を避けたい場合に有用である。
+
 ### std::weak_ptr
 std::weak_ptrは、スマートポインタの一種である。
 
@@ -448,9 +490,9 @@ std::weak_ptrは参照カウントに影響を与えず、[std::shared_ptr](---)
 (以下の例では、Xは前のままで、Yのみ修正した)。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/weak_ptr_ut.cpp #0:0 begin
-    // @@@ example/stdlib_and__concepts/weak_ptr_ut.cpp #0:1 begin
-    // @@@ example/stdlib_and__concepts/weak_ptr_ut.cpp #0:2 begin
+    // @@@ example/stdlib_and_concepts/weak_ptr_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/weak_ptr_ut.cpp #0:1 begin
+    // @@@ example/stdlib_and_concepts/weak_ptr_ut.cpp #0:2 begin
 ```
 
 このコードからわかるように修正版YはXオブジェクトを参照するために、
@@ -463,13 +505,13 @@ Xオブジェクトにアクセスする必要があるときに、
 生成した`std::shared_ptr<X>`オブジェクトのスコープを最小に留めている。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/weak_ptr_ut.cpp #0:1 begin
+    // @@@ example/stdlib_and_concepts/weak_ptr_ut.cpp #0:1 begin
 ```
 
 Xと修正版Yの単体テストによりメモリーリークが修正されたことを以下に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/weak_ptr_ut.cpp #0:3 begin -1
+    // @@@ example/stdlib_and_concepts/weak_ptr_ut.cpp #0:3 begin -1
 ```
 
 上記コード例で見てきたように`std::weak_ptr`を使用することで:
@@ -536,7 +578,7 @@ std::pmr::memory_resourceは、
 std::pmr::memory_resourceから派生した具象クラスの実装を以下に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/pmr_memory_resource_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/pmr_memory_resource_ut.cpp #0:0 begin
 ```
 
 ### std::pmr::polymorphic_allocator
@@ -551,7 +593,7 @@ std::allocatorと異なり、型に依存せず、
 polymorphic_allocatorの使用例とする。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/pmr_memory_resource_ut.cpp #1:0 begin -1
+    // @@@ example/stdlib_and_concepts/pmr_memory_resource_ut.cpp #1:0 begin -1
 ```
 
 ### pool_resource
@@ -564,7 +606,7 @@ pool_resourceは[std::pmr::memory_resource](---)を基底とする下記の2つ�
     * 以下に使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/pool_resource_ut.cpp #0:0 begin -1
+    // @@@ example/stdlib_and_concepts/pool_resource_ut.cpp #0:0 begin -1
 ```
 
 * std::pmr::unsynchronized_pool_resource は下記のような特徴を持つメモリプールである。
@@ -574,7 +616,7 @@ pool_resourceは[std::pmr::memory_resource](---)を基底とする下記の2つ�
     * 以下に使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/pool_resource_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/pool_resource_ut.cpp #0:1 begin -1
 ```
 
 
@@ -603,7 +645,7 @@ pool_resourceは[std::pmr::memory_resource](---)を基底とする下記の2つ�
 #### std::forward_list
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/container_ut.cpp #0:0 begin -1
+    // @@@ example/stdlib_and_concepts/container_ut.cpp #0:0 begin -1
 ```
 
 ### 連想コンテナ(Associative Containers)
@@ -630,13 +672,13 @@ pool_resourceは[std::pmr::memory_resource](---)を基底とする下記の2つ�
 #### std::unordered_set
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/container_ut.cpp #1:0 begin -1
+    // @@@ example/stdlib_and_concepts/container_ut.cpp #1:0 begin -1
 ```
 
 #### std::unordered_map
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/container_ut.cpp #2:0 begin -1
+    // @@@ example/stdlib_and_concepts/container_ut.cpp #2:0 begin -1
 ```
 
 #### std::type_index
@@ -644,7 +686,7 @@ std::type_indexはコンテナではないが、
 型情報型を連想コンテナのキーとして使用するためのクラスであるため、この場所に掲載する。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/container_ut.cpp #3:0 begin -1
+    // @@@ example/stdlib_and_concepts/container_ut.cpp #3:0 begin -1
 ```
 
 
@@ -680,18 +722,18 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
 
 ### 戻り値の無効表現
 ```cpp
-    // @@@ example/stdlib_and__concepts/optional_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/optional_ut.cpp #0:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/optional_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/optional_ut.cpp #0:1 begin -1
 ```
 
 ### オブジェクトの遅延初期化
 ```cpp
-    // @@@ example/stdlib_and__concepts/optional_ut.cpp #1:0 begin
+    // @@@ example/stdlib_and_concepts/optional_ut.cpp #1:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/optional_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/optional_ut.cpp #1:1 begin -1
 ```
 
 ## std::variant
@@ -706,16 +748,16 @@ std::variant自身では、オブジェクトのダイナミックな生成が�
 以下にstd::variantの典型的な使用例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/variant_ut.cpp #0:0 begin -1
+    // @@@ example/stdlib_and_concepts/variant_ut.cpp #0:0 begin -1
 ```
 
 std::variantとstd::visit([Visitor](---)パターンの実装の一種)を組み合わせた場合の使用例を以下に示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/variant_ut.cpp #1:0 begin
+    // @@@ example/stdlib_and_concepts/variant_ut.cpp #1:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/variant_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/variant_ut.cpp #1:1 begin -1
 ```
 
 ## オブジェクトの比較
@@ -727,11 +769,11 @@ std::rel_opsでは`operator==`と`operator<=` を基に他の比較演算子を�
 次の例では、std::rel_opsを利用して、少ないコードで全ての比較演算子をサポートする例を示す。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/comparison_stdlib_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/comparison_stdlib_ut.cpp #0:0 begin
 ```
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/comparison_stdlib_ut.cpp #0:1 begin -1
+    // @@@ example/stdlib_and_concepts/comparison_stdlib_ut.cpp #0:1 begin -1
 ```
 
 なお、std::rel_opsはC++20から導入された[<=>演算子](---)により不要になったため、
@@ -742,10 +784,10 @@ std::rel_opsでは`operator==`と`operator<=` を基に他の比較演算子を�
 可読性、保守性の問題が発生する場合が多い。下記に示す方法はこの問題を幾分緩和する。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/comparison_stdlib_ut.cpp #1:0 begin
+    // @@@ example/stdlib_and_concepts/comparison_stdlib_ut.cpp #1:0 begin
 ```
 ```cpp
-    // @@@ example/stdlib_and__concepts/comparison_stdlib_ut.cpp #1:1 begin -1
+    // @@@ example/stdlib_and_concepts/comparison_stdlib_ut.cpp #1:1 begin -1
 ```
 
 ## その他
@@ -766,7 +808,7 @@ C++11までの仕様では、new式によるダイナミックメモリアロケ
 new/deleteの呼び出しをまとめたり省略したりすることができるようになった。
 
 ```cpp
-    // @@@ example/stdlib_and__concepts/heap_allocation_elision_ut.cpp #0:0 begin
+    // @@@ example/stdlib_and_concepts/heap_allocation_elision_ut.cpp #0:0 begin
 ```
 
 この最適化により、std::make_sharedのようにstd::shared_ptrの参照カウントを管理するメモリブロックと、

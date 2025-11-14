@@ -1,7 +1,7 @@
 SRCS:=\
     container_ut.cpp heap_allocation_elision_ut.cpp lock_ownership_wrapper_ut.cpp optional_ut.cpp thread_ut.cpp \
 	type_traits_ut.cpp utility_ut.cpp variant_ut.cpp weak_ptr_ut.cpp comparison_stdlib_ut.cpp \
-	pmr_memory_resource_ut.cpp pool_resource_ut.cpp
+	pmr_memory_resource_ut.cpp pool_resource_ut.cpp enable_shared_from_this_ut.cpp
 
 
 

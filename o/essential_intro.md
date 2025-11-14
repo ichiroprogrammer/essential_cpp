@@ -5,6 +5,10 @@
 の中から、C++の言語機能や慣用語句の解説を抜き出したものである。
 
 ## 改訂履歴 <a id="SS_1_1"></a>
+* V20.12
+    * CRTPの説明強化
+    * 「標準ライブラリとプログラミングの概念」に「std::enable_shared_from_this」の説明追加
+
 * V20.11
     * git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト
     * 標準ライブラリとプログラミングの概念に「ロック所有ラッパー」、「並列処理」とstd::condition_variable追加

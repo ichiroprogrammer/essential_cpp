@@ -204,7 +204,7 @@ Transaction Methodを使用しているTransactorNotOCPのすべてのメンバ�
 
 下記は、TransactorIFを導入することによって、上例をOCPに沿うように改善したクラス図と実装である。
 TransactorOCPは、TransactorIFの効果によりTransaction Methodの追加に対して全く影響を受けなくなった
-(実際には、TransactorIFから派生する具象クラスの生成用Factory関数(「[Factory](design_pattern.md#SS_6_1_4)」参照)
+(実際には、TransactorIFから派生する具象クラスの生成用Factory関数(「[Factory](stdlib_and_concepts.md#SS_3_11_4)」参照)
 が必要になるため全く影響がないわけではないが、
 そのような箇所はソースコード全体でただ一つにすることができるため、
 Transaction Methodの追加に対して強固な構造になったと言える)。

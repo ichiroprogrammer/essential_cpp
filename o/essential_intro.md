@@ -20,9 +20,7 @@ ___
 - [C++コア言語仕様](core_lang_spec.md#SS_2)
 - [標準ライブラリとプログラミングの概念](stdlib_and_concepts.md#SS_3)
 - [C++慣用語句](cpp_idioms.md#SS_4)
-- [SOLID](solid.md#SS_5)
-- [デザインパターン](design_pattern.md#SS_6)
-- [Sample Code](sample_code.md#SS_7)
+- [Sample Code](sample_code.md#SS_6)
 
 
 

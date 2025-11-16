@@ -11,7 +11,7 @@ MD_GEN:=./md_gen/export/py
 # VPATH=./md:dir1:dir2
 VPATH=./md:
 
-MDS:=essential_intro.md core_lang_spec.md stdlib_and_concepts.md cpp_idioms.md solid.md design_pattern.md 
+MDS:=essential_intro.md core_lang_spec.md stdlib_and_concepts.md cpp_idioms.md essential_appendix.md
 
 INDEX_OPT:=--exclude $(addsuffix :1,$(MDS) sample_code.md)
 

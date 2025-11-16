@@ -1729,7 +1729,7 @@ std::variant自身では、オブジェクトのダイナミックな生成が�
     ASSERT_FLOAT_EQ(std::get<2>(var), 1.0);  // 2番目の型の値を取得
 ```
 
-std::variantとstd::visit([Visitor](design_pattern.md#SS_6_2_5)パターンの実装の一種)を組み合わせた場合の使用例を以下に示す。
+std::variantとstd::visit([Visitor](essential_appendix.md#SS_5_1)パターンの実装の一種)を組み合わせた場合の使用例を以下に示す。
 
 ```cpp
     //  example/stdlib_and_concepts/variant_ut.cpp 37

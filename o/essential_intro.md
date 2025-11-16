@@ -8,6 +8,7 @@
 * V20.12
     * CRTPの説明強化
     * 「標準ライブラリとプログラミングの概念」に「std::enable_shared_from_this」の説明追加
+    * このドキュメントのSOLIDとデザインパターンの章をdeep_cppへ移動
 
 * V20.11
     * git@github:ichiroprogrammer/comprehensive_cpp.gitの用語説明からのスピンアウト

@@ -1485,6 +1485,158 @@ C++の創始者であるビャーネ・ストラウストラップ氏は、
   メンバ関数が異なる責務にまたがっている可能性が高いため、
   一刻も早くデザインの見直しを行うべきだろう。
 
+## Modern CMake project layout
+[Modern CMake project layout](https://cliutils.gitlab.io/modern-cmake/chapters/basics/structure.html)
+はパッケージ単位でディレクトリを分割し、各パッケージが独立したビルド単位となる構造である。
+このような構造はビルドツールに[CMake](https://cliutils.gitlab.io/modern-cmake/)を使用する場合は特に有効であるが、
+makeプロジェクトにおいても有効である。  
+
+[注]
+この節でのパッケージとはUMLでのパッケージとは同じソフトウェアの構造の単位であるが、
+CMakeでの`find_package`でのパッケージとは意味が異なる。
+
+
+__[主な特徴]__  
+
+* 公開ヘッダと実装ファイルの明確な分離
+* 各パッケージに独自のCMakeLists.txtを配置
+* テストコードを各パッケージに併置
+* target_include_directories()のPUBLIC/PRIVATEでAPI境界を制御
+
+この構造により、パッケージ間の依存関係が明示化され、モジュール性とテスタビリティが向上する。
+
+__[ディレクトリ構造例]__  
+
+```
+    project/
+    ├── CMakeLists.txt
+    ├── app/
+    │   └── main.cpp
+    ├── core/
+    │   ├── CMakeLists.txt
+    │   ├── include/                # 公開ヘッダ
+    │   │   └── core/
+    │   │     ├── engine.h
+    │   │     └── logger.h 
+    │   ├── src/                    # 実装ファイル
+    │   │   ├── engine.cpp
+    │   │   └── internal.h          # 内部ヘッダ
+    │   └── tests/                  # 単体テスト
+    │       └── engine_test.cpp
+    └── logger/
+        ├── CMakeLists.txt
+        ├── include/
+        │   └── logger/
+        │       └── logger.h
+        ├── src/
+        │   └── logger.cpp
+        └── tests/
+            └── logger_test.cpp
+```
+
+ディレクトリ構造例のcore/include/coreの構造は一見冗長に見えるが、
+コンパイラに指定するインクルードパスを各パッケージのincludeディレクトリを指定することにより、
+パッケージ外部の実装ファイルのインクルードセクションは以下のように記述される。
+
+```cpp
+  // インクルードセクション
+  #include "core/logger.h"          // パッケージcoreからのインポート
+  #include "logger/logger.h"        // パッケージloggerからのインポート
+```
+
+このような記述には以下のようなメリットがある。
+
+- ヘッダ名の衝突を避けることができる
+- main.cppのインクルードセクションの可読性が向上する
+
+  
+__[core/CMakeLists.txt例]__  
+
+```
+    # coreライブラリの定義
+    add_library(core STATIC
+        src/engine.cpp
+    )
+
+    # インクルードディレクトリの設定
+    # PUBLIC: このライブラリを使う側にも公開されるヘッダパス
+    # PRIVATE: このライブラリ内部でのみ使用するヘッダパス
+    target_include_directories(core
+        PUBLIC 
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
+        PRIVATE
+            ${CMAKE_CURRENT_SOURCE_DIR}/src
+    )
+
+    # 単体テストの定義
+    add_executable(core_test tests/engine_test.cpp)
+
+    # テストがcoreライブラリに依存することを宣言
+    target_link_libraries(core_test PRIVATE core)
+```
+
+__[トップレベルCMakeLists.txt例]__  
+
+```
+    cmake_minimum_required(VERSION 3.15)
+    project(MyProject)
+
+    # 各コンポーネントをサブディレクトリとして追加
+    add_subdirectory(core)
+    add_subdirectory(logger)
+
+    # アプリケーション実行ファイルの定義
+    add_executable(app app/main.cpp)
+
+    # アプリケーションが依存するライブラリを指定
+    # PRIVATE: appの実装内部でのみ使用（他のターゲットにはヘッダパスを公開しない）
+    target_link_libraries(app PRIVATE core logger)
+```
+
+### Modern CMake project layoutのカスタマイズ
+このドキュメントでは、以下の方針に基づいて[Modern CMake project layout](---)の構成をカスタマイズすることを推奨する。
+
+- パス名が過度に長くなることを避ける。
+- `tests`（または `test`）という語は統合テストを指す場合もあるため、
+  曖昧さを避ける目的で、単体テストには `ut`（unit test）という語を使用する。
+
+そのため、以下のような置き換えを推奨する。
+
+| オリジナル       | カスタマイズ |
+|------------------|--------------|
+| include/         | h/           |
+| tests/           | ut/          |
+| xxx_test.cpp     | xxx_ut.cpp   |
+
+
+__[置き換え後のディレクトリ構造例]__  
+
+```
+    project/
+    ├── CMakeLists.txt
+    ├── app/
+    │   └── main.cpp
+    ├── core/
+    │   ├── CMakeLists.txt
+    │   ├── h/                      # 公開ヘッダ
+    │   │   └── core/
+    │   │     ├── engine.h
+    │   │     └── logger.h 
+    │   ├── src/                    # 実装ファイル
+    │   │   ├── engine.cpp
+    │   │   └── internal.h          # 内部ヘッダ
+    │   └── ut/                     # 単体テスト
+    │       └── engine_ut.cpp
+    └── logger/
+        ├── CMakeLists.txt
+        ├── h/
+        │   └── logger/
+        │       └── logger.h
+        ├── src/
+        │   └── logger.cpp
+        └── ut/
+            └── logger_ut.cpp
+```
 
 ## コーディングスタイル
 ### AAAスタイル

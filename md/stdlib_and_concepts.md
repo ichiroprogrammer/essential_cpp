@@ -421,7 +421,9 @@ transfer_ng()がデッドロックを引き起こすシナリオは、以下の�
 C++標準ライブラリでは、主に以下の3種類のスマートポインタが提供されている。
 
 * [std::unique_ptr](---)
+    - [std::make_unique](---)
 * [std::shared_ptr](---)
+    - [std::make_shared](---)
     - [std::enable_shared_from_this](---)
     - [std::weak_ptr](---)
 * [std::auto_ptr](---)
@@ -432,6 +434,12 @@ std::unique_ptrは、C++11で導入されたスマートポインタの一種で
 他のポインタと共有することはできない。ムーブ操作によってのみ所有権を移譲でき、
 スコープを抜けると自動的にリソースが解放されるため、メモリ管理の安全性と効率性が向上する。
 
+#### std::make_unique
+[std::make_unique\<T\>(Args...)](https://cpprefjp.github.io/reference/memory/make_unique.html)は、
+クラスTをダイナミックに生成し、そのポインタを保持するshared_ptrオブジェクトを生成する。
+
+使用例については、「[オブジェクトの排他所有](---)」を参照せよ。
+
 ### std::shared_ptr
 std::shared_ptrは、同じくC++11で導入されたスマートポインタであり、[オブジェクトの共有所有](---)を表すために用いられる。
 複数のshared_ptrインスタンスが同じリソースを参照でき、
@@ -439,7 +447,13 @@ std::shared_ptrは、同じくC++11で導入されたスマートポインタで
 [std::weak_ptr](---)は、shared_ptrと連携して使用されるスマートポインタであり、オブジェクトの非所有参照を表す。
 参照カウントには影響せず、循環参照を防ぐために用いられる。weak_ptrから一時的にshared_ptrを取得するにはlock()を使用する。
 
-### std::enable_shared_from_this
+#### std::make_shared
+[std::make_shared\<T\>(Args...)](https://cpprefjp.github.io/reference/memory/make_shared.html)は、
+クラスTをダイナミックに生成し、そのポインタを保持するshared_ptrオブジェクトを生成する。
+
+使用例については、「[オブジェクトの共有所有](---)」を参照せよ。
+
+#### std::enable_shared_from_this
 `std::enable_shared_from_this`は、`shared_ptr`で管理されているオブジェクトが、
 自分自身への`shared_ptr`を安全に取得するための仕組みである。
 

@@ -621,7 +621,7 @@ CRTPとは、
     ASSERT_EQ(2, DerivedClass_Count);  // a1のスコープアウトによりインスタンスが減少
 ```
 
-なお、このパターンは、[std::enable_shared_from_this](stdlib_and_concepts.md#SS_3_5_3)の使用において前提知識となっている。
+なお、このパターンは、[std::enable_shared_from_this](stdlib_and_concepts.md#SS_3_5_2_2)の使用において前提知識となっている。
 
 ### Accessor <a id="SS_4_1_5"></a>
 publicメンバ変数とそれにアクセスするソースコードは典型的なアンチパターンであるため、

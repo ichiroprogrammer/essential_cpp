@@ -7612,10 +7612,14 @@ __この章の構成__
 
 &emsp;&emsp; [スマートポインタ](#SS_3_5)  
 &emsp;&emsp;&emsp; [std::unique_ptr](#SS_3_5_1)  
+&emsp;&emsp;&emsp;&emsp; [std::make_unique](#SS_3_5_1_1)  
+
 &emsp;&emsp;&emsp; [std::shared_ptr](#SS_3_5_2)  
-&emsp;&emsp;&emsp; [std::enable_shared_from_this](#SS_3_5_3)  
-&emsp;&emsp;&emsp; [std::weak_ptr](#SS_3_5_4)  
-&emsp;&emsp;&emsp; [std::auto_ptr](#SS_3_5_5)  
+&emsp;&emsp;&emsp;&emsp; [std::make_shared](#SS_3_5_2_1)  
+&emsp;&emsp;&emsp;&emsp; [std::enable_shared_from_this](#SS_3_5_2_2)  
+
+&emsp;&emsp;&emsp; [std::weak_ptr](#SS_3_5_3)  
+&emsp;&emsp;&emsp; [std::auto_ptr](#SS_3_5_4)  
 
 &emsp;&emsp; [Polymorphic Memory Resource(pmr)](#SS_3_6)  
 &emsp;&emsp;&emsp; [std::pmr::memory_resource](#SS_3_6_1)  
@@ -8509,10 +8513,12 @@ transfer_ng()がデッドロックを引き起こすシナリオは、以下の�
 C++標準ライブラリでは、主に以下の3種類のスマートポインタが提供されている。
 
 * [std::unique_ptr](#SS_3_5_1)
+    - [std::make_unique](#SS_3_5_1_1)
 * [std::shared_ptr](#SS_3_5_2)
-    - [std::enable_shared_from_this](#SS_3_5_3)
-    - [std::weak_ptr](#SS_3_5_4)
-* [std::auto_ptr](#SS_3_5_5)
+    - [std::make_shared](#SS_3_5_2_1)
+    - [std::enable_shared_from_this](#SS_3_5_2_2)
+    - [std::weak_ptr](#SS_3_5_3)
+* [std::auto_ptr](#SS_3_5_4)
 
 ### std::unique_ptr <a id="SS_3_5_1"></a>
 std::unique_ptrは、C++11で導入されたスマートポインタの一種であり、std::shared_ptrとは異なり、
@@ -8520,14 +8526,26 @@ std::unique_ptrは、C++11で導入されたスマートポインタの一種で
 他のポインタと共有することはできない。ムーブ操作によってのみ所有権を移譲でき、
 スコープを抜けると自動的にリソースが解放されるため、メモリ管理の安全性と効率性が向上する。
 
+#### std::make_unique <a id="SS_3_5_1_1"></a>
+[std::make_unique\<T\>(Args...)](https://cpprefjp.github.io/reference/memory/make_unique.html)は、
+クラスTをダイナミックに生成し、そのポインタを保持するshared_ptrオブジェクトを生成する。
+
+使用例については、「[オブジェクトの排他所有](#SS_4_4_1)」を参照せよ。
+
 ### std::shared_ptr <a id="SS_3_5_2"></a>
 std::shared_ptrは、同じくC++11で導入されたスマートポインタであり、[オブジェクトの共有所有](#SS_4_4_2)を表すために用いられる。
 複数のshared_ptrインスタンスが同じリソースを参照でき、
 内部の参照カウントによって最後の所有者が破棄された時点でリソースが解放される。
-[std::weak_ptr](#SS_3_5_4)は、shared_ptrと連携して使用されるスマートポインタであり、オブジェクトの非所有参照を表す。
+[std::weak_ptr](#SS_3_5_3)は、shared_ptrと連携して使用されるスマートポインタであり、オブジェクトの非所有参照を表す。
 参照カウントには影響せず、循環参照を防ぐために用いられる。weak_ptrから一時的にshared_ptrを取得するにはlock()を使用する。
 
-### std::enable_shared_from_this <a id="SS_3_5_3"></a>
+#### std::make_shared <a id="SS_3_5_2_1"></a>
+[std::make_shared\<T\>(Args...)](https://cpprefjp.github.io/reference/memory/make_shared.html)は、
+クラスTをダイナミックに生成し、そのポインタを保持するshared_ptrオブジェクトを生成する。
+
+使用例については、「[オブジェクトの共有所有](#SS_4_4_2)」を参照せよ。
+
+#### std::enable_shared_from_this <a id="SS_3_5_2_2"></a>
 `std::enable_shared_from_this`は、`shared_ptr`で管理されているオブジェクトが、
 自分自身への`shared_ptr`を安全に取得するための仕組みである。
 
@@ -8604,7 +8622,7 @@ shared_ptrのコンストラクタがenable_shared_from_thisの存在を検出�
 C++17以降では、`weak_from_this()`メソッドも提供されている。これはshared_from_this()と同様の仕組みだが、
 weak_ptrを返すため[オブジェクトの循環所有](#SS_4_4_3)を避けたい場合に有用である。
 
-### std::weak_ptr <a id="SS_3_5_4"></a>
+### std::weak_ptr <a id="SS_3_5_3"></a>
 std::weak_ptrは、スマートポインタの一種である。
 
 std::weak_ptrは参照カウントに影響を与えず、[std::shared_ptr](#SS_3_5_2)とオブジェクトを共有所有するのではなく、
@@ -8767,7 +8785,7 @@ Xと修正版Yの単体テストによりメモリーリークが修正された
 - 必要に応じて`lock()`でオブジェクトにアクセスできる
 - オブジェクトが既に解放されている場合は`lock()`が空の`shared_ptr`を返すため、安全に処理できる
 
-### std::auto_ptr <a id="SS_3_5_5"></a>
+### std::auto_ptr <a id="SS_3_5_4"></a>
 `std::auto_ptr`はC++11以前に導入された初期のスマートポインタであるが、異常な[copyセマンティクス](#SS_4_5_2)を持つため、
 多くの誤用を生み出し、C++11から非推奨とされ、C++17から規格から排除された。
 
@@ -10100,7 +10118,7 @@ CRTPとは、
     ASSERT_EQ(2, DerivedClass_Count);  // a1のスコープアウトによりインスタンスが減少
 ```
 
-なお、このパターンは、[std::enable_shared_from_this](#SS_3_5_3)の使用において前提知識となっている。
+なお、このパターンは、[std::enable_shared_from_this](#SS_3_5_2_2)の使用において前提知識となっている。
 
 ### Accessor <a id="SS_4_1_5"></a>
 publicメンバ変数とそれにアクセスするソースコードは典型的なアンチパターンであるため、

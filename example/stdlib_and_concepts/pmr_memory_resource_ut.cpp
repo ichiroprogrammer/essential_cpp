@@ -198,7 +198,7 @@ private:
         concat(curr, to_free);
     }
 
-    bool do_is_equal(const memory_resource& other) const noexcept override { return this == &other; }
+    bool do_is_equal(memory_resource const& other) const noexcept override { return this == &other; }
 };
 // @@@ sample end
 

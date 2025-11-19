@@ -12,7 +12,7 @@ public:
     Person(std::string name, uint32_t age) : name_{std::move(name)}, age_{age} {}
 
     // hidden-friend関数
-    friend std::ostream& operator<<(std::ostream& os, const Person& person)
+    friend std::ostream& operator<<(std::ostream& os, Person const& person)
     {
         os << "Name:" << person.name_ << ", Age:" << person.age_;
         return os;

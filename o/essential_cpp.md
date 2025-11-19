@@ -2757,8 +2757,8 @@ CONDには、型特性や定数式などの任意のconstexprな条件式を指�
         int get() const noexcept { return x_; }
 
         // メンバ関数の比較演算子
-        bool operator==(const Integer& other) const noexcept { return x_ == other.x_; }
-        bool operator<(const Integer& other) const noexcept { return x_ < other.x_; }
+        bool operator==(Integer const& other) const noexcept { return x_ == other.x_; }
+        bool operator<(Integer const& other) const noexcept { return x_ < other.x_; }
 
     private:
         int x_;
@@ -2775,7 +2775,7 @@ C++20以降より、`=default`により==演算子を自動生成させること
     public:
         Integer(int x) noexcept : x_{x} {}
 
-        bool operator==(const Integer& other) const noexcept = default;  // 自動生成
+        bool operator==(Integer const& other) const noexcept = default;  // 自動生成
 
     private:
         int x_;
@@ -2799,9 +2799,9 @@ C++20以降より、`=default`により==演算子を自動生成させること
         int get() const noexcept { return x_; }
 
         // メンバ関数の比較演算子に見えるが、非メンバ関数
-        friend bool operator==(const Integer& lhs, const Integer& rhs) noexcept { return lhs.x_ == rhs.x_; }
+        friend bool operator==(Integer const& lhs, Integer const& rhs) noexcept { return lhs.x_ == rhs.x_; }
 
-        friend bool operator<(const Integer& lhs, const Integer& rhs) noexcept { return lhs.x_ < rhs.x_; }
+        friend bool operator<(Integer const& lhs, Integer const& rhs) noexcept { return lhs.x_ < rhs.x_; }
 
     private:
         int x_;
@@ -2853,7 +2853,7 @@ C++20から導入された[<=>演算子](#SS_2_6_4_1)の定義により、すべ
         int x;
         int y;
 
-        auto operator<=>(const Point& other) const noexcept = default;  // 三方比較演算子 (C++20)
+        auto operator<=>(Point const& other) const noexcept = default;  // 三方比較演算子 (C++20)
         // 通常autoとするが、実際の戻り型はstd::strong_ordering
     };
 ```
@@ -2896,12 +2896,12 @@ C++20から導入された[<=>演算子](#SS_2_6_4_1)の定義により、すべ
         int x;
         int y;
 
-        std::strong_ordering operator<=>(const Point& other) const noexcept
+        std::strong_ordering operator<=>(Point const& other) const noexcept
         {
             return std::tie(x, y) <=> std::tie(other.x, other.y);
         }
 
-        bool operator==(const Point& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
+        bool operator==(Point const& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
     };
 ```
 
@@ -4672,7 +4672,7 @@ co_yieldを使用したコルーチンと同じ機能を持つクラスのco_yie
     /// @brief 偶数のみをフィルタリングする
     /// @param input フィルタ対象の Generator
     /// @return フィルタ後の Generator
-    Generator<int> filter_even(const Generator<int>& input)
+    Generator<int> filter_even(Generator<int> const& input)
     {
         std::vector<int> filtered;
         auto             gen = input;
@@ -4688,7 +4688,7 @@ co_yieldを使用したコルーチンと同じ機能を持つクラスのco_yie
     /// @brief 値を2倍に変換する
     /// @param input 変換対象の Generator
     /// @return 変換後の Generator
-    Generator<int> double_values(const Generator<int>& input)
+    Generator<int> double_values(Generator<int> const& input)
     {
         std::vector<int> doubled;
         auto             gen = input;
@@ -6447,7 +6447,7 @@ hidden-friend関数(隠れたフレンド関数)の目的は、
         Person(std::string name, uint32_t age) : name_{std::move(name)}, age_{age} {}
 
         // hidden-friend関数
-        friend std::ostream& operator<<(std::ostream& os, const Person& person)
+        friend std::ostream& operator<<(std::ostream& os, Person const& person)
         {
             os << "Name:" << person.name_ << ", Age:" << person.age_;
             return os;
@@ -8945,7 +8945,7 @@ std::pmr::memory_resourceから派生した具象クラスの実装を以下に�
             concat(curr, to_free);
         }
 
-        bool do_is_equal(const memory_resource& other) const noexcept override { return this == &other; }
+        bool do_is_equal(memory_resource const& other) const noexcept override { return this == &other; }
     };
 ```
 
@@ -9373,8 +9373,8 @@ std::rel_opsでは`operator==`と`operator<=` を基に他の比較演算子を�
         int get() const noexcept { return x_; }
 
         // メンバ関数の比較演算子
-        bool operator==(const Integer& other) const noexcept { return x_ == other.x_; }
-        bool operator<(const Integer& other) const noexcept { return x_ < other.x_; }
+        bool operator==(Integer const& other) const noexcept { return x_ == other.x_; }
+        bool operator<(Integer const& other) const noexcept { return x_ < other.x_; }
 
     private:
         int x_;
@@ -9417,9 +9417,9 @@ std::rel_opsでは`operator==`と`operator<=` を基に他の比較演算子を�
         int x;
         int y;
 
-        bool operator==(const Point& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
+        bool operator==(Point const& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
 
-        bool operator<(const Point& other) const noexcept { return std::tie(x, y) < std::tie(other.x, other.y); }
+        bool operator<(Point const& other) const noexcept { return std::tie(x, y) < std::tie(other.x, other.y); }
     };
 ```
 ```cpp
@@ -10093,7 +10093,7 @@ CRTPとは、
     class Counter {  // 派生クラスのインスタンスを計測するミックスイン
     public:
         Counter() { ++DerivedClass_Count; }
-        Counter(const Counter&) { ++DerivedClass_Count; }
+        Counter(Counter const&) { ++DerivedClass_Count; }
         ~Counter() { --DerivedClass_Count; }
     };
 
@@ -11736,11 +11736,11 @@ private継承によるis-implemented-in-terms-ofの実装例を以下に示す�
     public:
         // コンストラクタ
         MyString() = default;
-        MyString(const std::string& str) : str_(str) {}
-        MyString(const char* cstr) : str_(cstr) {}
+        MyString(std::string const& str) : str_(str) {}
+        MyString(char const* cstr) : str_(cstr) {}
 
         // 文字列へのアクセス
-        const char* c_str() const { return str_.c_str(); }
+        char const* c_str() const { return str_.c_str(); }
 
         using reference = std::string::reference;
         using size_type = std::string::size_type;
@@ -11753,7 +11753,7 @@ private継承によるis-implemented-in-terms-ofの実装例を以下に示す�
 
         void clear() { str_.clear(); }
 
-        MyString& operator+=(const MyString& rhs)
+        MyString& operator+=(MyString const& rhs)
         {
             str_ += rhs.str_;
             return *this;
@@ -13584,12 +13584,12 @@ east-constとは、`const`修飾子を修飾する型要素の右側(east＝右)
 テンプレート展開や型推論の際に一貫性があり、C++コミュニティではしばしば論理的・直感的と評価されている。
 
 ```cpp
-    //  example/cpp_idioms/east_west_const.cpp 11
+    //  example/cpp_idioms/east_west_const.cpp 12
 
     char              str[] = "hehe";  // 配列strに書き込み可能
-    char const*       str0  = str;  // str0が指すオブジェクトはconstなので、*str0への書き込み不可
-    char* const       str1  = str;  // str1がconstなので、str1への代入不可
-    char const* const str2  = str;  // *str2への書き込み不可、str2への代入不可
+    char const*       str0  = str;     // str0が指すオブジェクトはconstなので、*str0への書き込み不可
+    char* const       str1  = str;     // str1がconstなので、str1への代入不可
+    char const* const str2  = str;     // *str2への書き込み不可、str2への代入不可
 
     auto lamda = [](char const(&str_ref)[5]) {  // str_refは配列へのconstリファレンス
         int ret = 0;
@@ -13604,6 +13604,8 @@ east-constとは、`const`修飾子を修飾する型要素の右側(east＝右)
 このスタイルは 「east constスタイル」 または 「右側const」と呼ばれ、
 typeid のデマングル結果や Itanium C++ ABI でもこの形式が採用されている。
 
+なお、このドキュメントでは、このスタイルを採用している。
+
 ### west-const <a id="SS_4_9_3"></a>
 west-constとは、`const`修飾子を型の左側(west＝左)に置くコーディングスタイルのこと。
 C言語からの伝統的な表記法であり、多くの標準ライブラリや教科書でも依然としてこの書き方が用いられている。
@@ -13611,14 +13613,14 @@ C言語からの伝統的な表記法であり、多くの標準ライブラリ�
 可読性は慣れに依存するが、`const`の位置が一貫しないケース(`T* const`など)では理解しづらくなることもある。
 
 ```cpp
-    //  example/cpp_idioms/east_west_const.cpp 34
+    //  example/cpp_idioms/east_west_const.cpp 37
 
     char              str[] = "hehe";  // 配列strに書き込み可能
-    const char*       str0  = str;  // str0が指すオブジェクトはconstなので、*str0への書き込み不可
-    char* const       str1  = str;  // str1がconstなので、str1への代入不可
-    const char* const str2  = str;  // *str2への書き込み不可、str2への代入不可
+    char const*       str0  = str;     // str0が指すオブジェクトはconstなので、*str0への書き込み不可
+    char* const       str1  = str;     // str1がconstなので、str1への代入不可
+    char const* const str2  = str;     // *str2への書き込み不可、str2への代入不可
 
-    auto lamda = [](const char(&str_ref)[5]) {  // str_refは配列へのconstリファレンス
+    auto lamda = [](char const(&str_ref)[5]) {  // str_refは配列へのconstリファレンス
         int ret = 0;
 
         for (const char& a : str_ref) {  // aはchar constリファレンス

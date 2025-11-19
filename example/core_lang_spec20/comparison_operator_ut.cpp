@@ -14,7 +14,7 @@ class Integer {
 public:
     Integer(int x) noexcept : x_{x} {}
 
-    bool operator==(const Integer& other) const noexcept = default;  // 自動生成
+    bool operator==(Integer const& other) const noexcept = default;  // 自動生成
 
 private:
     int x_;
@@ -64,7 +64,7 @@ struct Point {
     int x;
     int y;
 
-    auto operator<=>(const Point& other) const noexcept = default;  // 三方比較演算子 (C++20)
+    auto operator<=>(Point const& other) const noexcept = default;  // 三方比較演算子 (C++20)
     // 通常autoとするが、実際の戻り型はstd::strong_ordering
 };
 // @@@ sample end
@@ -108,12 +108,12 @@ struct Point {
     int x;
     int y;
 
-    std::strong_ordering operator<=>(const Point& other) const noexcept
+    std::strong_ordering operator<=>(Point const& other) const noexcept
     {
         return std::tie(x, y) <=> std::tie(other.x, other.y);
     }
 
-    bool operator==(const Point& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
+    bool operator==(Point const& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
 };
 // @@@ sample end
 

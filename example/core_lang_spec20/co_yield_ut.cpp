@@ -188,7 +188,7 @@ private:
 /// @brief 偶数のみをフィルタリングする
 /// @param input フィルタ対象の Generator
 /// @return フィルタ後の Generator
-Generator<int> filter_even(const Generator<int>& input)
+Generator<int> filter_even(Generator<int> const& input)
 {
     std::vector<int> filtered;
     auto             gen = input;
@@ -204,7 +204,7 @@ Generator<int> filter_even(const Generator<int>& input)
 /// @brief 値を2倍に変換する
 /// @param input 変換対象の Generator
 /// @return 変換後の Generator
-Generator<int> double_values(const Generator<int>& input)
+Generator<int> double_values(Generator<int> const& input)
 {
     std::vector<int> doubled;
     auto             gen = input;

@@ -19,8 +19,8 @@ public:
     int get() const noexcept { return x_; }
 
     // メンバ関数の比較演算子
-    bool operator==(const Integer& other) const noexcept { return x_ == other.x_; }
-    bool operator<(const Integer& other) const noexcept { return x_ < other.x_; }
+    bool operator==(Integer const& other) const noexcept { return x_ == other.x_; }
+    bool operator<(Integer const& other) const noexcept { return x_ < other.x_; }
 
 private:
     int x_;
@@ -59,9 +59,9 @@ struct Point {
     int x;
     int y;
 
-    bool operator==(const Point& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
+    bool operator==(Point const& other) const noexcept { return std::tie(x, y) == std::tie(other.x, other.y); }
 
-    bool operator<(const Point& other) const noexcept { return std::tie(x, y) < std::tie(other.x, other.y); }
+    bool operator<(Point const& other) const noexcept { return std::tie(x, y) < std::tie(other.x, other.y); }
 };
 // @@@ sample end
 

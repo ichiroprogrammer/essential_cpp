@@ -211,11 +211,11 @@ class MyString {
 public:
     // コンストラクタ
     MyString() = default;
-    MyString(const std::string& str) : str_(str) {}
-    MyString(const char* cstr) : str_(cstr) {}
+    MyString(std::string const& str) : str_(str) {}
+    MyString(char const* cstr) : str_(cstr) {}
 
     // 文字列へのアクセス
-    const char* c_str() const { return str_.c_str(); }
+    char const* c_str() const { return str_.c_str(); }
 
     using reference = std::string::reference;
     using size_type = std::string::size_type;
@@ -228,7 +228,7 @@ public:
 
     void clear() { str_.clear(); }
 
-    MyString& operator+=(const MyString& rhs)
+    MyString& operator+=(MyString const& rhs)
     {
         str_ += rhs.str_;
         return *this;

@@ -30,7 +30,7 @@ template <typename T>
 class Counter {  // 派生クラスのインスタンスを計測するミックスイン
 public:
     Counter() { ++DerivedClass_Count; }
-    Counter(const Counter&) { ++DerivedClass_Count; }
+    Counter(Counter const&) { ++DerivedClass_Count; }
     ~Counter() { --DerivedClass_Count; }
 };
 

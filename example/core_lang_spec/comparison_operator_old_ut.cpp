@@ -19,8 +19,8 @@ public:
     int get() const noexcept { return x_; }
 
     // メンバ関数の比較演算子
-    bool operator==(const Integer& other) const noexcept { return x_ == other.x_; }
-    bool operator<(const Integer& other) const noexcept { return x_ < other.x_; }
+    bool operator==(Integer const& other) const noexcept { return x_ == other.x_; }
+    bool operator<(Integer const& other) const noexcept { return x_ < other.x_; }
 
 private:
     int x_;
@@ -60,9 +60,9 @@ public:
     int get() const noexcept { return x_; }
 
     // メンバ関数の比較演算子に見えるが、非メンバ関数
-    friend bool operator==(const Integer& lhs, const Integer& rhs) noexcept { return lhs.x_ == rhs.x_; }
+    friend bool operator==(Integer const& lhs, Integer const& rhs) noexcept { return lhs.x_ == rhs.x_; }
 
-    friend bool operator<(const Integer& lhs, const Integer& rhs) noexcept { return lhs.x_ < rhs.x_; }
+    friend bool operator<(Integer const& lhs, Integer const& rhs) noexcept { return lhs.x_ < rhs.x_; }
 
 private:
     int x_;

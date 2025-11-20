@@ -232,7 +232,7 @@ __この章の構成__
   
   
 
-[インデックス](essential_intro.md#SS_1_2)に戻る。  
+[インデックス](essential_intro.md#SS_1_3)に戻る。  
 
 ___
 

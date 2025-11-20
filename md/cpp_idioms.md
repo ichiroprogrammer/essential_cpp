@@ -1745,7 +1745,7 @@ C言語からの伝統的な表記法であり、多くの標準ライブラリ�
 このスタイルは「west constスタイル」または「左側const」と呼ばれ、
 C言語文化圏での可読性・慣習を重視する場合に採用されることが多い。
 
-### Trailing Underscore（末尾アンダースコア）
+### Trailing Underscore(末尾アンダースコア)
 Trailing underscoreとは、C++においてメンバー変数名の末尾にアンダースコア
 (\_)を付ける命名規約である。例えば、data_、count_、name_ のように記述する。
 

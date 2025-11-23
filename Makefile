@@ -9,7 +9,7 @@ MD_SEC_NUM:=
 MD_GEN:=./md_gen/export/py
 
 # VPATH=./md:dir1:dir2
-VPATH=./md:
+VPATH=./md
 
 MDS:=essential_intro.md core_lang_spec.md stdlib_and_concepts.md cpp_idioms.md essential_appendix.md
 

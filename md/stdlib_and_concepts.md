@@ -233,8 +233,37 @@ Tが[MoveAssignable要件](---)を満たすためには`std::is_move_assignable<
 その逆が成立するとは限らない。
 
 
-## 並列処理
+## 標準エクセプションクラス
+C++標準ライブラリは、`<exception>`と`<stdexcept>`定義される標準エクセプションクラスを提供する。
 
+### std::exception
+exceptionクラスは、標準ライブラリが提供する全てのエクセプションクラスの基底クラスである。
+標準ライブラリによって送出されるエクセプションオブジェクトのクラスは全て、このクラスから派生する。
+したがって、標準のエクセプションは全てこのクラスで捕捉できる。
+
+標準ライブラリによって送出されるエクセプションオブジェクトの派生の系譜を以下に示す。
+
+
+```cpp
+    // 標準ライブラリによって送出されるエクセプションオブジェクトの派生の系譜
+
+    std::exception                      // すべての標準エクセプションの基底クラス
+    ├── std::bad_alloc                  // メモリ確保の失敗
+    ├── std::bad_cast                   // 不正なキャスト
+    ├── std::bad_typeid                 // 不正なtypeid
+    ├── std::bad_exception              // 予期しないエクセプション
+    └── std::logic_error                // 論理エラー
+        ├── std::invalid_argument
+        ├── std::domain_error
+        ├── std::length_error
+        ├── std::out_of_range
+        └── std::runtime_error          // 実行時エラー
+            ├── std::range_error
+            ├── std::overflow_error
+            └── std::underflow_error
+```
+
+## 並列処理
 ### std::thread
 クラスthread は、新しい実行のスレッドの作成/待機/その他を行う機構を提供する。
 
@@ -485,7 +514,7 @@ shared_ptrのコンストラクタがenable_shared_from_thisの存在を検出�
 **[使用上の注意点]**
 
 1. コンストラクタ内での使用禁止  
-   コンストラクタ内でshared_from_this()を呼び出してはならない。なぜなら、コンストラクタ実行時点ではまだshared_ptrによる管理が完了しておらず、内部のweak_ptrが初期化されていないためである。この場合、std::bad_weak_ptr例外がスローされる。
+   コンストラクタ内でshared_from_this()を呼び出してはならない。なぜなら、コンストラクタ実行時点ではまだshared_ptrによる管理が完了しておらず、内部のweak_ptrが初期化されていないためである。この場合、std::bad_weak_ptrエクセプションがスローされる。
 2. shared_ptrでの管理が必須  
    オブジェクトがshared_ptrで管理されていない状態(例えばスタック上のオブジェクトや生のnew)でshared_from_this()を呼び出すと、std::bad_weak_ptr例外がスローされるか、未定義動作となる。
 3. make_sharedの使用推奨  

@@ -13245,7 +13245,8 @@ CopyAssignable要件は、C++において型がcopy代入をサポートする�
 
 [注] Xは任意の型  
 
-[注] `templat<typename T> f(T&&)`の`T&&`は[forwardingリファレンス](#SS_2_8_3)である。  
+[注]
+`templat<typename T> f(T&&)`の`T&&`は[forwardingリファレンス](#SS_2_8_3)である。  
 
 [注] 以下のような引数型は避けるべきである。  
 

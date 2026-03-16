@@ -19,7 +19,7 @@ TEST(TermExp, constexpr_constant)
 {
     // @@@ sample begin 0:1
 
-    constexpr int a = 5;  // aは定数であるためかきのような使い方ができる
+    constexpr int a = 5;  // aは定数であるため下記のような使い方ができる
     static_assert(a == 5);
 
     constexpr int b = 5;  // bは定数でないため、下記のような使い方ができない

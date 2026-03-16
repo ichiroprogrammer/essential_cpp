@@ -96,3 +96,22 @@ TEST(TermExp, parameter_pack)
 }
 
 }  // namespace parameter_pack
+
+namespace ctad {
+
+TEST(TermExp, ctad)
+{
+    // @@@ sample begin 4:0
+
+    // C++17以前
+    std::vector<int> v1{1, 2, 3};
+
+    // C++17以降（CTADにより型引数を省略可能）
+    std::vector v2{1, 2, 3};                                       // std::vector<int> と推論される
+    static_assert(std::is_same_v<decltype(v2)::value_type, int>);  // v2のvalue_typeはintであることの確認
+
+    std::vector v3{1.0, 2.0};                                         // std::vector<double> と推論される
+    static_assert(std::is_same_v<decltype(v3)::value_type, double>);  // v3のvalue_typeはintであることの確認
+    // @@@ sample end
+}
+}  // namespace ctad

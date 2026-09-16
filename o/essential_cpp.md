@@ -85,235 +85,235 @@ ___
 
 __この章の構成__
 
-&emsp;&emsp; [型システムと算術の基礎](#SS_2_1)  
-&emsp;&emsp;&emsp; [基本型](#SS_2_1_1)  
-&emsp;&emsp;&emsp; [組み込み型](#SS_2_1_2)  
-&emsp;&emsp;&emsp; [算術型](#SS_2_1_3)  
-&emsp;&emsp;&emsp; [汎整数型](#SS_2_1_4)  
-&emsp;&emsp;&emsp; [整数型](#SS_2_1_5)  
-&emsp;&emsp;&emsp;&emsp; [ビットシフトにおける未定義動作](#SS_2_1_5_1)  
+[型システムと算術の基礎](#SS_2_1)  
+&emsp;[基本型](#SS_2_1_1)  
+&emsp;[組み込み型](#SS_2_1_2)  
+&emsp;[算術型](#SS_2_1_3)  
+&emsp;[汎整数型](#SS_2_1_4)  
+&emsp;[整数型](#SS_2_1_5)  
+&emsp;&emsp;[ビットシフトにおける未定義動作](#SS_2_1_5_1)  
 
-&emsp;&emsp;&emsp; [算術変換](#SS_2_1_6)  
-&emsp;&emsp;&emsp; [汎整数型昇格](#SS_2_1_7)  
-&emsp;&emsp;&emsp; [汎整数型拡張](#SS_2_1_8)  
-&emsp;&emsp;&emsp; [浮動小数点型昇格](#SS_2_1_9)  
-&emsp;&emsp;&emsp; [デフォルト引数昇格](#SS_2_1_10)  
-&emsp;&emsp;&emsp; [縮小型変換](#SS_2_1_11)  
-&emsp;&emsp;&emsp; [浮動小数点型](#SS_2_1_12)  
-&emsp;&emsp;&emsp;&emsp; [浮動小数点型のダイナミックレンジ](#SS_2_1_12_1)  
-&emsp;&emsp;&emsp;&emsp; [浮動小数点の誤差](#SS_2_1_12_2)  
-&emsp;&emsp;&emsp;&emsp; [イプシロン](#SS_2_1_12_3)  
-&emsp;&emsp;&emsp;&emsp; [浮動小数点の演算エラー](#SS_2_1_12_4)  
+&emsp;[算術変換](#SS_2_1_6)  
+&emsp;[汎整数型昇格](#SS_2_1_7)  
+&emsp;[汎整数型拡張](#SS_2_1_8)  
+&emsp;[浮動小数点型昇格](#SS_2_1_9)  
+&emsp;[デフォルト引数昇格](#SS_2_1_10)  
+&emsp;[縮小型変換](#SS_2_1_11)  
+&emsp;[浮動小数点型](#SS_2_1_12)  
+&emsp;&emsp;[浮動小数点型のダイナミックレンジ](#SS_2_1_12_1)  
+&emsp;&emsp;[浮動小数点の誤差](#SS_2_1_12_2)  
+&emsp;&emsp;[イプシロン](#SS_2_1_12_3)  
+&emsp;&emsp;[浮動小数点の演算エラー](#SS_2_1_12_4)  
 
-&emsp;&emsp; [リテラル](#SS_2_2)  
-&emsp;&emsp;&emsp; [生文字列リテラル](#SS_2_2_1)  
-&emsp;&emsp;&emsp; [2進数リテラル](#SS_2_2_2)  
-&emsp;&emsp;&emsp; [数値リテラル](#SS_2_2_3)  
-&emsp;&emsp;&emsp; [ワイド文字列](#SS_2_2_4)  
-&emsp;&emsp;&emsp; [16進浮動小数点数リテラル](#SS_2_2_5)  
-&emsp;&emsp;&emsp; [ユーザー定義リテラル](#SS_2_2_6)  
-&emsp;&emsp;&emsp;&emsp; [ユーザ定義リテラル演算子](#SS_2_2_6_1)  
-&emsp;&emsp;&emsp;&emsp; [std::string型リテラル](#SS_2_2_6_2)  
-&emsp;&emsp;&emsp;&emsp; [std::chronoのリテラル](#SS_2_2_6_3)  
-&emsp;&emsp;&emsp;&emsp; [std::complexリテラル](#SS_2_2_6_4)  
+[リテラル](#SS_2_2)  
+&emsp;[生文字列リテラル](#SS_2_2_1)  
+&emsp;[2進数リテラル](#SS_2_2_2)  
+&emsp;[数値リテラル](#SS_2_2_3)  
+&emsp;[ワイド文字列](#SS_2_2_4)  
+&emsp;[16進浮動小数点数リテラル](#SS_2_2_5)  
+&emsp;[ユーザー定義リテラル](#SS_2_2_6)  
+&emsp;&emsp;[ユーザ定義リテラル演算子](#SS_2_2_6_1)  
+&emsp;&emsp;[std::string型リテラル](#SS_2_2_6_2)  
+&emsp;&emsp;[std::chronoのリテラル](#SS_2_2_6_3)  
+&emsp;&emsp;[std::complexリテラル](#SS_2_2_6_4)  
 
-&emsp;&emsp; [列挙型とバイト表現](#SS_2_3)  
-&emsp;&emsp;&emsp; [enum](#SS_2_3_1)  
-&emsp;&emsp;&emsp; [enum class](#SS_2_3_2)  
-&emsp;&emsp;&emsp; [スコープドenum](#SS_2_3_3)  
-&emsp;&emsp;&emsp; [underlying type](#SS_2_3_4)  
-&emsp;&emsp;&emsp; [std::byte](#SS_2_3_5)  
-&emsp;&emsp;&emsp; [using enum](#SS_2_3_6)  
+[列挙型とバイト表現](#SS_2_3)  
+&emsp;[enum](#SS_2_3_1)  
+&emsp;[enum class](#SS_2_3_2)  
+&emsp;[スコープドenum](#SS_2_3_3)  
+&emsp;[underlying type](#SS_2_3_4)  
+&emsp;[std::byte](#SS_2_3_5)  
+&emsp;[using enum](#SS_2_3_6)  
 
-&emsp;&emsp; [型とインスタンス](#SS_2_4)  
-&emsp;&emsp;&emsp; [トリビアル型](#SS_2_4_1)  
-&emsp;&emsp;&emsp; [トリビアルに破壊可能な型](#SS_2_4_2)  
-&emsp;&emsp;&emsp; [標準レイアウト型](#SS_2_4_3)  
-&emsp;&emsp;&emsp; [集成体](#SS_2_4_4)  
-&emsp;&emsp;&emsp; [POD](#SS_2_4_5)  
-&emsp;&emsp;&emsp; [不完全型](#SS_2_4_6)  
-&emsp;&emsp;&emsp; [完全型](#SS_2_4_7)  
-&emsp;&emsp;&emsp; [ポリモーフィックなクラス](#SS_2_4_8)  
-&emsp;&emsp;&emsp; [RTTI](#SS_2_4_9)  
-&emsp;&emsp;&emsp;&emsp; [dynamic_cast](#SS_2_4_9_1)  
-&emsp;&emsp;&emsp;&emsp; [typeid](#SS_2_4_9_2)  
-&emsp;&emsp;&emsp;&emsp; [std::type_info](#SS_2_4_9_3)  
+[型とインスタンス](#SS_2_4)  
+&emsp;[トリビアル型](#SS_2_4_1)  
+&emsp;[トリビアルに破壊可能な型](#SS_2_4_2)  
+&emsp;[標準レイアウト型](#SS_2_4_3)  
+&emsp;[集成体](#SS_2_4_4)  
+&emsp;[POD](#SS_2_4_5)  
+&emsp;[不完全型](#SS_2_4_6)  
+&emsp;[完全型](#SS_2_4_7)  
+&emsp;[ポリモーフィックなクラス](#SS_2_4_8)  
+&emsp;[RTTI](#SS_2_4_9)  
+&emsp;&emsp;[dynamic_cast](#SS_2_4_9_1)  
+&emsp;&emsp;[typeid](#SS_2_4_9_2)  
+&emsp;&emsp;[std::type_info](#SS_2_4_9_3)  
 
-&emsp;&emsp;&emsp; [Run-time Type Information](#SS_2_4_10)  
-&emsp;&emsp;&emsp; [インターフェースクラス](#SS_2_4_11)  
-&emsp;&emsp;&emsp; [constインスタンス](#SS_2_4_12)  
+&emsp;[Run-time Type Information](#SS_2_4_10)  
+&emsp;[インターフェースクラス](#SS_2_4_11)  
+&emsp;[constインスタンス](#SS_2_4_12)  
 
-&emsp;&emsp; [定数式とコンパイル時評価](#SS_2_5)  
-&emsp;&emsp;&emsp; [constexpr](#SS_2_5_1)  
-&emsp;&emsp;&emsp; [constexpr変数](#SS_2_5_2)  
-&emsp;&emsp;&emsp; [constexpr関数](#SS_2_5_3)  
-&emsp;&emsp;&emsp; [コア定数式](#SS_2_5_4)  
-&emsp;&emsp;&emsp; [リテラル型](#SS_2_5_5)  
-&emsp;&emsp;&emsp; [constexprインスタンス](#SS_2_5_6)  
-&emsp;&emsp;&emsp; [consteval](#SS_2_5_7)  
-&emsp;&emsp;&emsp; [constinit](#SS_2_5_8)  
-&emsp;&emsp;&emsp; [constexprラムダ](#SS_2_5_9)  
+[定数式とコンパイル時評価](#SS_2_5)  
+&emsp;[constexpr](#SS_2_5_1)  
+&emsp;[constexpr変数](#SS_2_5_2)  
+&emsp;[constexpr関数](#SS_2_5_3)  
+&emsp;[コア定数式](#SS_2_5_4)  
+&emsp;[リテラル型](#SS_2_5_5)  
+&emsp;[constexprインスタンス](#SS_2_5_6)  
+&emsp;[consteval](#SS_2_5_7)  
+&emsp;[constinit](#SS_2_5_8)  
+&emsp;[constexprラムダ](#SS_2_5_9)  
 
-&emsp;&emsp; [オブジェクト生成と初期化](#SS_2_6)  
-&emsp;&emsp;&emsp; [特殊メンバ関数](#SS_2_6_1)  
-&emsp;&emsp;&emsp;&emsp; [初期化子リストコンストラクタ](#SS_2_6_1_1)  
-&emsp;&emsp;&emsp;&emsp; [継承コンストラクタ](#SS_2_6_1_2)  
-&emsp;&emsp;&emsp;&emsp; [委譲コンストラクタ](#SS_2_6_1_3)  
+[オブジェクト生成と初期化](#SS_2_6)  
+&emsp;[特殊メンバ関数](#SS_2_6_1)  
+&emsp;&emsp;[初期化子リストコンストラクタ](#SS_2_6_1_1)  
+&emsp;&emsp;[継承コンストラクタ](#SS_2_6_1_2)  
+&emsp;&emsp;[委譲コンストラクタ](#SS_2_6_1_3)  
 
-&emsp;&emsp;&emsp; [explicit コンストラクタと型変換制御](#SS_2_6_2)  
-&emsp;&emsp;&emsp;&emsp; [explicit](#SS_2_6_2_1)  
-&emsp;&emsp;&emsp;&emsp; [暗黙の型変換](#SS_2_6_2_2)  
-&emsp;&emsp;&emsp;&emsp; [暗黙の型変換抑止](#SS_2_6_2_3)  
-&emsp;&emsp;&emsp;&emsp; [explicit(COND)](#SS_2_6_2_4)  
-&emsp;&emsp;&emsp;&emsp; [explicit type operator()](#SS_2_6_2_5)  
+&emsp;[explicit コンストラクタと型変換制御](#SS_2_6_2)  
+&emsp;&emsp;[explicit](#SS_2_6_2_1)  
+&emsp;&emsp;[暗黙の型変換](#SS_2_6_2_2)  
+&emsp;&emsp;[暗黙の型変換抑止](#SS_2_6_2_3)  
+&emsp;&emsp;[explicit(COND)](#SS_2_6_2_4)  
+&emsp;&emsp;[explicit type operator()](#SS_2_6_2_5)  
 
-&emsp;&emsp;&emsp; [==演算子](#SS_2_6_3)  
-&emsp;&emsp;&emsp;&emsp; [メンバ==演算子](#SS_2_6_3_1)  
-&emsp;&emsp;&emsp;&emsp; [非メンバ==演算子](#SS_2_6_3_2)  
+&emsp;[==演算子](#SS_2_6_3)  
+&emsp;&emsp;[メンバ==演算子](#SS_2_6_3_1)  
+&emsp;&emsp;[非メンバ==演算子](#SS_2_6_3_2)  
 
-&emsp;&emsp;&emsp; [比較演算子](#SS_2_6_4)  
-&emsp;&emsp;&emsp;&emsp; [<=>演算子](#SS_2_6_4_1)  
-&emsp;&emsp;&emsp;&emsp; [三方比較演算子](#SS_2_6_4_2)  
-&emsp;&emsp;&emsp;&emsp; [spaceship operator](#SS_2_6_4_3)  
+&emsp;[比較演算子](#SS_2_6_4)  
+&emsp;&emsp;[<=>演算子](#SS_2_6_4_1)  
+&emsp;&emsp;[三方比較演算子](#SS_2_6_4_2)  
+&emsp;&emsp;[spaceship operator](#SS_2_6_4_3)  
 
-&emsp;&emsp;&emsp; [リスト初期化](#SS_2_6_5)  
-&emsp;&emsp;&emsp; [一様初期化](#SS_2_6_6)  
-&emsp;&emsp;&emsp; [非静的なメンバ変数の初期化](#SS_2_6_7)  
-&emsp;&emsp;&emsp;&emsp; [NSDMI](#SS_2_6_7_1)  
-&emsp;&emsp;&emsp;&emsp; [初期化子リストでの初期化](#SS_2_6_7_2)  
-&emsp;&emsp;&emsp;&emsp; [コンストラクタ内での非静的なメンバ変数の初期値の代入](#SS_2_6_7_3)  
+&emsp;[リスト初期化](#SS_2_6_5)  
+&emsp;[一様初期化](#SS_2_6_6)  
+&emsp;[非静的なメンバ変数の初期化](#SS_2_6_7)  
+&emsp;&emsp;[NSDMI](#SS_2_6_7_1)  
+&emsp;&emsp;[初期化子リストでの初期化](#SS_2_6_7_2)  
+&emsp;&emsp;[コンストラクタ内での非静的なメンバ変数の初期値の代入](#SS_2_6_7_3)  
 
-&emsp;&emsp;&emsp; [オブジェクトのライフタイム](#SS_2_6_8)  
-&emsp;&emsp;&emsp; [プレースメントnew](#SS_2_6_9)  
-&emsp;&emsp;&emsp; [new (std::nothrow)](#SS_2_6_10)  
+&emsp;[オブジェクトのライフタイム](#SS_2_6_8)  
+&emsp;[プレースメントnew](#SS_2_6_9)  
+&emsp;[new (std::nothrow)](#SS_2_6_10)  
 
-&emsp;&emsp; [値カテゴリとリファレンス](#SS_2_7)  
-&emsp;&emsp;&emsp; [expression](#SS_2_7_1)  
-&emsp;&emsp;&emsp;&emsp; [lvalue](#SS_2_7_1_1)  
-&emsp;&emsp;&emsp;&emsp; [rvalue](#SS_2_7_1_2)  
-&emsp;&emsp;&emsp;&emsp; [xvalue](#SS_2_7_1_3)  
-&emsp;&emsp;&emsp;&emsp; [prvalue](#SS_2_7_1_4)  
-&emsp;&emsp;&emsp;&emsp; [glvalue](#SS_2_7_1_5)  
+[値カテゴリとリファレンス](#SS_2_7)  
+&emsp;[expression](#SS_2_7_1)  
+&emsp;&emsp;[lvalue](#SS_2_7_1_1)  
+&emsp;&emsp;[rvalue](#SS_2_7_1_2)  
+&emsp;&emsp;[xvalue](#SS_2_7_1_3)  
+&emsp;&emsp;[prvalue](#SS_2_7_1_4)  
+&emsp;&emsp;[glvalue](#SS_2_7_1_5)  
 
-&emsp;&emsp;&emsp; [decltypeとexpression](#SS_2_7_2)  
+&emsp;[decltypeとexpression](#SS_2_7_2)  
 
-&emsp;&emsp; [リファレンス](#SS_2_8)  
-&emsp;&emsp;&emsp; [lvalueリファレンス](#SS_2_8_1)  
-&emsp;&emsp;&emsp; [rvalueリファレンス](#SS_2_8_2)  
-&emsp;&emsp;&emsp;&emsp; [lvalueからの代入](#SS_2_8_2_1)  
-&emsp;&emsp;&emsp;&emsp; [rvalueからの代入](#SS_2_8_2_2)  
-&emsp;&emsp;&emsp;&emsp; [std::move(lvalue)からの代入](#SS_2_8_2_3)  
+[リファレンス](#SS_2_8)  
+&emsp;[lvalueリファレンス](#SS_2_8_1)  
+&emsp;[rvalueリファレンス](#SS_2_8_2)  
+&emsp;&emsp;[lvalueからの代入](#SS_2_8_2_1)  
+&emsp;&emsp;[rvalueからの代入](#SS_2_8_2_2)  
+&emsp;&emsp;[std::move(lvalue)からの代入](#SS_2_8_2_3)  
 
-&emsp;&emsp;&emsp; [forwardingリファレンス](#SS_2_8_3)  
-&emsp;&emsp;&emsp; [ユニバーサルリファレンス](#SS_2_8_4)  
-&emsp;&emsp;&emsp; [perfect forwarding](#SS_2_8_5)  
-&emsp;&emsp;&emsp; [リファレンスcollapsing](#SS_2_8_6)  
-&emsp;&emsp;&emsp; [リファレンス修飾](#SS_2_8_7)  
-&emsp;&emsp;&emsp;&emsp; [rvalue修飾](#SS_2_8_7_1)  
-&emsp;&emsp;&emsp;&emsp; [lvalue修飾](#SS_2_8_7_2)  
+&emsp;[forwardingリファレンス](#SS_2_8_3)  
+&emsp;[ユニバーサルリファレンス](#SS_2_8_4)  
+&emsp;[perfect forwarding](#SS_2_8_5)  
+&emsp;[リファレンスcollapsing](#SS_2_8_6)  
+&emsp;[リファレンス修飾](#SS_2_8_7)  
+&emsp;&emsp;[rvalue修飾](#SS_2_8_7_1)  
+&emsp;&emsp;[lvalue修飾](#SS_2_8_7_2)  
 
-&emsp;&emsp; [構文と制御構造](#SS_2_9)  
-&emsp;&emsp;&emsp; [属性構文](#SS_2_9_1)  
-&emsp;&emsp;&emsp; [範囲for文](#SS_2_9_2)  
-&emsp;&emsp;&emsp; [構造化束縛](#SS_2_9_3)  
-&emsp;&emsp;&emsp; [初期化付きif/switch文](#SS_2_9_4)  
-&emsp;&emsp;&emsp;&emsp; [初期化付きfor文(従来のfor文)](#SS_2_9_4_1)  
-&emsp;&emsp;&emsp;&emsp; [初期化付きwhile文(従来のwhile文)](#SS_2_9_4_2)  
-&emsp;&emsp;&emsp;&emsp; [初期化付きif文](#SS_2_9_4_3)  
-&emsp;&emsp;&emsp;&emsp; [初期化付きswitch文](#SS_2_9_4_4)  
+[構文と制御構造](#SS_2_9)  
+&emsp;[属性構文](#SS_2_9_1)  
+&emsp;[範囲for文](#SS_2_9_2)  
+&emsp;[構造化束縛](#SS_2_9_3)  
+&emsp;[初期化付きif/switch文](#SS_2_9_4)  
+&emsp;&emsp;[初期化付きfor文(従来のfor文)](#SS_2_9_4_1)  
+&emsp;&emsp;[初期化付きwhile文(従来のwhile文)](#SS_2_9_4_2)  
+&emsp;&emsp;[初期化付きif文](#SS_2_9_4_3)  
+&emsp;&emsp;[初期化付きswitch文](#SS_2_9_4_4)  
 
-&emsp;&emsp; [言語拡張機能](#SS_2_10)  
-&emsp;&emsp;&emsp; [コルーチン](#SS_2_10_1)  
-&emsp;&emsp;&emsp;&emsp; [co_await](#SS_2_10_1_1)  
-&emsp;&emsp;&emsp;&emsp; [co_return](#SS_2_10_1_2)  
-&emsp;&emsp;&emsp;&emsp; [co_yield](#SS_2_10_1_3)  
+[言語拡張機能](#SS_2_10)  
+&emsp;[コルーチン](#SS_2_10_1)  
+&emsp;&emsp;[co_await](#SS_2_10_1_1)  
+&emsp;&emsp;[co_return](#SS_2_10_1_2)  
+&emsp;&emsp;[co_yield](#SS_2_10_1_3)  
 
-&emsp;&emsp;&emsp; [モジュール](#SS_2_10_2)  
-&emsp;&emsp;&emsp; [ラムダ式](#SS_2_10_3)  
-&emsp;&emsp;&emsp;&emsp; [クロージャ](#SS_2_10_3_1)  
-&emsp;&emsp;&emsp;&emsp; [クロージャ型](#SS_2_10_3_2)  
-&emsp;&emsp;&emsp;&emsp; [一時的ラムダ](#SS_2_10_3_3)  
-&emsp;&emsp;&emsp;&emsp; [transient lambda](#SS_2_10_3_4)  
+&emsp;[モジュール](#SS_2_10_2)  
+&emsp;[ラムダ式](#SS_2_10_3)  
+&emsp;&emsp;[クロージャ](#SS_2_10_3_1)  
+&emsp;&emsp;[クロージャ型](#SS_2_10_3_2)  
+&emsp;&emsp;[一時的ラムダ](#SS_2_10_3_3)  
+&emsp;&emsp;[transient lambda](#SS_2_10_3_4)  
 
-&emsp;&emsp;&emsp; [指示付き初期化](#SS_2_10_4)  
+&emsp;[指示付き初期化](#SS_2_10_4)  
 
-&emsp;&emsp; [テンプレートと型推論](#SS_2_11)  
-&emsp;&emsp;&emsp; [SFINAE](#SS_2_11_1)  
-&emsp;&emsp;&emsp; [メタ関数](#SS_2_11_2)  
-&emsp;&emsp;&emsp; [コンセプト](#SS_2_11_3)  
-&emsp;&emsp;&emsp; [パラメータパック](#SS_2_11_4)  
-&emsp;&emsp;&emsp; [畳み込み式](#SS_2_11_5)  
-&emsp;&emsp;&emsp; [ジェネリックラムダ](#SS_2_11_6)  
-&emsp;&emsp;&emsp; [クラステンプレートのテンプレート引数の型推論](#SS_2_11_7)  
-&emsp;&emsp;&emsp; [CTAD(Class Template Argument Deduction)](#SS_2_11_8)  
-&emsp;&emsp;&emsp; [テンプレートの型推論ガイド](#SS_2_11_9)  
-&emsp;&emsp;&emsp; [変数テンプレート](#SS_2_11_10)  
-&emsp;&emsp;&emsp; [エイリアステンプレート](#SS_2_11_11)  
-&emsp;&emsp;&emsp; [constexpr if文](#SS_2_11_12)  
-&emsp;&emsp;&emsp; [autoパラメータによる関数テンプレートの簡易定義](#SS_2_11_13)  
-&emsp;&emsp;&emsp; [auto](#SS_2_11_14)  
-&emsp;&emsp;&emsp; [decltype](#SS_2_11_15)  
-&emsp;&emsp;&emsp; [decltype(auto)](#SS_2_11_16)  
-&emsp;&emsp;&emsp; [戻り値型を後置する関数宣言](#SS_2_11_17)  
-&emsp;&emsp;&emsp; [関数の戻り値型auto](#SS_2_11_18)  
-&emsp;&emsp;&emsp; [後置戻り値型auto](#SS_2_11_19)  
+[テンプレートと型推論](#SS_2_11)  
+&emsp;[SFINAE](#SS_2_11_1)  
+&emsp;[メタ関数](#SS_2_11_2)  
+&emsp;[コンセプト](#SS_2_11_3)  
+&emsp;[パラメータパック](#SS_2_11_4)  
+&emsp;[畳み込み式](#SS_2_11_5)  
+&emsp;[ジェネリックラムダ](#SS_2_11_6)  
+&emsp;[クラステンプレートのテンプレート引数の型推論](#SS_2_11_7)  
+&emsp;[CTAD(Class Template Argument Deduction)](#SS_2_11_8)  
+&emsp;[テンプレートの型推論ガイド](#SS_2_11_9)  
+&emsp;[変数テンプレート](#SS_2_11_10)  
+&emsp;[エイリアステンプレート](#SS_2_11_11)  
+&emsp;[constexpr if文](#SS_2_11_12)  
+&emsp;[autoパラメータによる関数テンプレートの簡易定義](#SS_2_11_13)  
+&emsp;[auto](#SS_2_11_14)  
+&emsp;[decltype](#SS_2_11_15)  
+&emsp;[decltype(auto)](#SS_2_11_16)  
+&emsp;[戻り値型を後置する関数宣言](#SS_2_11_17)  
+&emsp;[関数の戻り値型auto](#SS_2_11_18)  
+&emsp;[後置戻り値型auto](#SS_2_11_19)  
 
-&emsp;&emsp; [name lookupと継承構造](#SS_2_12)  
-&emsp;&emsp;&emsp; [ルックアップ](#SS_2_12_1)  
-&emsp;&emsp;&emsp; [name lookup](#SS_2_12_2)  
-&emsp;&emsp;&emsp; [two phase name lookup](#SS_2_12_3)  
-&emsp;&emsp;&emsp; [実引数依存探索](#SS_2_12_4)  
-&emsp;&emsp;&emsp; [ADL](#SS_2_12_5)  
-&emsp;&emsp;&emsp; [関連名前空間](#SS_2_12_6)  
-&emsp;&emsp;&emsp; [修飾付き関数呼び出し](#SS_2_12_7)  
-&emsp;&emsp;&emsp; [hidden-friend関数](#SS_2_12_8)  
-&emsp;&emsp;&emsp; [name-hiding](#SS_2_12_9)  
-&emsp;&emsp;&emsp; [ダイヤモンド継承](#SS_2_12_10)  
-&emsp;&emsp;&emsp; [仮想継承](#SS_2_12_11)  
-&emsp;&emsp;&emsp; [仮想基底](#SS_2_12_12)  
-&emsp;&emsp;&emsp; [ドミナンス](#SS_2_12_13)  
-&emsp;&emsp;&emsp;&emsp; [ダイヤモンド継承を含まない場合](#SS_2_12_13_1)  
-&emsp;&emsp;&emsp;&emsp; [ダイヤモンド継承かつそれが仮想継承でない場合](#SS_2_12_13_2)  
-&emsp;&emsp;&emsp;&emsp; [ダイヤモンド継承かつそれが仮想継承である場合](#SS_2_12_13_3)  
+[name lookupと継承構造](#SS_2_12)  
+&emsp;[ルックアップ](#SS_2_12_1)  
+&emsp;[name lookup](#SS_2_12_2)  
+&emsp;[two phase name lookup](#SS_2_12_3)  
+&emsp;[実引数依存探索](#SS_2_12_4)  
+&emsp;[ADL](#SS_2_12_5)  
+&emsp;[関連名前空間](#SS_2_12_6)  
+&emsp;[修飾付き関数呼び出し](#SS_2_12_7)  
+&emsp;[hidden-friend関数](#SS_2_12_8)  
+&emsp;[name-hiding](#SS_2_12_9)  
+&emsp;[ダイヤモンド継承](#SS_2_12_10)  
+&emsp;[仮想継承](#SS_2_12_11)  
+&emsp;[仮想基底](#SS_2_12_12)  
+&emsp;[ドミナンス](#SS_2_12_13)  
+&emsp;&emsp;[ダイヤモンド継承を含まない場合](#SS_2_12_13_1)  
+&emsp;&emsp;[ダイヤモンド継承かつそれが仮想継承でない場合](#SS_2_12_13_2)  
+&emsp;&emsp;[ダイヤモンド継承かつそれが仮想継承である場合](#SS_2_12_13_3)  
 
-&emsp;&emsp;&emsp; [using宣言](#SS_2_12_14)  
-&emsp;&emsp;&emsp; [usingディレクティブ](#SS_2_12_15)  
+&emsp;[using宣言](#SS_2_12_14)  
+&emsp;[usingディレクティブ](#SS_2_12_15)  
 
-&emsp;&emsp; [エクセプション](#SS_2_13)  
-&emsp;&emsp;&emsp; [try-catch](#SS_2_13_1)  
-&emsp;&emsp;&emsp; [関数tryブロック](#SS_2_13_2)  
-&emsp;&emsp;&emsp; [エクセプションのthrow](#SS_2_13_3)  
-&emsp;&emsp;&emsp; [エクセプションの再throw](#SS_2_13_4)  
-&emsp;&emsp;&emsp; [catch-all](#SS_2_13_5)  
-&emsp;&emsp;&emsp; [noexcept](#SS_2_13_6)  
-&emsp;&emsp;&emsp; [エクセプション安全性の保証](#SS_2_13_7)  
-&emsp;&emsp;&emsp;&emsp; [no-fail保証](#SS_2_13_7_1)  
-&emsp;&emsp;&emsp;&emsp; [強い安全性の保証](#SS_2_13_7_2)  
-&emsp;&emsp;&emsp;&emsp; [基本的な安全性の保証](#SS_2_13_7_3)  
+[エクセプション](#SS_2_13)  
+&emsp;[try-catch](#SS_2_13_1)  
+&emsp;[関数tryブロック](#SS_2_13_2)  
+&emsp;[エクセプションのthrow](#SS_2_13_3)  
+&emsp;[エクセプションの再throw](#SS_2_13_4)  
+&emsp;[catch-all](#SS_2_13_5)  
+&emsp;[noexcept](#SS_2_13_6)  
+&emsp;[エクセプション安全性の保証](#SS_2_13_7)  
+&emsp;&emsp;[no-fail保証](#SS_2_13_7_1)  
+&emsp;&emsp;[強い安全性の保証](#SS_2_13_7_2)  
+&emsp;&emsp;[基本的な安全性の保証](#SS_2_13_7_3)  
 
-&emsp;&emsp;&emsp; [exception-unfriendly](#SS_2_13_8)  
+&emsp;[exception-unfriendly](#SS_2_13_8)  
 
-&emsp;&emsp; [言語仕様の定義要素](#SS_2_14)  
-&emsp;&emsp;&emsp; [ill-formed](#SS_2_14_1)  
-&emsp;&emsp;&emsp; [well-formed](#SS_2_14_2)  
-&emsp;&emsp;&emsp; [未定義動作](#SS_2_14_3)  
-&emsp;&emsp;&emsp; [未規定動作](#SS_2_14_4)  
-&emsp;&emsp;&emsp; [未定義動作と未規定動作](#SS_2_14_5)  
-&emsp;&emsp;&emsp; [被修飾型](#SS_2_14_6)  
-&emsp;&emsp;&emsp; [実引数/仮引数](#SS_2_14_7)  
-&emsp;&emsp;&emsp; [単純代入](#SS_2_14_8)  
-&emsp;&emsp;&emsp; [one-definition rule](#SS_2_14_9)  
-&emsp;&emsp;&emsp; [ODR](#SS_2_14_10)  
-&emsp;&emsp;&emsp; [型特性キーワード](#SS_2_14_11)  
-&emsp;&emsp;&emsp;&emsp; [alignof](#SS_2_14_11_1)  
-&emsp;&emsp;&emsp;&emsp; [alignas](#SS_2_14_11_2)  
-&emsp;&emsp;&emsp;&emsp; [addressof](#SS_2_14_11_3)  
+[言語仕様の定義要素](#SS_2_14)  
+&emsp;[ill-formed](#SS_2_14_1)  
+&emsp;[well-formed](#SS_2_14_2)  
+&emsp;[未定義動作](#SS_2_14_3)  
+&emsp;[未規定動作](#SS_2_14_4)  
+&emsp;[未定義動作と未規定動作](#SS_2_14_5)  
+&emsp;[被修飾型](#SS_2_14_6)  
+&emsp;[実引数/仮引数](#SS_2_14_7)  
+&emsp;[単純代入](#SS_2_14_8)  
+&emsp;[one-definition rule](#SS_2_14_9)  
+&emsp;[ODR](#SS_2_14_10)  
+&emsp;[型特性キーワード](#SS_2_14_11)  
+&emsp;&emsp;[alignof](#SS_2_14_11_1)  
+&emsp;&emsp;[alignas](#SS_2_14_11_2)  
+&emsp;&emsp;[addressof](#SS_2_14_11_3)  
 
-&emsp;&emsp;&emsp; [演算子のオペランドの評価順位](#SS_2_14_12)  
+&emsp;[演算子のオペランドの評価順位](#SS_2_14_12)  
 
-&emsp;&emsp; [その他](#SS_2_15)  
-&emsp;&emsp;&emsp; [RVO(Return Value Optimization)](#SS_2_15_1)  
-&emsp;&emsp;&emsp; [トライグラフ](#SS_2_15_2)  
+[その他](#SS_2_15)  
+&emsp;[RVO(Return Value Optimization)](#SS_2_15_1)  
+&emsp;[トライグラフ](#SS_2_15_2)  
   
   
 
@@ -5217,11 +5217,13 @@ C++20から導入された「コンセプト(concepts)」は、
     ASSERT_EQ(4, parameter_pack_count);
 ```
 
+
 ### 畳み込み式 <a id="SS_2_11_5"></a>
 畳み式(fold expression)とは、C++17から導入された新機能であり、
 可変引数テンプレートのパラメータパックに対して二項演算を累積的に行うためのものである。
 
 畳み込み式のシンタックスの使用は下記のようなものである。
+
 ```
 ( pack op ... )          // (1) 単項右畳み込み
 ( ... op pack )          // (2) 単項左畳み込み
@@ -5230,6 +5232,7 @@ C++20から導入された「コンセプト(concepts)」は、
 ```
 
 1. 単項右畳み込み
+
 ```cpp
     //  example/core_lang_spec/flold_expression_ut.cpp 9
 
@@ -5257,7 +5260,9 @@ C++20から導入された「コンセプト(concepts)」は、
     static_assert(cpp14_style::all_true(true, true, true));
     static_assert(cpp17_style::all_true(true, true, true));
 ```
+
 2. 単項左畳み込み
+
 ```cpp
     //  example/core_lang_spec/flold_expression_ut.cpp 36
     namespace cpp14_style {  // c++14までのスタイル
@@ -5283,7 +5288,9 @@ C++20から導入された「コンセプト(concepts)」は、
     static_assert(cpp14_style::any_true(false, false, true));
     static_assert(cpp17_style::any_true(false, false, true));
 ```
+
 3. 二項右畳み込み
+
 ```cpp
     //  example/core_lang_spec/flold_expression_ut.cpp 61
 
@@ -5312,7 +5319,9 @@ C++20から導入された「コンセプト(concepts)」は、
     static_assert(cpp14_style::sum(1, 2, 3));
     static_assert(cpp17_style::sum(1, 2, 3));
 ```
+
 4. 二項左畳み込み
+
 ```cpp
     //  example/core_lang_spec/flold_expression_ut.cpp 89
 
@@ -7786,76 +7795,76 @@ ___
 
 __この章の構成__
 
-&emsp;&emsp; [ユーティリティ](#SS_3_1)  
-&emsp;&emsp;&emsp; [std::move](#SS_3_1_1)  
-&emsp;&emsp;&emsp; [std::forward](#SS_3_1_2)  
+[ユーティリティ](#SS_3_1)  
+&emsp;[std::move](#SS_3_1_1)  
+&emsp;[std::forward](#SS_3_1_2)  
 
-&emsp;&emsp; [type_traits](#SS_3_2)  
-&emsp;&emsp;&emsp; [std::integral_constant](#SS_3_2_1)  
-&emsp;&emsp;&emsp; [std::true_type](#SS_3_2_2)  
-&emsp;&emsp;&emsp; [std::false_type](#SS_3_2_3)  
-&emsp;&emsp;&emsp; [std::is_same](#SS_3_2_4)  
-&emsp;&emsp;&emsp; [std::enable_if](#SS_3_2_5)  
-&emsp;&emsp;&emsp; [std::conditional](#SS_3_2_6)  
-&emsp;&emsp;&emsp; [std::is_void](#SS_3_2_7)  
-&emsp;&emsp;&emsp; [std::is_copy_assignable](#SS_3_2_8)  
-&emsp;&emsp;&emsp; [std::is_move_assignable](#SS_3_2_9)  
+[type_traits](#SS_3_2)  
+&emsp;[std::integral_constant](#SS_3_2_1)  
+&emsp;[std::true_type](#SS_3_2_2)  
+&emsp;[std::false_type](#SS_3_2_3)  
+&emsp;[std::is_same](#SS_3_2_4)  
+&emsp;[std::enable_if](#SS_3_2_5)  
+&emsp;[std::conditional](#SS_3_2_6)  
+&emsp;[std::is_void](#SS_3_2_7)  
+&emsp;[std::is_copy_assignable](#SS_3_2_8)  
+&emsp;[std::is_move_assignable](#SS_3_2_9)  
 
-&emsp;&emsp; [標準エクセプションクラス](#SS_3_3)  
-&emsp;&emsp;&emsp; [std::exception](#SS_3_3_1)  
+[標準エクセプションクラス](#SS_3_3)  
+&emsp;[std::exception](#SS_3_3_1)  
 
-&emsp;&emsp; [並列処理](#SS_3_4)  
-&emsp;&emsp;&emsp; [std::thread](#SS_3_4_1)  
-&emsp;&emsp;&emsp; [std::mutex](#SS_3_4_2)  
-&emsp;&emsp;&emsp; [std::atomic](#SS_3_4_3)  
-&emsp;&emsp;&emsp; [std::condition_variable](#SS_3_4_4)  
+[並列処理](#SS_3_4)  
+&emsp;[std::thread](#SS_3_4_1)  
+&emsp;[std::mutex](#SS_3_4_2)  
+&emsp;[std::atomic](#SS_3_4_3)  
+&emsp;[std::condition_variable](#SS_3_4_4)  
 
-&emsp;&emsp; [ロック所有ラッパー](#SS_3_5)  
-&emsp;&emsp;&emsp; [std::lock_guard](#SS_3_5_1)  
-&emsp;&emsp;&emsp; [std::unique_lock](#SS_3_5_2)  
-&emsp;&emsp;&emsp; [std::scoped_lock](#SS_3_5_3)  
+[ロック所有ラッパー](#SS_3_5)  
+&emsp;[std::lock_guard](#SS_3_5_1)  
+&emsp;[std::unique_lock](#SS_3_5_2)  
+&emsp;[std::scoped_lock](#SS_3_5_3)  
 
-&emsp;&emsp; [スマートポインタ](#SS_3_6)  
-&emsp;&emsp;&emsp; [std::unique_ptr](#SS_3_6_1)  
-&emsp;&emsp;&emsp;&emsp; [std::make_unique](#SS_3_6_1_1)  
+[スマートポインタ](#SS_3_6)  
+&emsp;[std::unique_ptr](#SS_3_6_1)  
+&emsp;&emsp;[std::make_unique](#SS_3_6_1_1)  
 
-&emsp;&emsp;&emsp; [std::shared_ptr](#SS_3_6_2)  
-&emsp;&emsp;&emsp;&emsp; [std::make_shared](#SS_3_6_2_1)  
-&emsp;&emsp;&emsp;&emsp; [std::enable_shared_from_this](#SS_3_6_2_2)  
+&emsp;[std::shared_ptr](#SS_3_6_2)  
+&emsp;&emsp;[std::make_shared](#SS_3_6_2_1)  
+&emsp;&emsp;[std::enable_shared_from_this](#SS_3_6_2_2)  
 
-&emsp;&emsp;&emsp; [std::weak_ptr](#SS_3_6_3)  
-&emsp;&emsp;&emsp; [std::auto_ptr](#SS_3_6_4)  
+&emsp;[std::weak_ptr](#SS_3_6_3)  
+&emsp;[std::auto_ptr](#SS_3_6_4)  
 
-&emsp;&emsp; [Polymorphic Memory Resource(pmr)](#SS_3_7)  
-&emsp;&emsp;&emsp; [std::pmr::memory_resource](#SS_3_7_1)  
-&emsp;&emsp;&emsp; [std::pmr::polymorphic_allocator](#SS_3_7_2)  
-&emsp;&emsp;&emsp; [pool_resource](#SS_3_7_3)  
+[Polymorphic Memory Resource(pmr)](#SS_3_7)  
+&emsp;[std::pmr::memory_resource](#SS_3_7_1)  
+&emsp;[std::pmr::polymorphic_allocator](#SS_3_7_2)  
+&emsp;[pool_resource](#SS_3_7_3)  
 
-&emsp;&emsp; [コンテナ](#SS_3_8)  
-&emsp;&emsp;&emsp; [シーケンスコンテナ(Sequence Containers)](#SS_3_8_1)  
-&emsp;&emsp;&emsp;&emsp; [std::forward_list](#SS_3_8_1_1)  
+[コンテナ](#SS_3_8)  
+&emsp;[シーケンスコンテナ(Sequence Containers)](#SS_3_8_1)  
+&emsp;&emsp;[std::forward_list](#SS_3_8_1_1)  
 
-&emsp;&emsp;&emsp; [連想コンテナ(Associative Containers)](#SS_3_8_2)  
-&emsp;&emsp;&emsp; [無順序連想コンテナ(Unordered Associative Containers)](#SS_3_8_3)  
-&emsp;&emsp;&emsp;&emsp; [std::unordered_set](#SS_3_8_3_1)  
-&emsp;&emsp;&emsp;&emsp; [std::unordered_map](#SS_3_8_3_2)  
-&emsp;&emsp;&emsp;&emsp; [std::type_index](#SS_3_8_3_3)  
+&emsp;[連想コンテナ(Associative Containers)](#SS_3_8_2)  
+&emsp;[無順序連想コンテナ(Unordered Associative Containers)](#SS_3_8_3)  
+&emsp;&emsp;[std::unordered_set](#SS_3_8_3_1)  
+&emsp;&emsp;[std::unordered_map](#SS_3_8_3_2)  
+&emsp;&emsp;[std::type_index](#SS_3_8_3_3)  
 
-&emsp;&emsp;&emsp; [コンテナアダプタ(Container Adapters)](#SS_3_8_4)  
-&emsp;&emsp;&emsp; [特殊なコンテナ](#SS_3_8_5)  
+&emsp;[コンテナアダプタ(Container Adapters)](#SS_3_8_4)  
+&emsp;[特殊なコンテナ](#SS_3_8_5)  
 
-&emsp;&emsp; [std::optional](#SS_3_9)  
-&emsp;&emsp;&emsp; [戻り値の無効表現](#SS_3_9_1)  
-&emsp;&emsp;&emsp; [オブジェクトの遅延初期化](#SS_3_9_2)  
+[std::optional](#SS_3_9)  
+&emsp;[戻り値の無効表現](#SS_3_9_1)  
+&emsp;[オブジェクトの遅延初期化](#SS_3_9_2)  
 
-&emsp;&emsp; [std::variant](#SS_3_10)  
-&emsp;&emsp; [オブジェクトの比較](#SS_3_11)  
-&emsp;&emsp;&emsp; [std::rel_ops](#SS_3_11_1)  
-&emsp;&emsp;&emsp; [std::tuppleを使用した比較演算子の実装方法](#SS_3_11_2)  
+[std::variant](#SS_3_10)  
+[オブジェクトの比較](#SS_3_11)  
+&emsp;[std::rel_ops](#SS_3_11_1)  
+&emsp;[std::tuppleを使用した比較演算子の実装方法](#SS_3_11_2)  
 
-&emsp;&emsp; [その他](#SS_3_12)  
-&emsp;&emsp;&emsp; [SSO(Small String Optimization)](#SS_3_12_1)  
-&emsp;&emsp;&emsp; [heap allocation elision](#SS_3_12_2)  
+[その他](#SS_3_12)  
+&emsp;[SSO(Small String Optimization)](#SS_3_12_1)  
+&emsp;[heap allocation elision](#SS_3_12_2)  
   
   
 
@@ -8375,6 +8384,7 @@ atomicクラステンプレートは、型Tをアトミック操作するため�
 ### std::condition_variable <a id="SS_3_4_4"></a>
 condition_variable は、特定のイベントが発生するまでスレッドの待ち合わせを行うためのクラスである。
 最も単純な使用例を以下に示す(「[Spurious Wakeup](#SS_4_12_15)」参照)。
+
 ```cpp
     //  example/stdlib_and_concepts/thread_ut.cpp 135
 
@@ -9453,6 +9463,7 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
    条件によってはそれが無駄になる場合にこの機能を使う)
 
 ### 戻り値の無効表現 <a id="SS_3_9_1"></a>
+
 ```cpp
     //  example/stdlib_and_concepts/optional_ut.cpp 11
 
@@ -9483,7 +9494,9 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
     ASSERT_THROW(ret1.value(), std::bad_optional_access);  // 値非保持の場合、エクセプション発生
 ```
 
+
 ### オブジェクトの遅延初期化 <a id="SS_3_9_2"></a>
+
 ```cpp
     //  example/stdlib_and_concepts/optional_ut.cpp 43
 
@@ -9523,6 +9536,7 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
     ASSERT_TRUE(resource->is_ready());
     ASSERT_EQ(0xdeadbeaf, (*resource)[0]);
 ```
+
 
 ## std::variant <a id="SS_3_10"></a>
 std::variantは、C++17で導入された型安全なunionである。
@@ -9586,6 +9600,7 @@ std::variantとstd::visit([Visitor](#SS_5_1)パターンの実装の一種)を�
     output_from_variant(var, oss);
     ASSERT_EQ("42|3.14|Hello, world!", oss.str());
 ```
+
 
 ## オブジェクトの比較 <a id="SS_3_11"></a>
 ### std::rel_ops <a id="SS_3_11_1"></a>
@@ -9737,112 +9752,112 @@ ___
 
 __この章の構成__
 
-&emsp;&emsp; [イディオム](#SS_4_1)  
-&emsp;&emsp;&emsp; [ガード節(Early Return)](#SS_4_1_1)  
-&emsp;&emsp;&emsp; [RAII(scoped guard)](#SS_4_1_2)  
-&emsp;&emsp;&emsp; [Copy-And-Swap](#SS_4_1_3)  
-&emsp;&emsp;&emsp; [CRTP(curiously recurring template pattern)](#SS_4_1_4)  
-&emsp;&emsp;&emsp; [Accessor](#SS_4_1_5)  
-&emsp;&emsp;&emsp; [Immutable](#SS_4_1_6)  
-&emsp;&emsp;&emsp; [NVI(non virtual interface)](#SS_4_1_7)  
+[イディオム](#SS_4_1)  
+&emsp;[ガード節(Early Return)](#SS_4_1_1)  
+&emsp;[RAII(scoped guard)](#SS_4_1_2)  
+&emsp;[Copy-And-Swap](#SS_4_1_3)  
+&emsp;[CRTP(curiously recurring template pattern)](#SS_4_1_4)  
+&emsp;[Accessor](#SS_4_1_5)  
+&emsp;[Immutable](#SS_4_1_6)  
+&emsp;[NVI(non virtual interface)](#SS_4_1_7)  
 
-&emsp;&emsp; [実装パターン](#SS_4_2)  
-&emsp;&emsp;&emsp; [Pimpl](#SS_4_2_1)  
-&emsp;&emsp;&emsp; [lightweight Pimpl](#SS_4_2_2)  
-&emsp;&emsp;&emsp; [BitmaskType](#SS_4_2_3)  
-&emsp;&emsp;&emsp; [Future](#SS_4_2_4)  
-&emsp;&emsp;&emsp; [Null Object](#SS_4_2_5)  
-&emsp;&emsp;&emsp; [Cでのクラス表現](#SS_4_2_6)  
+[実装パターン](#SS_4_2)  
+&emsp;[Pimpl](#SS_4_2_1)  
+&emsp;[lightweight Pimpl](#SS_4_2_2)  
+&emsp;[BitmaskType](#SS_4_2_3)  
+&emsp;[Future](#SS_4_2_4)  
+&emsp;[Null Object](#SS_4_2_5)  
+&emsp;[Cでのクラス表現](#SS_4_2_6)  
 
-&emsp;&emsp; [オブジェクト指向](#SS_4_3)  
-&emsp;&emsp;&emsp; [is-a](#SS_4_3_1)  
-&emsp;&emsp;&emsp; [has-a](#SS_4_3_2)  
-&emsp;&emsp;&emsp; [is-implemented-in-terms-of](#SS_4_3_3)  
-&emsp;&emsp;&emsp;&emsp; [public継承によるis-implemented-in-terms-of](#SS_4_3_3_1)  
-&emsp;&emsp;&emsp;&emsp; [private継承によるis-implemented-in-terms-of](#SS_4_3_3_2)  
-&emsp;&emsp;&emsp;&emsp; [コンポジションによる(has-a)is-implemented-in-terms-of](#SS_4_3_3_3)  
+[オブジェクト指向](#SS_4_3)  
+&emsp;[is-a](#SS_4_3_1)  
+&emsp;[has-a](#SS_4_3_2)  
+&emsp;[is-implemented-in-terms-of](#SS_4_3_3)  
+&emsp;&emsp;[public継承によるis-implemented-in-terms-of](#SS_4_3_3_1)  
+&emsp;&emsp;[private継承によるis-implemented-in-terms-of](#SS_4_3_3_2)  
+&emsp;&emsp;[コンポジションによる(has-a)is-implemented-in-terms-of](#SS_4_3_3_3)  
 
-&emsp;&emsp; [オブジェクトの所有権](#SS_4_4)  
-&emsp;&emsp;&emsp; [オブジェクトの排他所有](#SS_4_4_1)  
-&emsp;&emsp;&emsp; [オブジェクトの共有所有](#SS_4_4_2)  
-&emsp;&emsp;&emsp; [オブジェクトの循環所有](#SS_4_4_3)  
+[オブジェクトの所有権](#SS_4_4)  
+&emsp;[オブジェクトの排他所有](#SS_4_4_1)  
+&emsp;[オブジェクトの共有所有](#SS_4_4_2)  
+&emsp;[オブジェクトの循環所有](#SS_4_4_3)  
 
-&emsp;&emsp; [copy/moveと等価性のセマンティクス](#SS_4_5)  
-&emsp;&emsp;&emsp; [等価性のセマンティクス](#SS_4_5_1)  
-&emsp;&emsp;&emsp; [copyセマンティクス](#SS_4_5_2)  
-&emsp;&emsp;&emsp; [moveセマンティクス](#SS_4_5_3)  
-&emsp;&emsp;&emsp; [MoveAssignable要件](#SS_4_5_4)  
-&emsp;&emsp;&emsp; [CopyAssignable要件](#SS_4_5_5)  
+[copy/moveと等価性のセマンティクス](#SS_4_5)  
+&emsp;[等価性のセマンティクス](#SS_4_5_1)  
+&emsp;[copyセマンティクス](#SS_4_5_2)  
+&emsp;[moveセマンティクス](#SS_4_5_3)  
+&emsp;[MoveAssignable要件](#SS_4_5_4)  
+&emsp;[CopyAssignable要件](#SS_4_5_5)  
 
-&emsp;&emsp; [関数設計のガイドライン](#SS_4_6)  
-&emsp;&emsp;&emsp; [関数の引数と戻り値の型](#SS_4_6_1)  
-&emsp;&emsp;&emsp; [サイクロマティック複雑度のクライテリア](#SS_4_6_2)  
-&emsp;&emsp;&emsp; [関数の行数のクライテリア](#SS_4_6_3)  
+[関数設計のガイドライン](#SS_4_6)  
+&emsp;[関数の引数と戻り値の型](#SS_4_6_1)  
+&emsp;[サイクロマティック複雑度のクライテリア](#SS_4_6_2)  
+&emsp;[関数の行数のクライテリア](#SS_4_6_3)  
 
-&emsp;&emsp; [クラス設計のガイドライン](#SS_4_7)  
-&emsp;&emsp;&emsp; [ゼロの原則(Rule of Zero)](#SS_4_7_1)  
-&emsp;&emsp;&emsp; [五の原則(Rule of Five)](#SS_4_7_2)  
-&emsp;&emsp;&emsp; [クラス凝集性のクライテリア](#SS_4_7_3)  
+[クラス設計のガイドライン](#SS_4_7)  
+&emsp;[ゼロの原則(Rule of Zero)](#SS_4_7_1)  
+&emsp;[五の原則(Rule of Five)](#SS_4_7_2)  
+&emsp;[クラス凝集性のクライテリア](#SS_4_7_3)  
 
-&emsp;&emsp; [Modern CMake project layout](#SS_4_8)  
-&emsp;&emsp;&emsp; [Modern CMake project layoutのカスタマイズ](#SS_4_8_1)  
+[Modern CMake project layout](#SS_4_8)  
+&emsp;[Modern CMake project layoutのカスタマイズ](#SS_4_8_1)  
 
-&emsp;&emsp; [コーディングスタイル](#SS_4_9)  
-&emsp;&emsp;&emsp; [AAAスタイル](#SS_4_9_1)  
-&emsp;&emsp;&emsp; [east-const](#SS_4_9_2)  
-&emsp;&emsp;&emsp; [west-const](#SS_4_9_3)  
-&emsp;&emsp;&emsp; [Trailing Underscore(末尾アンダースコア)](#SS_4_9_4)  
-&emsp;&emsp;&emsp; [ケース記法](#SS_4_9_5)  
-&emsp;&emsp;&emsp;&emsp; [スネークケース(snake_case)](#SS_4_9_5_1)  
-&emsp;&emsp;&emsp;&emsp; [アッパースネークケース(UPPER_SNAKE_CASE)](#SS_4_9_5_2)  
-&emsp;&emsp;&emsp;&emsp; [アッパーキャメルケース(UpperCamelCase)](#SS_4_9_5_3)  
-&emsp;&emsp;&emsp;&emsp; [ロワーキャメルケース(lowerCamelCase)](#SS_4_9_5_4)  
-&emsp;&emsp;&emsp;&emsp; [ケバブケース(kebab-case)](#SS_4_9_5_5)  
+[コーディングスタイル](#SS_4_9)  
+&emsp;[AAAスタイル](#SS_4_9_1)  
+&emsp;[east-const](#SS_4_9_2)  
+&emsp;[west-const](#SS_4_9_3)  
+&emsp;[Trailing Underscore(末尾アンダースコア)](#SS_4_9_4)  
+&emsp;[ケース記法](#SS_4_9_5)  
+&emsp;&emsp;[スネークケース(snake_case)](#SS_4_9_5_1)  
+&emsp;&emsp;[アッパースネークケース(UPPER_SNAKE_CASE)](#SS_4_9_5_2)  
+&emsp;&emsp;[アッパーキャメルケース(UpperCamelCase)](#SS_4_9_5_3)  
+&emsp;&emsp;[ロワーキャメルケース(lowerCamelCase)](#SS_4_9_5_4)  
+&emsp;&emsp;[ケバブケース(kebab-case)](#SS_4_9_5_5)  
 
-&emsp;&emsp; [オブジェクトのコピー](#SS_4_10)  
-&emsp;&emsp;&emsp; [シャローコピー](#SS_4_10_1)  
-&emsp;&emsp;&emsp; [ディープコピー](#SS_4_10_2)  
-&emsp;&emsp;&emsp; [スライシング](#SS_4_10_3)  
+[オブジェクトのコピー](#SS_4_10)  
+&emsp;[シャローコピー](#SS_4_10_1)  
+&emsp;[ディープコピー](#SS_4_10_2)  
+&emsp;[スライシング](#SS_4_10_3)  
 
-&emsp;&emsp; [C++注意点](#SS_4_11)  
-&emsp;&emsp;&emsp; [オーバーライドとオーバーロードの違い](#SS_4_11_1)  
-&emsp;&emsp;&emsp; [danglingリファレンス](#SS_4_11_2)  
-&emsp;&emsp;&emsp; [danglingポインタ](#SS_4_11_3)  
-&emsp;&emsp;&emsp; [Most Vexing Parse](#SS_4_11_4)  
-&emsp;&emsp;&emsp; [Static Initialization Order Fiasco(静的初期化順序問題)](#SS_4_11_5)  
-&emsp;&emsp;&emsp; [Unbounded Functions](#SS_4_11_6)  
+[C++注意点](#SS_4_11)  
+&emsp;[オーバーライドとオーバーロードの違い](#SS_4_11_1)  
+&emsp;[danglingリファレンス](#SS_4_11_2)  
+&emsp;[danglingポインタ](#SS_4_11_3)  
+&emsp;[Most Vexing Parse](#SS_4_11_4)  
+&emsp;[Static Initialization Order Fiasco(静的初期化順序問題)](#SS_4_11_5)  
+&emsp;[Unbounded Functions](#SS_4_11_6)  
 
-&emsp;&emsp; [ソフトウェア一般](#SS_4_12)  
-&emsp;&emsp;&emsp; [ヒープ](#SS_4_12_1)  
-&emsp;&emsp;&emsp; [プライオリティインバージョン](#SS_4_12_2)  
-&emsp;&emsp;&emsp; [スレッドセーフ](#SS_4_12_3)  
-&emsp;&emsp;&emsp; [リエントラント](#SS_4_12_4)  
-&emsp;&emsp;&emsp; [クリティカルセクション](#SS_4_12_5)  
-&emsp;&emsp;&emsp; [スピンロック](#SS_4_12_6)  
-&emsp;&emsp;&emsp; [ミックスイン](#SS_4_12_7)  
-&emsp;&emsp;&emsp; [ハンドル](#SS_4_12_8)  
-&emsp;&emsp;&emsp; [フリースタンディング環境](#SS_4_12_9)  
-&emsp;&emsp;&emsp; [メモリ保護機構](#SS_4_12_10)  
-&emsp;&emsp;&emsp; [CPU例外](#SS_4_12_11)  
-&emsp;&emsp;&emsp; [Fluent Interface](#SS_4_12_12)  
-&emsp;&emsp;&emsp; [サイクロマティック複雑度](#SS_4_12_13)  
-&emsp;&emsp;&emsp; [凝集性](#SS_4_12_14)  
-&emsp;&emsp;&emsp;&emsp; [凝集性の欠如](#SS_4_12_14_1)  
-&emsp;&emsp;&emsp;&emsp; [LCOM](#SS_4_12_14_2)  
-&emsp;&emsp;&emsp;&emsp; [PercentLackOfCohesion](#SS_4_12_14_3)  
+[ソフトウェア一般](#SS_4_12)  
+&emsp;[ヒープ](#SS_4_12_1)  
+&emsp;[プライオリティインバージョン](#SS_4_12_2)  
+&emsp;[スレッドセーフ](#SS_4_12_3)  
+&emsp;[リエントラント](#SS_4_12_4)  
+&emsp;[クリティカルセクション](#SS_4_12_5)  
+&emsp;[スピンロック](#SS_4_12_6)  
+&emsp;[ミックスイン](#SS_4_12_7)  
+&emsp;[ハンドル](#SS_4_12_8)  
+&emsp;[フリースタンディング環境](#SS_4_12_9)  
+&emsp;[メモリ保護機構](#SS_4_12_10)  
+&emsp;[CPU例外](#SS_4_12_11)  
+&emsp;[Fluent Interface](#SS_4_12_12)  
+&emsp;[サイクロマティック複雑度](#SS_4_12_13)  
+&emsp;[凝集性](#SS_4_12_14)  
+&emsp;&emsp;[凝集性の欠如](#SS_4_12_14_1)  
+&emsp;&emsp;[LCOM](#SS_4_12_14_2)  
+&emsp;&emsp;[PercentLackOfCohesion](#SS_4_12_14_3)  
 
-&emsp;&emsp;&emsp; [Spurious Wakeup](#SS_4_12_15)  
-&emsp;&emsp;&emsp; [副作用](#SS_4_12_16)  
-&emsp;&emsp;&emsp; [Itanium C++ ABI](#SS_4_12_17)  
+&emsp;[Spurious Wakeup](#SS_4_12_15)  
+&emsp;[副作用](#SS_4_12_16)  
+&emsp;[Itanium C++ ABI](#SS_4_12_17)  
 
-&emsp;&emsp; [C++コンパイラ](#SS_4_13)  
-&emsp;&emsp;&emsp; [g++](#SS_4_13_1)  
-&emsp;&emsp;&emsp; [clang++](#SS_4_13_2)  
+[C++コンパイラ](#SS_4_13)  
+&emsp;[g++](#SS_4_13_1)  
+&emsp;[clang++](#SS_4_13_2)  
 
-&emsp;&emsp; [非ソフトウェア用語](#SS_4_14)  
-&emsp;&emsp;&emsp; [セマンティクス](#SS_4_14_1)  
-&emsp;&emsp;&emsp; [割れ窓理論](#SS_4_14_2)  
-&emsp;&emsp;&emsp; [車輪の再発明](#SS_4_14_3)  
+[非ソフトウェア用語](#SS_4_14)  
+&emsp;[セマンティクス](#SS_4_14_1)  
+&emsp;[割れ窓理論](#SS_4_14_2)  
+&emsp;[車輪の再発明](#SS_4_14_3)  
   
   
 
@@ -14848,6 +14863,7 @@ Q = { (Mi, Mj) | i ≠ j, Ii ∩ Ij ≠ ∅ }   … 共有するインスタン�
 
 
 __[LCOM算出式（CK原式]__  
+
 ```
 LCOM = |P| - |Q|   （|P| > |Q| の場合）
 LCOM = 0           （|P| ≤ |Q| の場合）
@@ -14971,6 +14987,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 本ドキュメントで使用するg++/clang++のバージョンは以下のとおりである。
 
 ### g++ <a id="SS_4_13_1"></a>
+
 ```
     g++ (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0
     Copyright (C) 2021 Free Software Foundation, Inc.
@@ -14979,6 +14996,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 ```
 
 ### clang++ <a id="SS_4_13_2"></a>
+
 ```
     Ubuntu clang version 14.0.0-1ubuntu1
     Target: x86_64-pc-linux-gnu

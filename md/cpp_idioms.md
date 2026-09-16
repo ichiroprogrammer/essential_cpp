@@ -2383,6 +2383,7 @@ Q = { (Mi, Mj) | i ≠ j, Ii ∩ Ij ≠ ∅ }   … 共有するインスタン�
 
 
 __[LCOM算出式（CK原式]__  
+
 ```
 LCOM = |P| - |Q|   （|P| > |Q| の場合）
 LCOM = 0           （|P| ≤ |Q| の場合）
@@ -2457,6 +2458,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 本ドキュメントで使用するg++/clang++のバージョンは以下のとおりである。
 
 ### g++
+
 ```
     g++ (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0
     Copyright (C) 2021 Free Software Foundation, Inc.
@@ -2465,6 +2467,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 ```
 
 ### clang++
+
 ```
     Ubuntu clang version 14.0.0-1ubuntu1
     Target: x86_64-pc-linux-gnu

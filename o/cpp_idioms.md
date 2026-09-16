@@ -6,112 +6,112 @@ ___
 
 __この章の構成__
 
-&emsp;&emsp; [イディオム](cpp_idioms.md#SS_4_1)  
-&emsp;&emsp;&emsp; [ガード節(Early Return)](cpp_idioms.md#SS_4_1_1)  
-&emsp;&emsp;&emsp; [RAII(scoped guard)](cpp_idioms.md#SS_4_1_2)  
-&emsp;&emsp;&emsp; [Copy-And-Swap](cpp_idioms.md#SS_4_1_3)  
-&emsp;&emsp;&emsp; [CRTP(curiously recurring template pattern)](cpp_idioms.md#SS_4_1_4)  
-&emsp;&emsp;&emsp; [Accessor](cpp_idioms.md#SS_4_1_5)  
-&emsp;&emsp;&emsp; [Immutable](cpp_idioms.md#SS_4_1_6)  
-&emsp;&emsp;&emsp; [NVI(non virtual interface)](cpp_idioms.md#SS_4_1_7)  
+[イディオム](cpp_idioms.md#SS_4_1)  
+&emsp;[ガード節(Early Return)](cpp_idioms.md#SS_4_1_1)  
+&emsp;[RAII(scoped guard)](cpp_idioms.md#SS_4_1_2)  
+&emsp;[Copy-And-Swap](cpp_idioms.md#SS_4_1_3)  
+&emsp;[CRTP(curiously recurring template pattern)](cpp_idioms.md#SS_4_1_4)  
+&emsp;[Accessor](cpp_idioms.md#SS_4_1_5)  
+&emsp;[Immutable](cpp_idioms.md#SS_4_1_6)  
+&emsp;[NVI(non virtual interface)](cpp_idioms.md#SS_4_1_7)  
 
-&emsp;&emsp; [実装パターン](cpp_idioms.md#SS_4_2)  
-&emsp;&emsp;&emsp; [Pimpl](cpp_idioms.md#SS_4_2_1)  
-&emsp;&emsp;&emsp; [lightweight Pimpl](cpp_idioms.md#SS_4_2_2)  
-&emsp;&emsp;&emsp; [BitmaskType](cpp_idioms.md#SS_4_2_3)  
-&emsp;&emsp;&emsp; [Future](cpp_idioms.md#SS_4_2_4)  
-&emsp;&emsp;&emsp; [Null Object](cpp_idioms.md#SS_4_2_5)  
-&emsp;&emsp;&emsp; [Cでのクラス表現](cpp_idioms.md#SS_4_2_6)  
+[実装パターン](cpp_idioms.md#SS_4_2)  
+&emsp;[Pimpl](cpp_idioms.md#SS_4_2_1)  
+&emsp;[lightweight Pimpl](cpp_idioms.md#SS_4_2_2)  
+&emsp;[BitmaskType](cpp_idioms.md#SS_4_2_3)  
+&emsp;[Future](cpp_idioms.md#SS_4_2_4)  
+&emsp;[Null Object](cpp_idioms.md#SS_4_2_5)  
+&emsp;[Cでのクラス表現](cpp_idioms.md#SS_4_2_6)  
 
-&emsp;&emsp; [オブジェクト指向](cpp_idioms.md#SS_4_3)  
-&emsp;&emsp;&emsp; [is-a](cpp_idioms.md#SS_4_3_1)  
-&emsp;&emsp;&emsp; [has-a](cpp_idioms.md#SS_4_3_2)  
-&emsp;&emsp;&emsp; [is-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3)  
-&emsp;&emsp;&emsp;&emsp; [public継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_1)  
-&emsp;&emsp;&emsp;&emsp; [private継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_2)  
-&emsp;&emsp;&emsp;&emsp; [コンポジションによる(has-a)is-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_3)  
+[オブジェクト指向](cpp_idioms.md#SS_4_3)  
+&emsp;[is-a](cpp_idioms.md#SS_4_3_1)  
+&emsp;[has-a](cpp_idioms.md#SS_4_3_2)  
+&emsp;[is-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3)  
+&emsp;&emsp;[public継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_1)  
+&emsp;&emsp;[private継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_2)  
+&emsp;&emsp;[コンポジションによる(has-a)is-implemented-in-terms-of](cpp_idioms.md#SS_4_3_3_3)  
 
-&emsp;&emsp; [オブジェクトの所有権](cpp_idioms.md#SS_4_4)  
-&emsp;&emsp;&emsp; [オブジェクトの排他所有](cpp_idioms.md#SS_4_4_1)  
-&emsp;&emsp;&emsp; [オブジェクトの共有所有](cpp_idioms.md#SS_4_4_2)  
-&emsp;&emsp;&emsp; [オブジェクトの循環所有](cpp_idioms.md#SS_4_4_3)  
+[オブジェクトの所有権](cpp_idioms.md#SS_4_4)  
+&emsp;[オブジェクトの排他所有](cpp_idioms.md#SS_4_4_1)  
+&emsp;[オブジェクトの共有所有](cpp_idioms.md#SS_4_4_2)  
+&emsp;[オブジェクトの循環所有](cpp_idioms.md#SS_4_4_3)  
 
-&emsp;&emsp; [copy/moveと等価性のセマンティクス](cpp_idioms.md#SS_4_5)  
-&emsp;&emsp;&emsp; [等価性のセマンティクス](cpp_idioms.md#SS_4_5_1)  
-&emsp;&emsp;&emsp; [copyセマンティクス](cpp_idioms.md#SS_4_5_2)  
-&emsp;&emsp;&emsp; [moveセマンティクス](cpp_idioms.md#SS_4_5_3)  
-&emsp;&emsp;&emsp; [MoveAssignable要件](cpp_idioms.md#SS_4_5_4)  
-&emsp;&emsp;&emsp; [CopyAssignable要件](cpp_idioms.md#SS_4_5_5)  
+[copy/moveと等価性のセマンティクス](cpp_idioms.md#SS_4_5)  
+&emsp;[等価性のセマンティクス](cpp_idioms.md#SS_4_5_1)  
+&emsp;[copyセマンティクス](cpp_idioms.md#SS_4_5_2)  
+&emsp;[moveセマンティクス](cpp_idioms.md#SS_4_5_3)  
+&emsp;[MoveAssignable要件](cpp_idioms.md#SS_4_5_4)  
+&emsp;[CopyAssignable要件](cpp_idioms.md#SS_4_5_5)  
 
-&emsp;&emsp; [関数設計のガイドライン](cpp_idioms.md#SS_4_6)  
-&emsp;&emsp;&emsp; [関数の引数と戻り値の型](cpp_idioms.md#SS_4_6_1)  
-&emsp;&emsp;&emsp; [サイクロマティック複雑度のクライテリア](cpp_idioms.md#SS_4_6_2)  
-&emsp;&emsp;&emsp; [関数の行数のクライテリア](cpp_idioms.md#SS_4_6_3)  
+[関数設計のガイドライン](cpp_idioms.md#SS_4_6)  
+&emsp;[関数の引数と戻り値の型](cpp_idioms.md#SS_4_6_1)  
+&emsp;[サイクロマティック複雑度のクライテリア](cpp_idioms.md#SS_4_6_2)  
+&emsp;[関数の行数のクライテリア](cpp_idioms.md#SS_4_6_3)  
 
-&emsp;&emsp; [クラス設計のガイドライン](cpp_idioms.md#SS_4_7)  
-&emsp;&emsp;&emsp; [ゼロの原則(Rule of Zero)](cpp_idioms.md#SS_4_7_1)  
-&emsp;&emsp;&emsp; [五の原則(Rule of Five)](cpp_idioms.md#SS_4_7_2)  
-&emsp;&emsp;&emsp; [クラス凝集性のクライテリア](cpp_idioms.md#SS_4_7_3)  
+[クラス設計のガイドライン](cpp_idioms.md#SS_4_7)  
+&emsp;[ゼロの原則(Rule of Zero)](cpp_idioms.md#SS_4_7_1)  
+&emsp;[五の原則(Rule of Five)](cpp_idioms.md#SS_4_7_2)  
+&emsp;[クラス凝集性のクライテリア](cpp_idioms.md#SS_4_7_3)  
 
-&emsp;&emsp; [Modern CMake project layout](cpp_idioms.md#SS_4_8)  
-&emsp;&emsp;&emsp; [Modern CMake project layoutのカスタマイズ](cpp_idioms.md#SS_4_8_1)  
+[Modern CMake project layout](cpp_idioms.md#SS_4_8)  
+&emsp;[Modern CMake project layoutのカスタマイズ](cpp_idioms.md#SS_4_8_1)  
 
-&emsp;&emsp; [コーディングスタイル](cpp_idioms.md#SS_4_9)  
-&emsp;&emsp;&emsp; [AAAスタイル](cpp_idioms.md#SS_4_9_1)  
-&emsp;&emsp;&emsp; [east-const](cpp_idioms.md#SS_4_9_2)  
-&emsp;&emsp;&emsp; [west-const](cpp_idioms.md#SS_4_9_3)  
-&emsp;&emsp;&emsp; [Trailing Underscore(末尾アンダースコア)](cpp_idioms.md#SS_4_9_4)  
-&emsp;&emsp;&emsp; [ケース記法](cpp_idioms.md#SS_4_9_5)  
-&emsp;&emsp;&emsp;&emsp; [スネークケース(snake_case)](cpp_idioms.md#SS_4_9_5_1)  
-&emsp;&emsp;&emsp;&emsp; [アッパースネークケース(UPPER_SNAKE_CASE)](cpp_idioms.md#SS_4_9_5_2)  
-&emsp;&emsp;&emsp;&emsp; [アッパーキャメルケース(UpperCamelCase)](cpp_idioms.md#SS_4_9_5_3)  
-&emsp;&emsp;&emsp;&emsp; [ロワーキャメルケース(lowerCamelCase)](cpp_idioms.md#SS_4_9_5_4)  
-&emsp;&emsp;&emsp;&emsp; [ケバブケース(kebab-case)](cpp_idioms.md#SS_4_9_5_5)  
+[コーディングスタイル](cpp_idioms.md#SS_4_9)  
+&emsp;[AAAスタイル](cpp_idioms.md#SS_4_9_1)  
+&emsp;[east-const](cpp_idioms.md#SS_4_9_2)  
+&emsp;[west-const](cpp_idioms.md#SS_4_9_3)  
+&emsp;[Trailing Underscore(末尾アンダースコア)](cpp_idioms.md#SS_4_9_4)  
+&emsp;[ケース記法](cpp_idioms.md#SS_4_9_5)  
+&emsp;&emsp;[スネークケース(snake_case)](cpp_idioms.md#SS_4_9_5_1)  
+&emsp;&emsp;[アッパースネークケース(UPPER_SNAKE_CASE)](cpp_idioms.md#SS_4_9_5_2)  
+&emsp;&emsp;[アッパーキャメルケース(UpperCamelCase)](cpp_idioms.md#SS_4_9_5_3)  
+&emsp;&emsp;[ロワーキャメルケース(lowerCamelCase)](cpp_idioms.md#SS_4_9_5_4)  
+&emsp;&emsp;[ケバブケース(kebab-case)](cpp_idioms.md#SS_4_9_5_5)  
 
-&emsp;&emsp; [オブジェクトのコピー](cpp_idioms.md#SS_4_10)  
-&emsp;&emsp;&emsp; [シャローコピー](cpp_idioms.md#SS_4_10_1)  
-&emsp;&emsp;&emsp; [ディープコピー](cpp_idioms.md#SS_4_10_2)  
-&emsp;&emsp;&emsp; [スライシング](cpp_idioms.md#SS_4_10_3)  
+[オブジェクトのコピー](cpp_idioms.md#SS_4_10)  
+&emsp;[シャローコピー](cpp_idioms.md#SS_4_10_1)  
+&emsp;[ディープコピー](cpp_idioms.md#SS_4_10_2)  
+&emsp;[スライシング](cpp_idioms.md#SS_4_10_3)  
 
-&emsp;&emsp; [C++注意点](cpp_idioms.md#SS_4_11)  
-&emsp;&emsp;&emsp; [オーバーライドとオーバーロードの違い](cpp_idioms.md#SS_4_11_1)  
-&emsp;&emsp;&emsp; [danglingリファレンス](cpp_idioms.md#SS_4_11_2)  
-&emsp;&emsp;&emsp; [danglingポインタ](cpp_idioms.md#SS_4_11_3)  
-&emsp;&emsp;&emsp; [Most Vexing Parse](cpp_idioms.md#SS_4_11_4)  
-&emsp;&emsp;&emsp; [Static Initialization Order Fiasco(静的初期化順序問題)](cpp_idioms.md#SS_4_11_5)  
-&emsp;&emsp;&emsp; [Unbounded Functions](cpp_idioms.md#SS_4_11_6)  
+[C++注意点](cpp_idioms.md#SS_4_11)  
+&emsp;[オーバーライドとオーバーロードの違い](cpp_idioms.md#SS_4_11_1)  
+&emsp;[danglingリファレンス](cpp_idioms.md#SS_4_11_2)  
+&emsp;[danglingポインタ](cpp_idioms.md#SS_4_11_3)  
+&emsp;[Most Vexing Parse](cpp_idioms.md#SS_4_11_4)  
+&emsp;[Static Initialization Order Fiasco(静的初期化順序問題)](cpp_idioms.md#SS_4_11_5)  
+&emsp;[Unbounded Functions](cpp_idioms.md#SS_4_11_6)  
 
-&emsp;&emsp; [ソフトウェア一般](cpp_idioms.md#SS_4_12)  
-&emsp;&emsp;&emsp; [ヒープ](cpp_idioms.md#SS_4_12_1)  
-&emsp;&emsp;&emsp; [プライオリティインバージョン](cpp_idioms.md#SS_4_12_2)  
-&emsp;&emsp;&emsp; [スレッドセーフ](cpp_idioms.md#SS_4_12_3)  
-&emsp;&emsp;&emsp; [リエントラント](cpp_idioms.md#SS_4_12_4)  
-&emsp;&emsp;&emsp; [クリティカルセクション](cpp_idioms.md#SS_4_12_5)  
-&emsp;&emsp;&emsp; [スピンロック](cpp_idioms.md#SS_4_12_6)  
-&emsp;&emsp;&emsp; [ミックスイン](cpp_idioms.md#SS_4_12_7)  
-&emsp;&emsp;&emsp; [ハンドル](cpp_idioms.md#SS_4_12_8)  
-&emsp;&emsp;&emsp; [フリースタンディング環境](cpp_idioms.md#SS_4_12_9)  
-&emsp;&emsp;&emsp; [メモリ保護機構](cpp_idioms.md#SS_4_12_10)  
-&emsp;&emsp;&emsp; [CPU例外](cpp_idioms.md#SS_4_12_11)  
-&emsp;&emsp;&emsp; [Fluent Interface](cpp_idioms.md#SS_4_12_12)  
-&emsp;&emsp;&emsp; [サイクロマティック複雑度](cpp_idioms.md#SS_4_12_13)  
-&emsp;&emsp;&emsp; [凝集性](cpp_idioms.md#SS_4_12_14)  
-&emsp;&emsp;&emsp;&emsp; [凝集性の欠如](cpp_idioms.md#SS_4_12_14_1)  
-&emsp;&emsp;&emsp;&emsp; [LCOM](cpp_idioms.md#SS_4_12_14_2)  
-&emsp;&emsp;&emsp;&emsp; [PercentLackOfCohesion](cpp_idioms.md#SS_4_12_14_3)  
+[ソフトウェア一般](cpp_idioms.md#SS_4_12)  
+&emsp;[ヒープ](cpp_idioms.md#SS_4_12_1)  
+&emsp;[プライオリティインバージョン](cpp_idioms.md#SS_4_12_2)  
+&emsp;[スレッドセーフ](cpp_idioms.md#SS_4_12_3)  
+&emsp;[リエントラント](cpp_idioms.md#SS_4_12_4)  
+&emsp;[クリティカルセクション](cpp_idioms.md#SS_4_12_5)  
+&emsp;[スピンロック](cpp_idioms.md#SS_4_12_6)  
+&emsp;[ミックスイン](cpp_idioms.md#SS_4_12_7)  
+&emsp;[ハンドル](cpp_idioms.md#SS_4_12_8)  
+&emsp;[フリースタンディング環境](cpp_idioms.md#SS_4_12_9)  
+&emsp;[メモリ保護機構](cpp_idioms.md#SS_4_12_10)  
+&emsp;[CPU例外](cpp_idioms.md#SS_4_12_11)  
+&emsp;[Fluent Interface](cpp_idioms.md#SS_4_12_12)  
+&emsp;[サイクロマティック複雑度](cpp_idioms.md#SS_4_12_13)  
+&emsp;[凝集性](cpp_idioms.md#SS_4_12_14)  
+&emsp;&emsp;[凝集性の欠如](cpp_idioms.md#SS_4_12_14_1)  
+&emsp;&emsp;[LCOM](cpp_idioms.md#SS_4_12_14_2)  
+&emsp;&emsp;[PercentLackOfCohesion](cpp_idioms.md#SS_4_12_14_3)  
 
-&emsp;&emsp;&emsp; [Spurious Wakeup](cpp_idioms.md#SS_4_12_15)  
-&emsp;&emsp;&emsp; [副作用](cpp_idioms.md#SS_4_12_16)  
-&emsp;&emsp;&emsp; [Itanium C++ ABI](cpp_idioms.md#SS_4_12_17)  
+&emsp;[Spurious Wakeup](cpp_idioms.md#SS_4_12_15)  
+&emsp;[副作用](cpp_idioms.md#SS_4_12_16)  
+&emsp;[Itanium C++ ABI](cpp_idioms.md#SS_4_12_17)  
 
-&emsp;&emsp; [C++コンパイラ](cpp_idioms.md#SS_4_13)  
-&emsp;&emsp;&emsp; [g++](cpp_idioms.md#SS_4_13_1)  
-&emsp;&emsp;&emsp; [clang++](cpp_idioms.md#SS_4_13_2)  
+[C++コンパイラ](cpp_idioms.md#SS_4_13)  
+&emsp;[g++](cpp_idioms.md#SS_4_13_1)  
+&emsp;[clang++](cpp_idioms.md#SS_4_13_2)  
 
-&emsp;&emsp; [非ソフトウェア用語](cpp_idioms.md#SS_4_14)  
-&emsp;&emsp;&emsp; [セマンティクス](cpp_idioms.md#SS_4_14_1)  
-&emsp;&emsp;&emsp; [割れ窓理論](cpp_idioms.md#SS_4_14_2)  
-&emsp;&emsp;&emsp; [車輪の再発明](cpp_idioms.md#SS_4_14_3)  
+[非ソフトウェア用語](cpp_idioms.md#SS_4_14)  
+&emsp;[セマンティクス](cpp_idioms.md#SS_4_14_1)  
+&emsp;[割れ窓理論](cpp_idioms.md#SS_4_14_2)  
+&emsp;[車輪の再発明](cpp_idioms.md#SS_4_14_3)  
   
   
 
@@ -5117,6 +5117,7 @@ Q = { (Mi, Mj) | i ≠ j, Ii ∩ Ij ≠ ∅ }   … 共有するインスタン�
 
 
 __[LCOM算出式（CK原式]__  
+
 ```
 LCOM = |P| - |Q|   （|P| > |Q| の場合）
 LCOM = 0           （|P| ≤ |Q| の場合）
@@ -5240,6 +5241,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 本ドキュメントで使用するg++/clang++のバージョンは以下のとおりである。
 
 ### g++ <a id="SS_4_13_1"></a>
+
 ```
     g++ (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0
     Copyright (C) 2021 Free Software Foundation, Inc.
@@ -5248,6 +5250,7 @@ constがeast-const形式(T const)で表示されるのもこのABIの規約に�
 ```
 
 ### clang++ <a id="SS_4_13_2"></a>
+
 ```
     Ubuntu clang version 14.0.0-1ubuntu1
     Target: x86_64-pc-linux-gnu

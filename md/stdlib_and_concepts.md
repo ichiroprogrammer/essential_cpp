@@ -312,6 +312,7 @@ atomicクラステンプレートは、型Tをアトミック操作するため�
 ### std::condition_variable
 condition_variable は、特定のイベントが発生するまでスレッドの待ち合わせを行うためのクラスである。
 最も単純な使用例を以下に示す(「[Spurious Wakeup](---)」参照)。
+
 ```cpp
     // @@@ example/stdlib_and_concepts/thread_ut.cpp #3:0 begin
 ```
@@ -764,6 +765,7 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
    条件によってはそれが無駄になる場合にこの機能を使う)
 
 ### 戻り値の無効表現
+
 ```cpp
     // @@@ example/stdlib_and_concepts/optional_ut.cpp #0:0 begin
 ```
@@ -771,13 +773,16 @@ C++17から導入されたstd::optionalには、以下のような2つの用途�
     // @@@ example/stdlib_and_concepts/optional_ut.cpp #0:1 begin -1
 ```
 
+
 ### オブジェクトの遅延初期化
+
 ```cpp
     // @@@ example/stdlib_and_concepts/optional_ut.cpp #1:0 begin
 ```
 ```cpp
     // @@@ example/stdlib_and_concepts/optional_ut.cpp #1:1 begin -1
 ```
+
 
 ## std::variant
 std::variantは、C++17で導入された型安全なunionである。
@@ -802,6 +807,7 @@ std::variantとstd::visit([Visitor](---)パターンの実装の一種)を組み
 ```cpp
     // @@@ example/stdlib_and_concepts/variant_ut.cpp #1:1 begin -1
 ```
+
 
 ## オブジェクトの比較
 ### std::rel_ops

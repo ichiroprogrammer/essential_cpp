@@ -2382,11 +2382,13 @@ C++20から導入された「コンセプト(concepts)」は、
     // @@@ example/core_lang_spec/template_ut.cpp #3:1 begin -1
 ```
 
+
 ### 畳み込み式
 畳み式(fold expression)とは、C++17から導入された新機能であり、
 可変引数テンプレートのパラメータパックに対して二項演算を累積的に行うためのものである。
 
 畳み込み式のシンタックスの使用は下記のようなものである。
+
 ```
 ( pack op ... )          // (1) 単項右畳み込み
 ( ... op pack )          // (2) 単項左畳み込み
@@ -2395,18 +2397,25 @@ C++20から導入された「コンセプト(concepts)」は、
 ```
 
 1. 単項右畳み込み
+
 ```cpp
     // @@@ example/core_lang_spec/flold_expression_ut.cpp #0:0 begin 
 ```
+
 2. 単項左畳み込み
+
 ```cpp
     // @@@ example/core_lang_spec/flold_expression_ut.cpp #0:1 begin 
 ```
+
 3. 二項右畳み込み
+
 ```cpp
     // @@@ example/core_lang_spec/flold_expression_ut.cpp #0:2 begin 
 ```
+
 4. 二項左畳み込み
+
 ```cpp
     // @@@ example/core_lang_spec/flold_expression_ut.cpp #0:3 begin 
 ```

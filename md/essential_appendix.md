@@ -113,5 +113,17 @@ Visitorは、クラス構造とそれに関連するアルゴリズムを分離�
 ## 5の原則(Rule of Five)
 説明省略
 
+## オーバーライドとオーバーロードの違い
+説明省略
+
+## Static Initialization Order Fiasco(静的初期化順序問題)
+説明省略
+
+## danglingリファレンス
+説明省略
+
+## danglingポインタ
+説明省略
+
 
 

@@ -485,7 +485,10 @@ transfer_ng()がデッドロックを引き起こすシナリオは、以下の�
     // @@@ example/stdlib_and_concepts/lock_ownership_wrapper_ut.cpp #3:2 begin -1
 ```
 
-## スマートポインタ
+## スマートポインタとオブジェクトの所有権
+この節では、スマートポインタとそれに密接な関係を持つオブジェクトの所有権について解説する。
+
+### スマートポインタ
 スマートポインタは、C++標準ライブラリが提供するメモリ管理クラス群を指す。
 生のポインタの代わりに使用され、リソース管理を容易にし、
 メモリリークや二重解放といった問題を防ぐことを目的としている。
@@ -501,7 +504,7 @@ C++標準ライブラリでは、主に以下の3種類のスマートポイン�
     - [std::weak_ptr](---)
 * [std::auto_ptr](---)
 
-### std::unique_ptr
+#### std::unique_ptr
 std::unique_ptrは、C++11で導入されたスマートポインタの一種であり、std::shared_ptrとは異なり、
 [オブジェクトの排他所有](---)を表すために用いられる。所有権は一つのunique_ptrインスタンスに限定され、
 他のポインタと共有することはできない。ムーブ操作によってのみ所有権を移譲でき、
@@ -513,20 +516,20 @@ std::unique_ptrは、C++11で導入されたスマートポインタの一種で
 
 使用例については、「[オブジェクトの排他所有](---)」を参照せよ。
 
-### std::shared_ptr
+#### std::shared_ptr
 std::shared_ptrは、同じくC++11で導入されたスマートポインタであり、[オブジェクトの共有所有](---)を表すために用いられる。
 複数のshared_ptrインスタンスが同じリソースを参照でき、
 内部の参照カウントによって最後の所有者が破棄された時点でリソースが解放される。
 [std::weak_ptr](---)は、shared_ptrと連携して使用されるスマートポインタであり、オブジェクトの非所有参照を表す。
 参照カウントには影響せず、循環参照を防ぐために用いられる。weak_ptrから一時的にshared_ptrを取得するにはlock()を使用する。
 
-#### std::make_shared
+##### std::make_shared
 [std::make_shared\<T\>(Args...)](https://cpprefjp.github.io/reference/memory/make_shared.html)は、
 クラスTをダイナミックに生成し、そのポインタを保持するshared_ptrオブジェクトを生成する。
 
 使用例については、「[オブジェクトの共有所有](---)」を参照せよ。
 
-#### std::enable_shared_from_this
+##### std::enable_shared_from_this
 `std::enable_shared_from_this`は、`shared_ptr`で管理されているオブジェクトが、
 自分自身への`shared_ptr`を安全に取得するための仕組みである。
 
@@ -567,7 +570,7 @@ shared_ptrのコンストラクタがenable_shared_from_thisの存在を検出�
 C++17以降では、`weak_from_this()`メソッドも提供されている。これはshared_from_this()と同様の仕組みだが、
 weak_ptrを返すため[オブジェクトの循環所有](---)を避けたい場合に有用である。
 
-### std::weak_ptr
+#### std::weak_ptr
 std::weak_ptrは、スマートポインタの一種である。
 
 std::weak_ptrは参照カウントに影響を与えず、[std::shared_ptr](---)とオブジェクトを共有所有するのではなく、
@@ -607,10 +610,291 @@ Xと修正版Yの単体テストによりメモリーリークが修正された
 - 必要に応じて`lock()`でオブジェクトにアクセスできる
 - オブジェクトが既に解放されている場合は`lock()`が空の`shared_ptr`を返すため、安全に処理できる
 
-### std::auto_ptr
+#### std::auto_ptr
 `std::auto_ptr`はC++11以前に導入された初期のスマートポインタであるが、異常な[copyセマンティクス](---)を持つため、
 多くの誤用を生み出し、C++11から非推奨とされ、C++17から規格から排除された。
 
+
+---
+
+### オブジェクトの所有権
+
+オブジェクトの所有権とは、
+「誰がそのオブジェクトの寿命（生成から破棄まで）を管理し、解放する責任を持つか」という概念である。
+
+メモリリークや二重解放を防ぐため、前節で解説した[スマートポインタ](---)を用いて所有権を明確化することができる。
+
+オブジェクトの所有権のスタイルは、以下の3つに分類できる。
+
+- [オブジェクトの排他所有](---)
+- [オブジェクトの共有所有](---)
+- [オブジェクトの循環所有](---)
+
+
+#### オブジェクトの排他所有
+オブジェクトの排他所有や、それを容易に実現するための
+[std::unique_ptr](https://cpprefjp.github.io/reference/memory/unique_ptr.html)
+の仕様を説明するために、下記のようにクラスA、Xを定義する。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:0 begin
+```
+
+下記に示した上記クラスの単体テストにより、
+オブジェクトの所有権やその移動、
+std::unique_ptr、std::move()、[expression|rvalue](---)の関係を解説する。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:1 begin -1
+```
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:2 begin -1
+```
+
+![所有権1](plant_uml/unique_ownership_1.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:3 begin -1
+```
+
+![所有権2](plant_uml/unique_ownership_2.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:4 begin -1
+```
+![所有権3](plant_uml/unique_ownership_3.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:5 begin -1
+```
+
+![所有権4](plant_uml/unique_ownership_4.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:6 begin -1
+```
+
+![所有権5](plant_uml/unique_ownership_5.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #0:7 begin -1
+```
+
+![所有権6](plant_uml/unique_ownership_6.png)
+
+
+また、以下に見るようにstd::unique_ptrはcopy生成やcopy代入を許可しない。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #1:0 begin -1
+```
+
+以上で示したstd::unique_ptrの仕様の要点をまとめると、以下のようになる。
+
+* std::unique_ptrはダイナミックに生成されたオブジェクトを保持する。
+* ダイナミックに生成されたオブジェクトを保持するstd::unique_ptrがスコープアウトすると、
+  保持中のオブジェクトは自動的にdeleteされる。
+* 保持中のオブジェクトを他のstd::unique_ptrにmoveすることはできるが、
+  copyすることはできない。このため、下記に示すような不正な方法以外で、
+  複数のstd::unique_ptrが1つのオブジェクトを共有することはできない。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/unique_ptr_ownership_ut.cpp #2:0 begin -1
+```
+
+こういった機能によりstd::unique_ptrはオブジェクトの排他所有を実現している。
+
+---
+
+#### オブジェクトの共有所有
+オブジェクトの共有所有や、それを容易に実現するための
+[std::shared_ptr](https://cpprefjp.github.io/reference/memory/shared_ptr.html)
+の仕様を説明するために、下記のようにクラスA、Xを定義する。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:0 begin
+```
+
+下記に示した上記クラスの単体テストにより、
+オブジェクトの所有権やその移動、共有、
+std::shared_ptr、std::move()、[expression|rvalue](---)の関係を解説する。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:1 begin -1
+```
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:2 begin -1
+```
+
+![所有権1](plant_uml/shared_ownership_1.png)
+
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:3 begin -1
+```
+
+![所有権2](plant_uml/shared_ownership_2.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:4 begin -1
+```
+
+![所有権3](plant_uml/shared_ownership_3.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:5 begin -1
+```
+
+![所有権4](plant_uml/shared_ownership_4.png)
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:6 begin -1
+```
+
+![所有権5](plant_uml/shared_ownership_5.png)
+
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:7 begin -1
+```
+
+![所有権6](plant_uml/shared_ownership_6.png)
+
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #0:8 begin -1
+```
+
+![所有権7](plant_uml/shared_ownership_7.png)
+
+以上で示したstd::shared_ptrの仕様の要点をまとめると、以下のようになる。
+
+* std::shared_ptrはダイナミックに生成されたオブジェクトを保持する。
+* ダイナミックに生成されたオブジェクトを保持するstd::shared_ptrがスコープアウトすると、
+  共有所有カウントはデクリメントされ、その値が0ならば保持しているオブジェクトはdeleteされる。
+* std::shared_ptrを他のstd::shared_ptrに、
+    * moveすることことで、保持中のオブジェクトの所有権を移動できる。
+    * copyすることことで、保持中のオブジェクトの所有権を共有できる。
+* 下記のようなコードはstd::shared_ptrの仕様が想定する[セマンティクス](---)に沿っておらず、
+  [未定義動作](---)に繋がる。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_ownership_ut.cpp #1:0 begin -1
+```
+
+こういった機能によりstd::shared_ptrはオブジェクトの共有所有を実現している。
+
+---
+
+#### オブジェクトの循環所有
+[std::shared_ptr](https://cpprefjp.github.io/reference/memory/shared_ptr.html)の使い方を誤ると、
+以下のコード例が示すようにメモリーリークが発生する。
+
+なお、この節の題名である「オブジェクトの循環所有」という用語は、
+この前後の節がダイナミックに確保されたオブジェクトの所有の概念についての解説しているため、
+この用語を選択したが、文脈によっては、「オブジェクトの循環参照」といった方がふさわしい場合もある。
+
+---
+
+まずは、**メモリリークが発生しない**`std::shared_ptr`の正しい使用例を示す。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #0:0 begin
+```
+
+上記のクラスの使用例を示す。下記をステップ1とする。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #1:0 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_each_1.png)
+
+
+上記の続きを以下に示し、ステップ2とする。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #1:1 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_each_2.png)
+
+
+上記の続きを以下に示し、ステップ3とする。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #1:2 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_each_3.png)
+
+
+上記の続きを以下に示し、ステップ4とする。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #1:3 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_each_4.png)
+
+
+このような動作により、`std::make_shared<>`で生成されたX、Yオブジェクトは解放される。
+
+---
+
+次は**メモリリークが発生する**`std::shared_ptr`の誤用を示す。まずはクラスの定義から。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #2:0 begin
+```
+
+上記のクラスの動作を以下に示したコードで示す。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #2:1 begin -1
+```
+
+x0のライフタイムに差を作るために新しいスコープを導入し、そのスコープ内で、y0を生成し、
+`X::Register`、`Y::Register`を用いて、循環を作ってしまう例(メモリーリークを起こすバグ)を示す。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #2:2 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_cyclic.png)
+
+下記のコードでは、y0がスコープアウトするが、そのタイミングでは、x0はまだ健在であるため、
+Yオブジェクトの参照カウントは1になる(x0::y_が存在するため0にならない)。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #2:3 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_cyclic_2.png)
+
+ここでの状態をまとめると、
+
+- y0がもともと持っていたXオブジェクトは健在(このオブジェクトはx0が持っているものでもあるため、use_countは2のまま)
+- x0が宣言されたスコープが残っているため、当然ながらx0は健在
+- x0はYオブジェクトを持ったままではあるが、y0がスコープアウトしたため、Yオブジェクトのuse_countは1に減った
+
+  
+次のコードでは、x0がスコープアウトし、y0がもともと持っていたXオブジェクトは健在であるため、
+Xオブジェクトの参照カウントも1になる。このため、x0、y0がスコープアウトした状態でも、
+X、Yオブジェクトの参照カウントは0にならず、従ってこれらのオブジェクトは解放されない
+(shared_ptrは参照カウントが1->0に変化するタイミングで保持するオブジェクトを解放する)。
+
+```cpp
+    // @@@ example/stdlib_and_concepts/shared_ptr_cycle_ut.cpp #2:4 begin -1
+```
+
+![shread_ptrメモリーリーク](plant_uml/shared_cyclic_3.png)
+
+X、Yオブジェクトへの[ハンドル](---)を完全に失った状態であり、X、Yオブジェクトを解放する手段はない。
+
+---
 
 ## Polymorphic Memory Resource(pmr)
 Polymorphic Memory Resource(pmr)は、

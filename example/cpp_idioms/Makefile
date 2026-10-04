@@ -2,8 +2,7 @@ SRCS20:=
 
 SRCS:=\
     lack_of_cohesion_ut.cpp spurious_wakeup_ut.cpp class_relation_ut.cpp override_overload_ut.cpp \
-    most_vexing_parse_ut.cpp ambiguous_ownership_ut.cpp unique_ptr_ownership_ut.cpp \
-    shared_ptr_ownership_ut.cpp shared_ptr_cycle_ut.cpp dangling_ut.cpp spin_lock_ut.cpp \
+    most_vexing_parse_ut.cpp ambiguous_ownership_ut.cpp dangling_ut.cpp spin_lock_ut.cpp \
 
 
 SRCS+=$(SRCS20)

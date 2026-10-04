@@ -1,4 +1,4 @@
-<!-- ./md/cpp_idioms.md -->
+<!-- ./md/glossary.md -->
 # C++慣用語句 <a id="SS_4"></a>
 この章では、C++慣用言句ついて解説を行う。
 
@@ -6,64 +6,64 @@ ___
 
 __この章の構成__
 
-[オブジェクト指向](cpp_idioms.md#SS_4_1)  
-&emsp;[is-a](cpp_idioms.md#SS_4_1_1)  
-&emsp;[has-a](cpp_idioms.md#SS_4_1_2)  
-&emsp;[is-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3)  
-&emsp;&emsp;[public継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_1)  
-&emsp;&emsp;[private継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_2)  
-&emsp;&emsp;[コンポジションによる(has-a)is-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_3)  
+[オブジェクト指向](glossary.md#SS_4_1)  
+&emsp;[is-a](glossary.md#SS_4_1_1)  
+&emsp;[has-a](glossary.md#SS_4_1_2)  
+&emsp;[is-implemented-in-terms-of](glossary.md#SS_4_1_3)  
+&emsp;&emsp;[public継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_1)  
+&emsp;&emsp;[private継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_2)  
+&emsp;&emsp;[コンポジションによる(has-a)is-implemented-in-terms-of](glossary.md#SS_4_1_3_3)  
 
-[Robert C. Martinのコンポーネント原則](cpp_idioms.md#SS_4_2)  
-&emsp;[リリース等価の原則(REP)](cpp_idioms.md#SS_4_2_1)  
-&emsp;[共通閉鎖の原則(CCP)](cpp_idioms.md#SS_4_2_2)  
-&emsp;[共通再利用の原則(CRP)](cpp_idioms.md#SS_4_2_3)  
-&emsp;[非循環依存の原則(ADP)](cpp_idioms.md#SS_4_2_4)  
+[Robert C. Martinのコンポーネント原則](glossary.md#SS_4_2)  
+&emsp;[リリース等価の原則(REP)](glossary.md#SS_4_2_1)  
+&emsp;[共通閉鎖の原則(CCP)](glossary.md#SS_4_2_2)  
+&emsp;[共通再利用の原則(CRP)](glossary.md#SS_4_2_3)  
+&emsp;[非循環依存の原則(ADP)](glossary.md#SS_4_2_4)  
 
-[コード・ユニット](cpp_idioms.md#SS_4_3)  
-&emsp;[ファイルペア](cpp_idioms.md#SS_4_3_1)  
-&emsp;&emsp;[パッケージ内のファイルペアの配置](cpp_idioms.md#SS_4_3_1_1)  
+[コード・ユニット](glossary.md#SS_4_3)  
+&emsp;[ファイルペア](glossary.md#SS_4_3_1)  
+&emsp;&emsp;[パッケージ内のファイルペアの配置](glossary.md#SS_4_3_1_1)  
 
-&emsp;[パッケージ](cpp_idioms.md#SS_4_3_2)  
-&emsp;[モジュール](cpp_idioms.md#SS_4_3_3)  
+&emsp;[パッケージ](glossary.md#SS_4_3_2)  
+&emsp;[モジュール](glossary.md#SS_4_3_3)  
 
-[Modern CMake project layout](cpp_idioms.md#SS_4_4)  
-&emsp;[Modern CMake project layoutのカスタマイズ](cpp_idioms.md#SS_4_4_1)  
+[Modern CMake project layout](glossary.md#SS_4_4)  
+&emsp;[Modern CMake project layoutのカスタマイズ](glossary.md#SS_4_4_1)  
 
-[ソフトウェア一般](cpp_idioms.md#SS_4_5)  
-&emsp;[ヒープ](cpp_idioms.md#SS_4_5_1)  
-&emsp;[プライオリティインバージョン](cpp_idioms.md#SS_4_5_2)  
-&emsp;[スレッドセーフ](cpp_idioms.md#SS_4_5_3)  
-&emsp;[リエントラント](cpp_idioms.md#SS_4_5_4)  
-&emsp;[クリティカルセクション](cpp_idioms.md#SS_4_5_5)  
-&emsp;[スピンロック](cpp_idioms.md#SS_4_5_6)  
-&emsp;[ミックスイン](cpp_idioms.md#SS_4_5_7)  
-&emsp;[ハンドル](cpp_idioms.md#SS_4_5_8)  
-&emsp;[フリースタンディング環境](cpp_idioms.md#SS_4_5_9)  
-&emsp;[メモリ保護機構](cpp_idioms.md#SS_4_5_10)  
-&emsp;[CPU例外](cpp_idioms.md#SS_4_5_11)  
-&emsp;[Fluent Interface](cpp_idioms.md#SS_4_5_12)  
-&emsp;[Unbounded Functions](cpp_idioms.md#SS_4_5_13)  
-&emsp;[サイクロマティック複雑度](cpp_idioms.md#SS_4_5_14)  
-&emsp;[凝集性](cpp_idioms.md#SS_4_5_15)  
-&emsp;&emsp;[凝集性の欠如](cpp_idioms.md#SS_4_5_15_1)  
-&emsp;&emsp;[LCOM](cpp_idioms.md#SS_4_5_15_2)  
-&emsp;&emsp;[PercentLackOfCohesion](cpp_idioms.md#SS_4_5_15_3)  
+[ソフトウェア一般](glossary.md#SS_4_5)  
+&emsp;[ヒープ](glossary.md#SS_4_5_1)  
+&emsp;[プライオリティインバージョン](glossary.md#SS_4_5_2)  
+&emsp;[スレッドセーフ](glossary.md#SS_4_5_3)  
+&emsp;[リエントラント](glossary.md#SS_4_5_4)  
+&emsp;[クリティカルセクション](glossary.md#SS_4_5_5)  
+&emsp;[スピンロック](glossary.md#SS_4_5_6)  
+&emsp;[ミックスイン](glossary.md#SS_4_5_7)  
+&emsp;[ハンドル](glossary.md#SS_4_5_8)  
+&emsp;[フリースタンディング環境](glossary.md#SS_4_5_9)  
+&emsp;[メモリ保護機構](glossary.md#SS_4_5_10)  
+&emsp;[CPU例外](glossary.md#SS_4_5_11)  
+&emsp;[Fluent Interface](glossary.md#SS_4_5_12)  
+&emsp;[Unbounded Functions](glossary.md#SS_4_5_13)  
+&emsp;[サイクロマティック複雑度](glossary.md#SS_4_5_14)  
+&emsp;[凝集性](glossary.md#SS_4_5_15)  
+&emsp;&emsp;[凝集性の欠如](glossary.md#SS_4_5_15_1)  
+&emsp;&emsp;[LCOM](glossary.md#SS_4_5_15_2)  
+&emsp;&emsp;[PercentLackOfCohesion](glossary.md#SS_4_5_15_3)  
 
-&emsp;[Spurious Wakeup](cpp_idioms.md#SS_4_5_16)  
-&emsp;[副作用](cpp_idioms.md#SS_4_5_17)  
-&emsp;[Itanium C++ ABI](cpp_idioms.md#SS_4_5_18)  
+&emsp;[Spurious Wakeup](glossary.md#SS_4_5_16)  
+&emsp;[副作用](glossary.md#SS_4_5_17)  
+&emsp;[Itanium C++ ABI](glossary.md#SS_4_5_18)  
 
-[C++コンパイラ](cpp_idioms.md#SS_4_6)  
-&emsp;[g++](cpp_idioms.md#SS_4_6_1)  
-&emsp;[clang++](cpp_idioms.md#SS_4_6_2)  
+[C++コンパイラ](glossary.md#SS_4_6)  
+&emsp;[g++](glossary.md#SS_4_6_1)  
+&emsp;[clang++](glossary.md#SS_4_6_2)  
 
-[非ソフトウェア用語](cpp_idioms.md#SS_4_7)  
-&emsp;[セマンティクス](cpp_idioms.md#SS_4_7_1)  
-&emsp;[割れ窓理論](cpp_idioms.md#SS_4_7_2)  
-&emsp;[車輪の再発明](cpp_idioms.md#SS_4_7_3)  
+[非ソフトウェア用語](glossary.md#SS_4_7)  
+&emsp;[セマンティクス](glossary.md#SS_4_7_1)  
+&emsp;[割れ窓理論](glossary.md#SS_4_7_2)  
+&emsp;[車輪の再発明](glossary.md#SS_4_7_3)  
 
-[DAG(有向非循環グラフ)](cpp_idioms.md#SS_4_8)  
+[DAG(有向非循環グラフ)](glossary.md#SS_4_8)  
   
   
 
@@ -95,7 +95,7 @@ C++でのOOPでは、DerivedはBaseのpublic継承として定義される。
 ペンギンや九官鳥 は一種の鳥であるため、この関係を使用したコード例を次に示す。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 11
+    //  example/glossary/class_relation_ut.cpp 11
 
     class bird {
     public:
@@ -138,7 +138,7 @@ C++でのOOPでは、DerivedはBaseのpublic継承として定義される。
 bird::flyのオーバーライド関数(penguin::fly)について、[リスコフの置換原則(LSP)](essential_appendix.md#SS_5_8)に反した例を下記する。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 50
+    //  example/glossary/class_relation_ut.cpp 50
 
     class penguin : public bird {
     public:
@@ -189,7 +189,7 @@ penguinとbirdの関係はis-aの関係ではあるが、
 実際のコード例を以下に示す。この場合、型とインスタンスの概念の混乱が原因だと思われる。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 91
+    //  example/glossary/class_relation_ut.cpp 91
 
     class q_chan : public kyukancho {
     public:
@@ -200,7 +200,7 @@ penguinとbirdの関係はis-aの関係ではあるが、
 この誤用を改めた例を以下に示す。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 113
+    //  example/glossary/class_relation_ut.cpp 113
 
     class kyukancho {
     public:
@@ -225,7 +225,7 @@ penguinとbirdの関係はis-aの関係ではあるが、
 ```
 
 修正されたKyukancho はstd::string インスタンスをメンバ変数として持ち、
-kyukanchoとstd::stringの関係を[has-a](cpp_idioms.md#SS_4_1_2)の関係と呼ぶ。
+kyukanchoとstd::stringの関係を[has-a](glossary.md#SS_4_1_2)の関係と呼ぶ。
 
 ---
 
@@ -240,7 +240,7 @@ CarはEngineを「has-a」の関係にあると言える。
 Carクラスの例ではCarクラスにはEngine型のメンバ変数が存在する。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 144
+    //  example/glossary/class_relation_ut.cpp 144
 
     class Engine {
     public:
@@ -270,13 +270,13 @@ Carクラスの例ではCarクラスにはEngine型のメンバ変数が存在�
 あるクラスが別のクラスの機能を内部的に利用して実装されていることを示す概念である。
 これは、あるクラスが他のクラスのインターフェースやメンバ関数を用いて、
 自身の機能を提供する場合に使われる。
-[has-a](cpp_idioms.md#SS_4_1_2)の関係は、is-implemented-in-terms-of の関係の一種である。
+[has-a](glossary.md#SS_4_1_2)の関係は、is-implemented-in-terms-of の関係の一種である。
 
 is-implemented-in-terms-ofは下記の手段1-3に示した方法がある。
 
-* 手段1.[public継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_1)  
-* 手段2.[private継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_2)  
-* 手段3.[コンポジションによる(has-a)is-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_3)  
+* 手段1.[public継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_1)  
+* 手段2.[private継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_2)  
+* 手段3.[コンポジションによる(has-a)is-implemented-in-terms-of](glossary.md#SS_4_1_3_3)  
 
 手段1-3にはそれぞれ、長所、短所があるため、必要に応じて手段を選択する必要がある。
 以下の議論を単純にするため、下記のようにクラスS、C、CCを定める。
@@ -289,11 +289,11 @@ is-implemented-in-terms-ofは下記の手段1-3に示した方法がある。
 依存関係の複雑さから考えた場合、CはSに強く依存する。
 場合によっては、この依存はCCからSへの依存間にも影響をあたえる。
 従って、手段3が依存関係を単純にしやすい。
-手段1は[is-a](cpp_idioms.md#SS_4_1_1)に見え、以下に示すような問題も考慮する必要があるため、
+手段1は[is-a](glossary.md#SS_4_1_1)に見え、以下に示すような問題も考慮する必要があるため、
 可読性、保守性を劣化させる可能性がある。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 260
+    //  example/glossary/class_relation_ut.cpp 260
 
     class MyString : public std::string {  // 手段1
     };
@@ -316,7 +316,7 @@ is-implemented-in-terms-ofは下記の手段1-3に示した方法がある。
 public継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 282
+    //  example/glossary/class_relation_ut.cpp 282
 
     class MyString : public std::string {};
 
@@ -331,15 +331,15 @@ public継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 ```
 
 すでに述べたようにこの方法は、
-[private継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_2)や、
-[コンポジションによる(has-a)is-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_3)
+[private継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_2)や、
+[コンポジションによる(has-a)is-implemented-in-terms-of](glossary.md#SS_4_1_3_3)
 と比べコードがシンプルになる。 
 
 #### private継承によるis-implemented-in-terms-of <a id="SS_4_1_3_2"></a>
 private継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 179
+    //  example/glossary/class_relation_ut.cpp 179
 
     class MyString : std::string {
     public:
@@ -360,15 +360,15 @@ private継承によるis-implemented-in-terms-ofの実装例を以下に示す�
     ASSERT_EQ(str.size(), 0);
 ```
 
-この方法は、[public継承によるis-implemented-in-terms-of](cpp_idioms.md#SS_4_1_3_1)が持つデストラクタ問題は発生せす、
-[is-a](cpp_idioms.md#SS_4_1_1)と誤解してしまう問題も発生しない。
+この方法は、[public継承によるis-implemented-in-terms-of](glossary.md#SS_4_1_3_1)が持つデストラクタ問題は発生せす、
+[is-a](glossary.md#SS_4_1_1)と誤解してしまう問題も発生しない。
 
 
 #### コンポジションによる(has-a)is-implemented-in-terms-of <a id="SS_4_1_3_3"></a>
 コンポジションによる(has-a)is-implemented-in-terms-ofの実装例を示す。
 
 ```cpp
-    //  example/cpp_idioms/class_relation_ut.cpp 207
+    //  example/glossary/class_relation_ut.cpp 207
 
     namespace is_implemented_in_terms_of_1 {
     class MyString {
@@ -421,13 +421,13 @@ private継承によるis-implemented-in-terms-ofの実装例を以下に示す�
 Robert C. Martin が提唱した、クラスや関数より粒度の大きい「コンポーネント」
 （このドキュメントではパッケージに相当する）の設計原則群。
 本ドキュメントでは、**凝集性**＝何を一つのライブラリにまとめるかを扱う3原則（REP/CCP/CRP）と、
-それと一体で判断すべき依存構造の原則 [非循環依存の原則(ADP)](cpp_idioms.md#SS_4_2_4)を用いる。
+それと一体で判断すべき依存構造の原則 [非循環依存の原則(ADP)](glossary.md#SS_4_2_4)を用いる。
 
 | 原則                           | 一文での定義                             | 視点   | 力の向き／作用   |
 |:------------------------------ |:-----------------------------------------|:-------|:-----------------|
-| [リリース等価の原則(REP)](cpp_idioms.md#SS_4_2_1) | リリースノートが一本の筋として書けるか   | 提供側 | 凝集（まとめる） |
-| [共通閉鎖の原則(CCP)](cpp_idioms.md#SS_4_2_2)     | 変更される理由が一つか                   | 提供側 | 凝集（まとめる） |
-| [共通再利用の原則(CRP)](cpp_idioms.md#SS_4_2_3)   | 利用者に不要な依存まで抱えさせていないか | 利用側 | 分割（割る）     |
+| [リリース等価の原則(REP)](glossary.md#SS_4_2_1) | リリースノートが一本の筋として書けるか   | 提供側 | 凝集（まとめる） |
+| [共通閉鎖の原則(CCP)](glossary.md#SS_4_2_2)     | 変更される理由が一つか                   | 提供側 | 凝集（まとめる） |
+| [共通再利用の原則(CRP)](glossary.md#SS_4_2_3)   | 利用者に不要な依存まで抱えさせていないか | 利用側 | 分割（割る）     |
  
 ### リリース等価の原則(REP) <a id="SS_4_2_1"></a>
 REPとは、Reuse-Release Equivalence Principle(再利用・リリース等価の原則)の略称であり、
@@ -443,20 +443,20 @@ CCPとは、Common Closure Principle(共通閉鎖の原則)の略称であり、
 [単一責任の原則(SRP)](essential_appendix.md#SS_5_6)をライブラリ粒度へ拡大したもので、
 「このライブラリが変更される理由は一つである」と言える状態を目指す。
 ある仕様変更の影響が単一ライブラリの中に閉じる（closure）ことを狙う。
-CCPは、[リリース等価の原則(REP)](cpp_idioms.md#SS_4_2_1)と同様に「パッケージをまとめることの根拠」になり得る。
+CCPは、[リリース等価の原則(REP)](glossary.md#SS_4_2_1)と同様に「パッケージをまとめることの根拠」になり得る。
 
 ### 共通再利用の原則(CRP) <a id="SS_4_2_3"></a>
 CRPとは、Common Reuse Principle(共通再利用の原則)の略称であり、
 一緒に再利用されないものを同じライブラリに入れない原則である。利用側が一部の機能のためにリンクしたとき、
 使わない機能や、それが連れてくる依存まで巻き込まれないようにする。
 [インターフェース分離の原則(ISP)](essential_appendix.md#SS_5_9)をライブラリ粒度へ適用したものに相当する。
-[リリース等価の原則(REP)](cpp_idioms.md#SS_4_2_1)/[共通閉鎖の原則(CCP)](cpp_idioms.md#SS_4_2_2)とは逆に、「パッケージを分割することの根拠」になり得る。
+[リリース等価の原則(REP)](glossary.md#SS_4_2_1)/[共通閉鎖の原則(CCP)](glossary.md#SS_4_2_2)とは逆に、「パッケージを分割することの根拠」になり得る。
 
 
 ### 非循環依存の原則(ADP) <a id="SS_4_2_4"></a>
 ADPとは、Acyclic Dependencies Principle(非循環依存の原則)の略称であり、
 ライブラリ間の依存関係に循環を作ってはならない、という原則である。
-依存グラフは後述の[DAG(有向非循環グラフ)](cpp_idioms.md#SS_4_8)でなければならない。
+依存グラフは後述の[DAG(有向非循環グラフ)](glossary.md#SS_4_8)でなければならない。
 循環があると、ライブラリを独立してビルド・テスト・リリースすることが困難になる。
 
 ---
@@ -470,14 +470,14 @@ ADPとは、Acyclic Dependencies Principle(非循環依存の原則)の略称で
 |:-------------|:-----------------------------------------------------------------------------------------------|
 |ヘッダファイル|`*.h` `*.hpp` `*.hxx`                                                                           |
 |実装ファイル  |`*.c` `*.cpp` `*.cxx`                                                                           |
-|ファイルペア  |`name.h`と`name.c`の組み合わせ /「[ファイルペア](cpp_idioms.md#SS_4_3_1)」で解説                                   |
-|モジュール    |モジュール ≒  パッケージ / 「[モジュール](cpp_idioms.md#SS_4_3_3)」で解説                                          |
-|パッケージ    |「[パッケージ](cpp_idioms.md#SS_4_3_2)」で解説 / CMake([Modern CMake project layout](cpp_idioms.md#SS_4_4))のビルド単位(ライブラリ) |
+|ファイルペア  |`name.h`と`name.c`の組み合わせ /「[ファイルペア](glossary.md#SS_4_3_1)」で解説                                   |
+|モジュール    |モジュール ≒  パッケージ / 「[モジュール](glossary.md#SS_4_3_3)」で解説                                          |
+|パッケージ    |「[パッケージ](glossary.md#SS_4_3_2)」で解説 / CMake([Modern CMake project layout](glossary.md#SS_4_4))のビルド単位(ライブラリ) |
 
 ここでは、これらの概念に意味と定義を与える。
 
 - ファイルペア ＝ １つの実装ファイルとヘッダファイル(稀に、実装ファイルやヘッダファイルのみ)
-- パッケージ(CMakeのビルド単位) ≒  [Robert C. Martinのコンポーネント原則](cpp_idioms.md#SS_4_2)における「コンポーネント」
+- パッケージ(CMakeのビルド単位) ≒  [Robert C. Martinのコンポーネント原則](glossary.md#SS_4_2)における「コンポーネント」
 - パッケージ(CMakeのビルド単位) ∋  (複数の似た機能を持つ)ファイルペア
 
 
@@ -488,14 +488,14 @@ ADPとは、Acyclic Dependencies Principle(非循環依存の原則)の略称で
     （厳密には「ペア」ではないが、本ドキュメントではこれもファイルペアと呼ぶ）。
 - ヘッダファイル一つに対し実装ファイルは原則一つとし、逆に一つの実装ファイルが複数のヘッダを持ってはならない。
   これによりファイルペアの境界を機械的かつ一意に判定可能にする。
-- ファイルペアのファイルの配置は、「[パッケージ内のファイルペアの配置](cpp_idioms.md#SS_4_3_1_1)」で示す。 
+- ファイルペアのファイルの配置は、「[パッケージ内のファイルペアの配置](glossary.md#SS_4_3_1_1)」で示す。 
 
 
 #### パッケージ内のファイルペアの配置 <a id="SS_4_3_1_1"></a>
 パッケージ内でのファイルペアのヘッダの配置は以下の２パターンのみでなければならない。
 
-- [ファイルペアの機能をパッケージ内部でのみ使用する場合](cpp_idioms.md#SS_4_3_1_1_1)
-- [ファイルペアの機能をパッケージが外部公開する場合](cpp_idioms.md#SS_4_3_1_1_2)
+- [ファイルペアの機能をパッケージ内部でのみ使用する場合](glossary.md#SS_4_3_1_1_1)
+- [ファイルペアの機能をパッケージが外部公開する場合](glossary.md#SS_4_3_1_1_2)
 
 ##### ファイルペアの機能をパッケージ内部でのみ使用する場合 <a id="SS_4_3_1_1_1"></a>
 
@@ -520,16 +520,16 @@ package/
 ### パッケージ <a id="SS_4_3_2"></a>
 このドキュメントでのパッケージとは、以下の特徴を持つソースコードツリーである。 
 
-- **類似した機能**を持つ複数の[ファイルペア](cpp_idioms.md#SS_4_3_1)の集合体
-- パッケージのソースコードは、専用のディレクトリの配下に配置され、[Modern CMake project layout](cpp_idioms.md#SS_4_4)と同等の形状を持つ。
+- **類似した機能**を持つ複数の[ファイルペア](glossary.md#SS_4_3_1)の集合体
+- パッケージのソースコードは、専用のディレクトリの配下に配置され、[Modern CMake project layout](glossary.md#SS_4_4)と同等の形状を持つ。
 - パッケージは専用の名前空間を持つ。
 - パッケージのビルド生成物はライブラリである。
-- ライブラリ粒度の凝集性は、関数レベル/クラスの古典的凝集度分類ではなく、[Robert C. Martinのコンポーネント原則](cpp_idioms.md#SS_4_2)
-  (「[Robert C. Martinのコンポーネント原則](cpp_idioms.md#SS_4_2)」のコンポーネントとはこのドキュメントではパッケージを指す)で判断する。
+- ライブラリ粒度の凝集性は、関数レベル/クラスの古典的凝集度分類ではなく、[Robert C. Martinのコンポーネント原則](glossary.md#SS_4_2)
+  (「[Robert C. Martinのコンポーネント原則](glossary.md#SS_4_2)」のコンポーネントとはこのドキュメントではパッケージを指す)で判断する。
   中核は次の三原則のパワーバランスである。
-    - [リリース等価の原則(REP)](cpp_idioms.md#SS_4_2_1)
-    - [共通閉鎖の原則(CCP)](cpp_idioms.md#SS_4_2_2)
-    - [共通再利用の原則(CRP)](cpp_idioms.md#SS_4_2_3)
+    - [リリース等価の原則(REP)](glossary.md#SS_4_2_1)
+    - [共通閉鎖の原則(CCP)](glossary.md#SS_4_2_2)
+    - [共通再利用の原則(CRP)](glossary.md#SS_4_2_3)
 
 さらに以下に注意する必要がある。特にREPとCRPは、両者とも凝集性の話であるため混同しやすいが、
 問いの視点が異なる(CCPは「変更理由の単一性」という別の軸の指標である)。
@@ -556,7 +556,7 @@ TCP層だけ欲しい利用者まで HTTP側の更新で再ビルド・再検証
 
 > 上記定義のモジュール ≒  パッケージ
 
-とし、[パッケージ](cpp_idioms.md#SS_4_3_2)としてその粒度を詳細に定義付けている。
+とし、[パッケージ](glossary.md#SS_4_3_2)としてその粒度を詳細に定義付けている。
 
 __[注]__:
 ここでのモジュールとC++20で導入された[モジュール](core_lang_spec.md#SS_2_10_2)は似た概念であるが、異なるものである。
@@ -674,7 +674,7 @@ __[トップレベルCMakeLists.txt例]__
 ---
 
 ### Modern CMake project layoutのカスタマイズ <a id="SS_4_4_1"></a>
-このドキュメントでは、以下の方針に基づいて[Modern CMake project layout](cpp_idioms.md#SS_4_4)の構成をカスタマイズすることを推奨する。
+このドキュメントでは、以下の方針に基づいて[Modern CMake project layout](glossary.md#SS_4_4)の構成をカスタマイズすることを推奨する。
 
 - パス名が過度に長くなることを避ける。
 - `tests`（または `test`）という語は統合テストを指す場合もあるため、
@@ -761,7 +761,7 @@ H から見れば、本来無関係な M に実行権を奪われている状態
 リエントラントとは「実行中に同じ関数が再度呼び出されても、グローバル変数や静的変数に依存せず、
 ローカル変数のみで動作するため正しく動作する性質」である。
 
-一般に、リエントラントな関数は[スレッドセーフ](cpp_idioms.md#SS_4_5_3)であるが、逆は成り立たない。
+一般に、リエントラントな関数は[スレッドセーフ](glossary.md#SS_4_5_3)であるが、逆は成り立たない。
 
 ---
 
@@ -807,7 +807,7 @@ C++11では、スピンロックは[std::atomic](stdlib_and_concepts.md#SS_3_4_3
 に示したように[std::scoped_lock](stdlib_and_concepts.md#SS_3_5_3)のテンプレートパラメータとして使用できる。
 
 ```cpp
-    //  example/cpp_idioms/spin_lock_ut.cpp 11
+    //  example/glossary/spin_lock_ut.cpp 11
 
     struct Conflict {
         void increment()
@@ -821,7 +821,7 @@ C++11では、スピンロックは[std::atomic](stdlib_and_concepts.md#SS_3_4_3
     };
 ```
 ```cpp
-    //  example/cpp_idioms/spin_lock_ut.cpp 27
+    //  example/glossary/spin_lock_ut.cpp 27
 
     Conflict c{};
 
@@ -889,7 +889,7 @@ CPU例外とは、プログラム実行中にCPUが検出する異常事象で�
 - 不正インストラクション例外:   
     未定義の命令コードや、現在のCPUモードでは実行できない命令を実行しようとした場合に発生する。
 - メモリ保護違反例外:
-    [メモリ保護機構](cpp_idioms.md#SS_4_5_10)の設定に反した命令を実行した場合に発生する。例えば、リードオンリー領域への書き込み、
+    [メモリ保護機構](glossary.md#SS_4_5_10)の設定に反した命令を実行した場合に発生する。例えば、リードオンリー領域への書き込み、
     実行禁止領域からの命令フェッチ、アクセス権のない領域への参照などが該当する。
 - アライメント例外:
     プロセッサが要求するアライメント境界に違反したメモリアクセスを行った場合に発生する。
@@ -934,19 +934,19 @@ MISRA-CやAUTOSAR等のコーディング標準ではunbounded functionの使用
 
 ### 凝集性 <a id="SS_4_5_15"></a>
 [凝集性(凝集度)](https://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6)
-とはクラス設計の妥当性を表す尺度の一種であり、「[PercentLackOfCohesion](cpp_idioms.md#SS_4_5_15_3)」というメトリクスで計測される。
+とはクラス設計の妥当性を表す尺度の一種であり、「[PercentLackOfCohesion](glossary.md#SS_4_5_15_3)」というメトリクスで計測される。
 
-* [凝集性の欠如](cpp_idioms.md#SS_4_5_15_1)メトリクスの値が100に近ければ凝集性は低く、この値が0に近ければ凝集性は高い。
+* [凝集性の欠如](glossary.md#SS_4_5_15_1)メトリクスの値が100に近ければ凝集性は低く、この値が0に近ければ凝集性は高い。
 * メンバ変数やメンバ関数が多くなれば、凝集性は低くなりやすい。
 * 凝集性は、クラスのメンバがどれだけ一貫した責任を持つかを示す。
 * 「[単一責任の原則(SRP)](essential_appendix.md#SS_5_6)」を守ると凝集性は高くなりやすい。
 * 「[Accessor](essential_appendix.md#SS_5_3)」を多用すれば、振る舞いが分散しがちになるため、通常、凝集性は低くなる。
    従って、下記のようなクラスは凝集性が低い。言い換えれば、凝集性を下げることなく、
    より小さいクラスに分割できる。
-   なお、以下のクラスでは、実際に計測すると、[PercentLackOfCohesion](cpp_idioms.md#SS_4_5_15_3)が100に近い値となっている。
+   なお、以下のクラスでは、実際に計測すると、[PercentLackOfCohesion](glossary.md#SS_4_5_15_3)が100に近い値となっている。
 
 ```cpp
-    //  example/cpp_idioms/lack_of_cohesion_ut.cpp 7
+    //  example/glossary/lack_of_cohesion_ut.cpp 7
 
     class ABC {
     public:
@@ -972,7 +972,7 @@ MISRA-CやAUTOSAR等のコーディング標準ではunbounded functionの使用
 なお、上記の凝集性を欠くクラスを凝集性が高くなるように修正した例を以下に示す。
 
 ```cpp
-    //  example/cpp_idioms/lack_of_cohesion_ut.cpp 26
+    //  example/glossary/lack_of_cohesion_ut.cpp 26
 
     class QuadraticEquation {  // 2次方程式
     public:
@@ -1014,11 +1014,11 @@ MISRA-CやAUTOSAR等のコーディング標準ではunbounded functionの使用
 ```
 
 #### 凝集性の欠如 <a id="SS_4_5_15_1"></a>
-[凝集性の欠如](cpp_idioms.md#SS_4_5_15_1)とはLack of Cohesion in Methodsの和訳であり、[LCOM](cpp_idioms.md#SS_4_5_15_2)と呼ばれる。
+[凝集性の欠如](glossary.md#SS_4_5_15_1)とはLack of Cohesion in Methodsの和訳であり、[LCOM](glossary.md#SS_4_5_15_2)と呼ばれる。
 
 LCOMはメソッドペアの数に基づく非正規化の整数値であるため、
 メソッド数が多いクラスほど値が大きくなりやすく、クラス間で単純に値の大小を比較することはできない。
-この弱点を補う指標として実務上広く用いられるのが、[PercentLackOfCohesion](cpp_idioms.md#SS_4_5_15_3)である。
+この弱点を補う指標として実務上広く用いられるのが、[PercentLackOfCohesion](glossary.md#SS_4_5_15_3)である。
 PercentLackOfCohesionはLCOMと同じ「メンバの共有度合い」という概念を扱うが、
 クラス規模に依存しないよう0〜100%に正規化して算出される点が異なる。すなわち両者は
 同一の計算式ではなく、後者はクラス規模の影響を除去した実務向けの指標と位置付けられる。
@@ -1064,7 +1064,7 @@ LCOM = 0           （|P| ≤ |Q| の場合）
 厳密性を欠くが、クラスの凝集性を測定するためには、
 テクマトリックス社製のUnderstandのメトリクスPercentLackOfCohesionを使用するのが実践的である。
 
-PercentLackOfCohesionは、[LCOM](cpp_idioms.md#SS_4_5_15_2)と同様に使用できるメトリクスであり、0〜100に正規化された値である。
+PercentLackOfCohesionは、[LCOM](glossary.md#SS_4_5_15_2)と同様に使用できるメトリクスであり、0〜100に正規化された値である。
 
 ---
 
@@ -1076,7 +1076,7 @@ PercentLackOfCohesionは、[LCOM](cpp_idioms.md#SS_4_5_15_2)と同様に使用�
 下記のようなstd::condition_variableの使用で起こり得る。
 
 ```cpp
-    //  example/cpp_idioms/spurious_wakeup_ut.cpp 8
+    //  example/glossary/spurious_wakeup_ut.cpp 8
 
     namespace {
     std::mutex              mutex;
@@ -1104,7 +1104,7 @@ PercentLackOfCohesionは、[LCOM](cpp_idioms.md#SS_4_5_15_2)と同様に使用�
 std::condition_variable::wait()の第2引数を下記のようにすることでこの現象を回避できる。
 
 ```cpp
-    //  example/cpp_idioms/spurious_wakeup_ut.cpp 34
+    //  example/glossary/spurious_wakeup_ut.cpp 34
 
     namespace {
     bool                    event_occured{false};
@@ -1155,7 +1155,7 @@ ItaniumC++ABIとは、C++コンパイラ間でバイナリ互換性を確保す�
 名前修飾(マングリング)などC++のオブジェクト表現と呼び出し方法に関する標準ルールを定めている。
 
 もともとはIntelItanium(IA-64)プロセッサ向けに策定されたが、
-[g++](cpp_idioms.md#SS_4_6_1)や[clang++](cpp_idioms.md#SS_4_6_2)はx86/x86-64やARM64など多くのプラットフォームでもItaniumC++ABI準拠の規約を採用している。
+[g++](glossary.md#SS_4_6_1)や[clang++](glossary.md#SS_4_6_2)はx86/x86-64やARM64など多くのプラットフォームでもItaniumC++ABI準拠の規約を採用している。
 そのため異なるコンパイラ間でもオブジェクトファイルやライブラリのリンクが可能である。
 また、typeid(...).name()をデマングルした場合、
 constがeast-const形式(T const)で表示されるのもこのABIの規約によるものである。

@@ -35,14 +35,14 @@ C++でのOOPでは、DerivedはBaseのpublic継承として定義される。
 ペンギンや九官鳥 は一種の鳥であるため、この関係を使用したコード例を次に示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #0:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #0:0 begin
 ```
 
 bird::flyのオーバーライド関数(penguin::fly)について、[リスコフの置換原則(LSP)](---)に反した例を下記する。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #0:1 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #0:2 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #0:1 begin
+    // @@@ example/glossary/class_relation_ut.cpp #0:2 begin -1
 ```
 
 birdからpenguinへの派生がリスコフ置換の原則に反してしまった原因は以下のように考えることができる。
@@ -61,14 +61,14 @@ penguinとbirdの関係はis-aの関係ではあるが、
 実際のコード例を以下に示す。この場合、型とインスタンスの概念の混乱が原因だと思われる。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #1:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #1:0 begin
 ```
 
 この誤用を改めた例を以下に示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #2:0 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #2:1 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #2:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #2:1 begin -1
 ```
 
 修正されたKyukancho はstd::string インスタンスをメンバ変数として持ち、
@@ -87,7 +87,7 @@ CarはEngineを「has-a」の関係にあると言える。
 Carクラスの例ではCarクラスにはEngine型のメンバ変数が存在する。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #3:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #3:0 begin
 ```
 
 ---
@@ -121,8 +121,8 @@ is-implemented-in-terms-ofは下記の手段1-3に示した方法がある。
 可読性、保守性を劣化させる可能性がある。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #6:0 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #6:1 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #6:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #6:1 begin -1
 ```
 
 以上述べたように問題の多い手段1であるが、実践的には有用なパターンであり、
@@ -134,8 +134,8 @@ is-implemented-in-terms-ofは下記の手段1-3に示した方法がある。
 public継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #7:0 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #7:1 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #7:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #7:1 begin -1
 ```
 
 すでに述べたようにこの方法は、
@@ -147,8 +147,8 @@ public継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 private継承によるis-implemented-in-terms-ofの実装例を以下に示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #4:0 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #4:1 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #4:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #4:1 begin -1
 ```
 
 この方法は、[public継承によるis-implemented-in-terms-of](---)が持つデストラクタ問題は発生せす、
@@ -159,8 +159,8 @@ private継承によるis-implemented-in-terms-ofの実装例を以下に示す�
 コンポジションによる(has-a)is-implemented-in-terms-ofの実装例を示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #5:0 begin
-    // @@@ example/cpp_idioms/class_relation_ut.cpp #5:1 begin -1
+    // @@@ example/glossary/class_relation_ut.cpp #5:0 begin
+    // @@@ example/glossary/class_relation_ut.cpp #5:1 begin -1
 ```
 
 この方は実装を利用するクラストの依存関係を他の2つに比べるとシンプルにできるが、
@@ -540,10 +540,10 @@ C++11では、スピンロックは[std::atomic](---)を使用して以下のよ
 に示したように[std::scoped_lock](---)のテンプレートパラメータとして使用できる。
 
 ```cpp
-    // @@@ example/cpp_idioms/spin_lock_ut.cpp #0:0 begin
+    // @@@ example/glossary/spin_lock_ut.cpp #0:0 begin
 ```
 ```cpp
-    // @@@ example/cpp_idioms/spin_lock_ut.cpp #0:1 begin -1
+    // @@@ example/glossary/spin_lock_ut.cpp #0:1 begin -1
 ```
 
 ---
@@ -648,7 +648,7 @@ MISRA-CやAUTOSAR等のコーディング標準ではunbounded functionの使用
    なお、以下のクラスでは、実際に計測すると、[PercentLackOfCohesion](---)が100に近い値となっている。
 
 ```cpp
-    // @@@ example/cpp_idioms/lack_of_cohesion_ut.cpp #0:0 begin
+    // @@@ example/glossary/lack_of_cohesion_ut.cpp #0:0 begin
 ```
 
 良く設計されたクラスは、下記のようにメンバが結合しあっているため凝集性が高い
@@ -657,7 +657,7 @@ MISRA-CやAUTOSAR等のコーディング標準ではunbounded functionの使用
 なお、上記の凝集性を欠くクラスを凝集性が高くなるように修正した例を以下に示す。
 
 ```cpp
-    // @@@ example/cpp_idioms/lack_of_cohesion_ut.cpp #0:1 begin
+    // @@@ example/glossary/lack_of_cohesion_ut.cpp #0:1 begin
 ```
 
 #### 凝集性の欠如
@@ -723,13 +723,13 @@ PercentLackOfCohesionは、[LCOM](---)と同様に使用できるメトリクス
 下記のようなstd::condition_variableの使用で起こり得る。
 
 ```cpp
-    // @@@ example/cpp_idioms/spurious_wakeup_ut.cpp #0:0 begin
+    // @@@ example/glossary/spurious_wakeup_ut.cpp #0:0 begin
 ```
 
 std::condition_variable::wait()の第2引数を下記のようにすることでこの現象を回避できる。
 
 ```cpp
-    // @@@ example/cpp_idioms/spurious_wakeup_ut.cpp #1:0 begin
+    // @@@ example/glossary/spurious_wakeup_ut.cpp #1:0 begin
 ```
 
 ---

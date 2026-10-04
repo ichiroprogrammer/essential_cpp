@@ -1,7 +1,7 @@
 *
 !.gitignore
 !core_lang_spec.md
-!cpp_idioms.md
+!glossary.md
 !essential_cpp.md
 !dynamic_memory_allocation.md
 !sample_code.md

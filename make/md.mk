@@ -67,7 +67,7 @@ $(MDS_DB) : $(MDS_C)
 	$(MD_GEN)/md_make_db.py $@ --mds $^
 
 o/%.md : o/c/%.md $(MDS_DB)
-	$(MD_GEN)/md_link.py $(MD_SEC_NUM) -o $@ --db $(MDS_DB) $<
+	$(MD_GEN)/md_link.py $(MD_SEC_NUM) -o $@ --ig md/ignore_list.txt --db $(MDS_DB) $<
 
 o/%.html: o/%.md $(VERSION_TXT)
 	[ -n "$(AUTHOR)" ]

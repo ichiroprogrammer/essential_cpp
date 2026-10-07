@@ -1,0 +1,14 @@
+danglingポインタ
+danglingリファレンス
+オーバーライドとオーバーロードの違い
+Static Initialization Order Fiasco(静的初期化順序問題)
+5の原則(Rule of Five)
+0の原則(Rule of Zero)
+RAII(scoped guard)
+Visitor
+Immutable
+Accessor
+CRTP(curiously recurring template pattern)
+スライシング
+moveセマンティクス
+copyセマンティクス

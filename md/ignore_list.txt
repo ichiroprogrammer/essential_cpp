@@ -12,3 +12,8 @@ CRTP(curiously recurring template pattern)
 スライシング
 moveセマンティクス
 copyセマンティクス
+リスコフの置換原則(LSP)
+単一責任の原則(SRP)
+インターフェース分離の原則(ISP)
+インターフェース分離の原則(ISP)
+単一責任の原則(SRP)

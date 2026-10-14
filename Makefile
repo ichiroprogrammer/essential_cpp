@@ -13,6 +13,7 @@ VPATH=./md
 
 MDS:=essential_intro.md core_lang_spec.md stdlib_and_concepts.md glossary.md
 
-INDEX_OPT:=--exclude $(addsuffix :1,$(MDS) sample_code.md)
+INDEX_OPT:=--exclude $(addsuffix :1,$(MDS))
+MD_SC=
 
 include make/md.mk

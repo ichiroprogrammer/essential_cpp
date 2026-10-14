@@ -1,10 +1,7 @@
 *
 !.gitignore
+!essential_intro.md
 !core_lang_spec.md
+!stdlib_and_concepts.md
 !glossary.md
 !essential_cpp.md
-!dynamic_memory_allocation.md
-!sample_code.md
-!stdlib_and_concepts.md
-!template_meta_programming.md
-!essential_intro.md

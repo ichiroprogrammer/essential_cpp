@@ -11780,7 +11780,3 @@ DAGとは、Directed Acyclic Graph([有向非循環グラフ](https://ja.wikiped
 ---
 
 
-<!-- ./md/sample_code.md -->
-# Sample Code <a id="SS_5"></a>
-
-

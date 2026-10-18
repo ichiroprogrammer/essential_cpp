@@ -6,8 +6,6 @@ readonly BASENAME="$(basename $0)"
 readonly EXEC_DIR=$1
 shift
 
-readonly MD_GEN=$(cd $BASE_DIR/../md_gen/export/; pwd)
-
 if [[ $(uname) =~ ^[Ll]inux.*$ ]]; then
     readonly IS_LINUX=true
     readonly IS_CYGWIN=false
@@ -87,6 +85,13 @@ function cmd_launcher()
 
 function find_not_utf8() {
     pushd $EXEC_DIR > /dev/null
+
+    readonly local md_gen="../md_gen"
+    if [ -n "$md_gen" ]; then
+        echo "need $md_gen"; exit 1
+    fi
+
+    readonly MD_GEN=$(cd $BASE_DIR/$md_gen/export/ 2> /dev/null && pwd)
 
     cmd_launcher $MD_GEN/sh/find_not_utf8.sh
 

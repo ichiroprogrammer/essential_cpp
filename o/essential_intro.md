@@ -77,5 +77,8 @@ ___
 - [標準ライブラリとプログラミングの概念](stdlib_and_concepts.md#SS_3)
 - [用語集](glossary.md#SS_4)
 
+---
+
+---
 
 

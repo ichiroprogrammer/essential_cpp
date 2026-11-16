@@ -1,6 +1,6 @@
 <!-- ./md/glossary.md -->
 # 用語集 <a id="SS_4"></a>
-この章では、C++慣用言句ついて解説を行う。
+この章では、ドキュメント内で使用した慣用言句について解説を行う。
 
 ___
 
@@ -67,7 +67,9 @@ __この章の構成__
   
   
 
-[インデックス](essential_intro.md#SS_1_3)に戻る。  
+___
+
+[インデックス](essential_intro.md#SS_1_3)/[章の最後](glossary.md#SS_4_999)
 
 ___
 
@@ -1240,4 +1242,6 @@ DAGとは、Directed Acyclic Graph([有向非循環グラフ](https://ja.wikiped
 
 ---
 
+
+<a id="SS_4_999"></a>
 
